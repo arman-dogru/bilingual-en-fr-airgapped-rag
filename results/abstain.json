@@ -4,9 +4,9 @@
   "score": "e5 cosine",
   "test": {
    "llm": {
-    "precision": 0.667,
+    "precision": 0.71,
     "recall": 0.846,
-    "false_refusal_rate": 0.212,
+    "false_refusal_rate": 0.173,
     "answered_unanswerable": 4,
     "n_unanswerable": 26,
     "n_answerable": 52
@@ -20,9 +20,9 @@
     "n_answerable": 52
    },
    "gate_or_llm": {
-    "precision": 0.591,
+    "precision": 0.619,
     "recall": 1.0,
-    "false_refusal_rate": 0.346,
+    "false_refusal_rate": 0.308,
     "answered_unanswerable": 0,
     "n_unanswerable": 26,
     "n_answerable": 52
@@ -30,9 +30,9 @@
   },
   "dev": {
    "llm": {
-    "precision": 0.8,
+    "precision": 0.833,
     "recall": 0.833,
-    "false_refusal_rate": 0.096,
+    "false_refusal_rate": 0.077,
     "answered_unanswerable": 4,
     "n_unanswerable": 24,
     "n_answerable": 52
@@ -53,9 +53,9 @@
   "test": {
    "llm": {
     "precision": 1.0,
-    "recall": 0.115,
+    "recall": 0.077,
     "false_refusal_rate": 0.0,
-    "answered_unanswerable": 23,
+    "answered_unanswerable": 24,
     "n_unanswerable": 26,
     "n_answerable": 52
    },
@@ -100,10 +100,10 @@
   "score": "e5 cosine",
   "test": {
    "llm": {
-    "precision": 0.5,
-    "recall": 0.5,
-    "false_refusal_rate": 0.25,
-    "answered_unanswerable": 13,
+    "precision": 0.545,
+    "recall": 0.462,
+    "false_refusal_rate": 0.192,
+    "answered_unanswerable": 14,
     "n_unanswerable": 26,
     "n_answerable": 52
    },
@@ -116,9 +116,9 @@
     "n_answerable": 52
    },
    "gate_or_llm": {
-    "precision": 0.553,
+    "precision": 0.591,
     "recall": 1.0,
-    "false_refusal_rate": 0.404,
+    "false_refusal_rate": 0.346,
     "answered_unanswerable": 0,
     "n_unanswerable": 26,
     "n_answerable": 52
@@ -126,10 +126,10 @@
   },
   "dev": {
    "llm": {
-    "precision": 0.611,
-    "recall": 0.458,
-    "false_refusal_rate": 0.135,
-    "answered_unanswerable": 13,
+    "precision": 0.615,
+    "recall": 0.333,
+    "false_refusal_rate": 0.096,
+    "answered_unanswerable": 16,
     "n_unanswerable": 24,
     "n_answerable": 52
    },
@@ -293,9 +293,9 @@
   "test": {
    "llm": {
     "precision": 1.0,
-    "recall": 0.115,
+    "recall": 0.077,
     "false_refusal_rate": 0.0,
-    "answered_unanswerable": 23,
+    "answered_unanswerable": 24,
     "n_unanswerable": 26,
     "n_answerable": 52
    },

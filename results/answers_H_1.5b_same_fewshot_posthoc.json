@@ -5612,7 +5612,7 @@
    "lang": "fr",
    "answerable": false,
    "q": "Quelle est la température d'ébullition de l'eau au sommet de l'Everest?",
-   "answer": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies.",
+   "answer": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies [1].",
    "sources": [
     {
      "cid": "d14-fr-182",

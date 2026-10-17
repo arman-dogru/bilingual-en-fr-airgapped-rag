@@ -3,9 +3,9 @@
 | Direction | Reranker | passage R@1 | 95% CI | R@3 | R@5 | doc R@1 | doc R@5 |
 |---|---|---|---|---|---|---|---|
 | EN->EN | no | 0.904 | [0.79, 0.96] | 0.962 | 0.981 | 0.981 | 1.000 |
-| EN->FR | no | 0.615 | [0.48, 0.73] | 0.846 | 0.923 | 0.731 | 0.942 |
+| EN->FR | no | 0.615 | [0.48, 0.74] | 0.846 | 0.923 | 0.731 | 0.942 |
 | EN->MIXED | no | 0.904 | [0.79, 0.96] | 0.962 | 0.981 | 0.981 | 1.000 |
-| FR->EN | no | 0.615 | [0.48, 0.73] | 0.904 | 0.962 | 0.808 | 0.981 |
+| FR->EN | no | 0.615 | [0.48, 0.74] | 0.904 | 0.962 | 0.808 | 0.981 |
 | FR->FR | no | 0.885 | [0.77, 0.95] | 1.000 | 1.000 | 0.962 | 1.000 |
 | FR->MIXED | no | 0.885 | [0.77, 0.95] | 1.000 | 1.000 | 0.962 | 1.000 |
 | EN->EN | yes | 0.904 | [0.79, 0.96] | 0.962 | 1.000 | 0.962 | 1.000 |
@@ -19,10 +19,10 @@
 
 | Config | Answers | Claims | Uncited | Citation faithfulness | 95% CI | Faithful when cited | Grounded (any source) | 95% CI | Lang match | EN / FR |
 |---|---|---|---|---|---|---|---|---|---|---|
-| A_1.5b_same_basic | 52 | 71 | 0.47 | 0.366 | [0.244, 0.516] | 0.684 | 0.732 | [0.609, 0.851] | 0.94 | 0.45 / 0.30 |
+| A_1.5b_same_basic | 52 | 62 | 0.39 | 0.419 | [0.269, 0.612] | 0.684 | 0.774 | [0.64, 0.903] | 0.94 | 0.50 / 0.35 |
 | B_1.5b_same_fewshot | 52 | 58 | 0.12 | 0.586 | [0.435, 0.75] | 0.667 | 0.776 | [0.655, 0.891] | 1.00 | 0.61 / 0.56 |
 | H_1.5b_same_fewshot_posthoc | 52 | 58 | 0.00 | 0.655 | [0.5, 0.79] | 0.655 | 0.776 | [0.655, 0.891] | 1.00 | 0.61 / 0.69 |
-| D_0.5b_same_basic | 52 | 60 | 0.98 | 0.000 | [0.0, 0.0] | 0.000 | 0.683 | [0.527, 0.821] | 0.92 | 0.00 / 0.00 |
+| D_0.5b_same_basic | 52 | 50 | 0.98 | 0.000 | [0.0, 0.0] | 0.000 | 0.800 | [0.653, 0.923] | 0.92 | 0.00 / 0.00 |
 | E_0.5b_same_fewshot | 52 | 80 | 0.51 | 0.300 | [0.185, 0.434] | 0.615 | 0.787 | [0.687, 0.877] | 0.98 | 0.18 / 0.48 |
 | F_0.5b_mixrr_fewshot | 52 | 89 | 0.65 | 0.202 | [0.11, 0.333] | 0.581 | 0.742 | [0.626, 0.849] | 0.98 | 0.17 / 0.26 |
 | G_0.5b_mixrr_fewshot_posthoc | 52 | 89 | 0.00 | 0.573 | [0.465, 0.682] | 0.573 | 0.742 | [0.626, 0.849] | 0.98 | 0.59 / 0.54 |
@@ -31,10 +31,10 @@
 
 | Config | Answers | Claims | Uncited | Citation faithfulness | 95% CI | Faithful when cited | Grounded (any source) | 95% CI | Lang match | EN / FR |
 |---|---|---|---|---|---|---|---|---|---|---|
-| A_1.5b_same_basic | 52 | 85 | 0.48 | 0.318 | [0.232, 0.418] | 0.614 | 0.671 | [0.554, 0.778] | 1.00 | 0.48 / 0.22 |
+| A_1.5b_same_basic | 52 | 81 | 0.46 | 0.333 | [0.242, 0.443] | 0.614 | 0.691 | [0.57, 0.8] | 1.00 | 0.50 / 0.23 |
 | B_1.5b_same_fewshot | 52 | 72 | 0.29 | 0.569 | [0.442, 0.734] | 0.804 | 0.806 | [0.705, 0.887] | 1.00 | 0.65 / 0.50 |
 | H_1.5b_same_fewshot_posthoc | 52 | 72 | 0.00 | 0.736 | [0.643, 0.831] | 0.736 | 0.806 | [0.705, 0.887] | 1.00 | 0.71 / 0.76 |
-| D_0.5b_same_basic | 52 | 84 | 1.00 | 0.000 | [0.0, 0.0] | 0.000 | 0.583 | [0.412, 0.77] | 1.00 | 0.00 / 0.00 |
+| D_0.5b_same_basic | 52 | 79 | 1.00 | 0.000 | [0.0, 0.0] | 0.000 | 0.582 | [0.403, 0.779] | 1.00 | 0.00 / 0.00 |
 | E_0.5b_same_fewshot | 52 | 106 | 0.72 | 0.189 | [0.109, 0.296] | 0.667 | 0.792 | [0.689, 0.885] | 1.00 | 0.16 / 0.22 |
 | F_0.5b_mixrr_fewshot | 52 | 105 | 0.73 | 0.152 | [0.086, 0.247] | 0.571 | 0.743 | [0.641, 0.842] | 1.00 | 0.08 / 0.26 |
 | G_0.5b_mixrr_fewshot_posthoc | 52 | 105 | 0.00 | 0.581 | [0.477, 0.676] | 0.581 | 0.743 | [0.641, 0.842] | 1.00 | 0.54 / 0.64 |
@@ -43,8 +43,8 @@
 
 | Comparison | What | Split | Delta | 95% CI | p | CI excludes 0 |
 |---|---|---|---|---|---|---|
-| B-A | few-shot vs basic prompt (1.5B) | dev+test | +0.237 | [0.147, 0.333] | 0.0 | yes |
-| B-A | few-shot vs basic prompt (1.5B) | test | +0.220 | [0.076, 0.372] | 0.0016 | yes |
+| B-A | few-shot vs basic prompt (1.5B) | dev+test | +0.206 | [0.11, 0.303] | 0.0 | yes |
+| B-A | few-shot vs basic prompt (1.5B) | test | +0.167 | [-0.001, 0.329] | 0.0524 | no |
 | E-D | few-shot vs basic prompt (0.5B) | dev+test | +0.237 | [0.164, 0.326] | 0.0 | yes |
 | E-D | few-shot vs basic prompt (0.5B) | test | +0.300 | [0.185, 0.437] | 0.0 | yes |
 | F-E | mixed-language + rerank vs same-language retrieval (0.5B) | dev+test | -0.061 | [-0.123, -0.005] | 0.0336 | yes |
@@ -72,15 +72,15 @@
 
 | Config | Mechanism | Precision | Recall | False-refusal rate | Unanswerable answered |
 |---|---|---|---|---|---|
-| A_1.5b_same_basic | llm | 0.67 | 0.85 | 0.21 | 4/26 |
+| A_1.5b_same_basic | llm | 0.71 | 0.85 | 0.17 | 4/26 |
 | A_1.5b_same_basic | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
-| A_1.5b_same_basic | gate_or_llm (tau=0.886, e5 cosine) | 0.59 | 1.00 | 0.35 | 0/26 |
-| B_1.5b_same_fewshot | llm | 1.00 | 0.12 | 0.00 | 23/26 |
+| A_1.5b_same_basic | gate_or_llm (tau=0.886, e5 cosine) | 0.62 | 1.00 | 0.31 | 0/26 |
+| B_1.5b_same_fewshot | llm | 1.00 | 0.08 | 0.00 | 24/26 |
 | B_1.5b_same_fewshot | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | B_1.5b_same_fewshot | gate_or_llm (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
-| D_0.5b_same_basic | llm | 0.50 | 0.50 | 0.25 | 13/26 |
+| D_0.5b_same_basic | llm | 0.55 | 0.46 | 0.19 | 14/26 |
 | D_0.5b_same_basic | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
-| D_0.5b_same_basic | gate_or_llm (tau=0.886, e5 cosine) | 0.55 | 1.00 | 0.40 | 0/26 |
+| D_0.5b_same_basic | gate_or_llm (tau=0.886, e5 cosine) | 0.59 | 1.00 | 0.35 | 0/26 |
 | E_0.5b_same_fewshot | llm | 0.00 | 0.00 | 0.00 | 26/26 |
 | E_0.5b_same_fewshot | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | E_0.5b_same_fewshot | gate_or_llm (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
@@ -90,7 +90,7 @@
 | G_0.5b_mixrr_fewshot_posthoc | llm | 0.00 | 0.00 | 0.00 | 26/26 |
 | G_0.5b_mixrr_fewshot_posthoc | gate (tau=2.274, reranker logit) | 0.77 | 1.00 | 0.15 | 0/26 |
 | G_0.5b_mixrr_fewshot_posthoc | gate_or_llm (tau=2.274, reranker logit) | 0.77 | 1.00 | 0.15 | 0/26 |
-| H_1.5b_same_fewshot_posthoc | llm | 1.00 | 0.12 | 0.00 | 23/26 |
+| H_1.5b_same_fewshot_posthoc | llm | 1.00 | 0.08 | 0.00 | 24/26 |
 | H_1.5b_same_fewshot_posthoc | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | H_1.5b_same_fewshot_posthoc | gate_or_llm (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 

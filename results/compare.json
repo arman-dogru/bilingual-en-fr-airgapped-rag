@@ -4,10 +4,10 @@
   "what": "few-shot vs basic prompt (1.5B)",
   "split": "dev+test",
   "metric": "faithfulness",
-  "delta": 0.237,
+  "delta": 0.206,
   "ci95": [
-   0.147,
-   0.333
+   0.11,
+   0.303
   ],
   "p_two_sided": 0.0,
   "n_questions": 52,
@@ -18,40 +18,40 @@
   "what": "few-shot vs basic prompt (1.5B)",
   "split": "dev+test",
   "metric": "grounded",
-  "delta": 0.094,
+  "delta": 0.065,
   "ci95": [
-   0.013,
-   0.175
+   -0.021,
+   0.146
   ],
-  "p_two_sided": 0.024,
+  "p_two_sided": 0.13,
   "n_questions": 52,
-  "significant": true
+  "significant": false
  },
  {
   "comparison": "B-A",
   "what": "few-shot vs basic prompt (1.5B)",
   "split": "test",
   "metric": "faithfulness",
-  "delta": 0.22,
+  "delta": 0.167,
   "ci95": [
-   0.076,
-   0.372
+   -0.001,
+   0.329
   ],
-  "p_two_sided": 0.0016,
+  "p_two_sided": 0.0524,
   "n_questions": 26,
-  "significant": true
+  "significant": false
  },
  {
   "comparison": "B-A",
   "what": "few-shot vs basic prompt (1.5B)",
   "split": "test",
   "metric": "grounded",
-  "delta": 0.043,
+  "delta": 0.002,
   "ci95": [
-   -0.099,
-   0.191
+   -0.144,
+   0.151
   ],
-  "p_two_sided": 0.5592,
+  "p_two_sided": 1.0,
   "n_questions": 26,
   "significant": false
  },
@@ -74,14 +74,14 @@
   "what": "few-shot vs basic prompt (0.5B)",
   "split": "dev+test",
   "metric": "grounded",
-  "delta": 0.165,
+  "delta": 0.124,
   "ci95": [
-   0.037,
-   0.298
+   -0.015,
+   0.27
   ],
-  "p_two_sided": 0.0064,
+  "p_two_sided": 0.0884,
   "n_questions": 52,
-  "significant": true
+  "significant": false
  },
  {
   "comparison": "E-D",
@@ -102,12 +102,12 @@
   "what": "few-shot vs basic prompt (0.5B)",
   "split": "test",
   "metric": "grounded",
-  "delta": 0.104,
+  "delta": -0.013,
   "ci95": [
-   -0.057,
-   0.273
+   -0.161,
+   0.152
   ],
-  "p_two_sided": 0.2156,
+  "p_two_sided": 0.8708,
   "n_questions": 26,
   "significant": false
  },
