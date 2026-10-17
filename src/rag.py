@@ -15,11 +15,15 @@ SYS = {"en": "Answer the question in English using ONLY the numbered sources. Af
        "fr": "Réponds à la question en français en utilisant UNIQUEMENT les sources numérotées. Après chaque phrase, cite la ou les sources utilisées comme [1]. Si les sources ne contiennent pas la réponse, dis-le. Réponds en 1 à 3 phrases."}
 def main():
     torch.set_num_threads(os.cpu_count()); qa = json.load(open("data/qa.json"))
-    m, idx = build(); tok = AutoTokenizer.from_pretrained(LLM); lm = AutoModelForCausalLM.from_pretrained(LLM, torch_dtype=torch.bfloat16); lm.eval()
+    m, idx = build()
+    # pass 1: retrieval (+rerank) for all queries, then free retrieval models before loading the LLM
+    CTX = {(it["id"], l): (retrieve(m, idx, it[l], "mixed", K, rr=True) if RETR == "mixed_rr" else search(m, idx, it[l], l, K)) for it in qa for l in ("en", "fr")}
+    import retrieval, gc; retrieval._rr = None; del m, idx; gc.collect()
+    tok = AutoTokenizer.from_pretrained(LLM); lm = AutoModelForCausalLM.from_pretrained(LLM, torch_dtype=torch.bfloat16); lm.eval()
     out = []
     for it in qa:
         for lang in ("en", "fr"):
-            ctx = retrieve(m, idx, it[lang], "mixed", K, rr=True) if RETR == "mixed_rr" else search(m, idx, it[lang], lang, K)
+            ctx = CTX[(it["id"], lang)]
             src = "\n".join(f"[{i+1}] ({c['title']}) {c['text'][:700]}" for i, c in enumerate(ctx))
             sysm = SYS[lang] + (RULE[lang] if PROMPT == "fewshot" else "")
             msgs = [{"role": "system", "content": sysm}] + ([{"role": "user", "content": SHOT[lang][0]}, {"role": "assistant", "content": SHOT[lang][1]}] if PROMPT == "fewshot" else []) + [{"role": "user", "content": f"Sources:\n{src}\n\nQuestion: {it[lang]}"}]
