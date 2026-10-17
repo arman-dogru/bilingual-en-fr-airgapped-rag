@@ -1,0 +1,588 @@
+{
+ "meta": {
+  "description": "Judge calibration set, keyed by (id, lang, claim text) - never by list position. 'generated' items are claims from data/calibration_answers.json (1.5B, 26-question dev run); calibrate.py asserts each one is still produced by audit.claims(). label = 1 if the claim is supported by the answer's retrieved sources (any source). Annotator: all labels and perturbations were written by the Developer agent (an LLM) that also built the pipeline; single annotator, no human check, not blind to the judge's existence. These questions are in the dev split, not the test split.",
+  "excluded_non_claims": [
+   {
+    "legacy_index": 9,
+    "id": "q03",
+    "lang": "fr",
+    "claim": "Le deuxième lien indique que si une mère s'absente du travail pour prendre soin d'un nouveau-né ou d'un enfant nouvellement adopté, elle pourrait obtenir jusqu'à 55% de"
+   },
+   {
+    "legacy_index": 12,
+    "id": "q04",
+    "lang": "fr",
+    "claim": "Source:"
+   },
+   {
+    "legacy_index": 27,
+    "id": "q08",
+    "lang": "fr",
+    "claim": "Selon le contexte, il peut également y avoir des exigences spécifiques liées à"
+   },
+   {
+    "legacy_index": 33,
+    "id": "q10",
+    "lang": "fr",
+    "claim": "Pour obtenir plus de détails sur ce qui doit être présenté lors de cette demande, il est recommandé de consulter le document."
+   },
+   {
+    "legacy_index": 36,
+    "id": "q11",
+    "lang": "fr",
+    "claim": "Cependant, cette information n'est pas suffisante pour répondre complètement à la question car elle ne précise pas comment se faire connaître pour bénéficier de ce supplément."
+   },
+   {
+    "legacy_index": 38,
+    "id": "q11",
+    "lang": "fr",
+    "claim": "La source ["
+   },
+   {
+    "legacy_index": 53,
+    "id": "q15",
+    "lang": "fr",
+    "claim": "Selon les informations fournies par les sources, et, voici les options possibles pour un REER à 71 ans :"
+   },
+   {
+    "legacy_index": 81,
+    "id": "q22",
+    "lang": "fr",
+    "claim": "Cette information est fournie directement dans le premier lien mentionné, qui explique clairement combien de programmes sont gérés par Entrée express."
+   },
+   {
+    "legacy_index": 87,
+    "id": "q23",
+    "lang": "fr",
+    "claim": "Enfin, si vous êtes"
+   }
+  ]
+ },
+ "items": [
+  {
+   "kind": "generated",
+   "legacy_index": 5,
+   "id": "q02",
+   "lang": "fr",
+   "claim": "Pour obtenir ces détails, vous pouvez consulter le site web [Mesures temporaires de l'assurance-emploi pour faire face aux changements majeurs des conditions économiques](http://www.mesures-temporelles-assuranceemploi.gouv.fr/).",
+   "label": 0,
+   "note": "relabelled 1->0 on re-check: the URL (mesures-temporelles-assuranceemploi.gouv.fr) is fabricated; no source contains it"
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 17,
+   "id": "q06",
+   "lang": "en",
+   "claim": "You can receive up to 26 weeks of EI sickness benefits.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 18,
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 32,
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 39,
+   "id": "q12",
+   "lang": "en",
+   "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 42,
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 45,
+   "id": "q13",
+   "lang": "fr",
+   "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 49,
+   "id": "q14",
+   "lang": "en",
+   "claim": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 51,
+   "id": "q14",
+   "lang": "fr",
+   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 55,
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 60,
+   "id": "q17",
+   "lang": "en",
+   "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 61,
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 62,
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 64,
+   "id": "q18",
+   "lang": "fr",
+   "claim": "Si vous avez besoin de votre passeport de toute urgence, vous devez contacter le Service des papiers d'identité du Canada pour obtenir un service urgent ou express.",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 65,
+   "id": "q18",
+   "lang": "fr",
+   "claim": "Vous pouvez également utiliser le programme de passeport pour communiquer avec eux.",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 68,
+   "id": "q19",
+   "lang": "fr",
+   "claim": "Selon les informations fournies dans les sources, et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 74,
+   "id": "q21",
+   "lang": "en",
+   "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 77,
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
+   "label": 1,
+   "note": "relabelled 0->1 on re-check: source [1] says 'Vous devez vous assurer d'avoir en main tous les documents nécessaires avant de présenter la demande'"
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 79,
+   "id": "q22",
+   "lang": "en",
+   "claim": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 84,
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
+   "label": 1,
+   "note": ""
+  },
+  {
+   "kind": "generated",
+   "legacy_index": 88,
+   "id": "q24",
+   "lang": "en",
+   "claim": "According to Source, persons with disabilities, their caregivers, and the CRA are eligible for the Canada Disability Benefit by age 18 to 64 years old.",
+   "label": 0,
+   "note": ""
+  },
+  {
+   "kind": "perturbed",
+   "id": "q06",
+   "lang": "en",
+   "claim": "You can receive up to 52 weeks of EI sickness benefits.",
+   "label": 0,
+   "derived_from": "You can receive up to 26 weeks of EI sickness benefits.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Selon la source, vous pouvez recevoir jusqu'à 15 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "label": 0,
+   "derived_from": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Selon le document, si cela fait un mois depuis votre 70e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "label": 0,
+   "derived_from": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q12",
+   "lang": "en",
+   "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments will increase.",
+   "label": 0,
+   "derived_from": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Vous ne pouvez pas déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "label": 0,
+   "derived_from": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q13",
+   "lang": "fr",
+   "claim": "L'allocation canadienne pour enfants (ACE) est un montant annuel imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 12 ans.",
+   "label": 0,
+   "derived_from": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q14",
+   "lang": "en",
+   "claim": "In July 2026, the GST/HST credit was doubled and kept its name.",
+   "label": 0,
+   "derived_from": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q14",
+   "lang": "fr",
+   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2024, vous devriez avoir reçu ce versement mensuel.",
+   "label": 0,
+   "derived_from": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 95 ans.",
+   "label": 0,
+   "derived_from": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q17",
+   "lang": "en",
+   "claim": "No, applications for the 2026-2027 benefit period are closed.",
+   "label": 0,
+   "derived_from": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Non, les demandes pour la période de prestations 2026-2027 sont fermées.",
+   "label": 0,
+   "derived_from": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Si vous étiez couvert pour la période de prestations 2025-2026, votre couverture est renouvelée automatiquement sans interruption.",
+   "label": 0,
+   "derived_from": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q21",
+   "lang": "en",
+   "claim": "A study permit is a document that allows foreign nationals to work full-time for any employer in Canada.",
+   "label": 0,
+   "derived_from": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Il n'est pas nécessaire d'avoir les documents requis avant de soumettre une demande de permis d'études.",
+   "label": 0,
+   "derived_from": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q22",
+   "lang": "en",
+   "claim": "There are five immigration programs managed through Express Entry.",
+   "label": 0,
+   "derived_from": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "perturbed",
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Vous y trouverez des informations sur les prestations de maternité de l'assurance-emploi.",
+   "label": 0,
+   "derived_from": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q06",
+   "lang": "en",
+   "claim": "You can receive up to 26 weeks of EI sickness benefits.",
+   "label": 0,
+   "sources_from": {
+    "id": "q14",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "label": 0,
+   "sources_from": {
+    "id": "q26",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "label": 0,
+   "sources_from": {
+    "id": "q15",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q12",
+   "lang": "en",
+   "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "label": 0,
+   "sources_from": {
+    "id": "q02",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "label": 0,
+   "sources_from": {
+    "id": "q10",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q13",
+   "lang": "fr",
+   "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
+   "label": 0,
+   "sources_from": {
+    "id": "q18",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q14",
+   "lang": "en",
+   "claim": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
+   "label": 0,
+   "sources_from": {
+    "id": "q17",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q14",
+   "lang": "fr",
+   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
+   "label": 0,
+   "sources_from": {
+    "id": "q13",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
+   "label": 0,
+   "sources_from": {
+    "id": "q10",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q17",
+   "lang": "en",
+   "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
+   "label": 0,
+   "sources_from": {
+    "id": "q16",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
+   "label": 0,
+   "sources_from": {
+    "id": "q12",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
+   "label": 0,
+   "sources_from": {
+    "id": "q20",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q21",
+   "lang": "en",
+   "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
+   "label": 0,
+   "sources_from": {
+    "id": "q07",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
+   "label": 0,
+   "sources_from": {
+    "id": "q17",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q22",
+   "lang": "en",
+   "claim": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
+   "label": 0,
+   "sources_from": {
+    "id": "q05",
+    "lang": "en"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  },
+  {
+   "kind": "source_swap",
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
+   "label": 0,
+   "sources_from": {
+    "id": "q10",
+    "lang": "fr"
+   },
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+  }
+ ]
+}

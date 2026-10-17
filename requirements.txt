@@ -1,0 +1,9 @@
+# Direct dependencies (exact versions that produced results/). Full transitive pin set: requirements.lock
+# Python 3.13.5. Install CPU torch:  uv pip install -r requirements.lock --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+beautifulsoup4==4.15.0
+numpy==2.5.4
+pytest==9.1.1
+requests==2.34.2
+sentence-transformers==6.1.0
+torch==2.14.1+cpu
+transformers==5.20.1
