@@ -1,6 +1,6 @@
 {
  "meta": {
-  "description": "Judge calibration set, keyed by (id, lang, claim text) - never by list position. 'generated' items are claims from data/calibration_answers.json (1.5B, 26-question dev run); calibrate.py asserts each one is still produced by audit.claims(). label = 1 if the claim is supported by the answer's retrieved sources (any source). Annotator: all labels and perturbations were written by the Developer agent (an LLM) that also built the pipeline; single annotator, no human check, not blind to the judge's existence. These questions are in the dev split, not the test split.",
+  "description": "Judge calibration set, keyed by (id, lang, claim text) - never by list position. 'generated' items are claims from data/calibration_answers.json (1.5B, 26-question dev run); calibrate.py asserts each one is still produced by audit.claims(). label = 1 if the claim is supported by the answer's retrieved sources (any source). Annotator: all labels and perturbations were written by the Developer agent (an LLM) that also built the pipeline; single annotator, no human check, not blind to the judge's existence. These questions are in the dev split, not the test split. 'cites' = the citation(s) the generator attached to the claim (empty = uncited); calibrate.py scores items against their cited chunk(s) when cited and reports any-source scoring separately. 'distractor_number' items (from the 1.5B few-shot dev answers, source_answers) replace a number that is in the cited chunk with a different number that occurs in another retrieved chunk of the same answer (label 0 against the cited chunk); built by src/make_distractors.py and reviewed by the Developer agent (some substitutions are implausible, e.g. 420 days; they are still unsupported by the cited chunk). In cited mode the label is label_cited when present (whether the cited chunk alone supports the claim), else label; all 10 cited generated items were re-checked against their cited chunk and only item 18 differs.",
   "excluded_non_claims": [
    {
     "legacy_index": 9,
@@ -66,7 +66,8 @@
    "lang": "fr",
    "claim": "Pour obtenir ces détails, vous pouvez consulter le site web [Mesures temporaires de l'assurance-emploi pour faire face aux changements majeurs des conditions économiques](http://www.mesures-temporelles-assuranceemploi.gouv.fr/).",
    "label": 0,
-   "note": "relabelled 1->0 on re-check: the URL (mesures-temporelles-assuranceemploi.gouv.fr) is fabricated; no source contains it"
+   "note": "relabelled 1->0 on re-check: the URL (mesures-temporelles-assuranceemploi.gouv.fr) is fabricated; no source contains it",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -75,7 +76,10 @@
    "lang": "en",
    "claim": "You can receive up to 26 weeks of EI sickness benefits.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -84,7 +88,10 @@
    "lang": "fr",
    "claim": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -93,7 +100,10 @@
    "lang": "fr",
    "claim": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -102,7 +112,10 @@
    "lang": "en",
    "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -111,7 +124,8 @@
    "lang": "fr",
    "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -120,7 +134,8 @@
    "lang": "fr",
    "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -129,7 +144,10 @@
    "lang": "en",
    "claim": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    2
+   ]
   },
   {
    "kind": "generated",
@@ -138,7 +156,8 @@
    "lang": "fr",
    "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -147,7 +166,8 @@
    "lang": "fr",
    "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -156,7 +176,10 @@
    "lang": "en",
    "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -165,7 +188,8 @@
    "lang": "fr",
    "claim": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -174,7 +198,8 @@
    "lang": "fr",
    "claim": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -183,7 +208,8 @@
    "lang": "fr",
    "claim": "Si vous avez besoin de votre passeport de toute urgence, vous devez contacter le Service des papiers d'identité du Canada pour obtenir un service urgent ou express.",
    "label": 0,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -192,7 +218,10 @@
    "lang": "fr",
    "claim": "Vous pouvez également utiliser le programme de passeport pour communiquer avec eux.",
    "label": 0,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "generated",
@@ -201,7 +230,12 @@
    "lang": "fr",
    "claim": "Selon les informations fournies dans les sources, et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
    "label": 0,
-   "note": ""
+   "note": "",
+   "cites": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "kind": "generated",
@@ -210,7 +244,8 @@
    "lang": "en",
    "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -219,7 +254,8 @@
    "lang": "fr",
    "claim": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
    "label": 1,
-   "note": "relabelled 0->1 on re-check: source [1] says 'Vous devez vous assurer d'avoir en main tous les documents nécessaires avant de présenter la demande'"
+   "note": "relabelled 0->1 on re-check: source [1] says 'Vous devez vous assurer d'avoir en main tous les documents nécessaires avant de présenter la demande'",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -228,7 +264,11 @@
    "lang": "en",
    "claim": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
    "label": 1,
-   "note": ""
+   "note": "label_cited=0: the cited chunk [1] names only one of the three programs, so the full claim is supported by the retrieved sources jointly but not by the cited chunk.",
+   "cites": [
+    1
+   ],
+   "label_cited": 0
   },
   {
    "kind": "generated",
@@ -237,7 +277,8 @@
    "lang": "fr",
    "claim": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
    "label": 1,
-   "note": ""
+   "note": "",
+   "cites": []
   },
   {
    "kind": "generated",
@@ -246,7 +287,10 @@
    "lang": "en",
    "claim": "According to Source, persons with disabilities, their caregivers, and the CRA are eligible for the Canada Disability Benefit by age 18 to 64 years old.",
    "label": 0,
-   "note": ""
+   "note": "",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -255,7 +299,10 @@
    "claim": "You can receive up to 52 weeks of EI sickness benefits.",
    "label": 0,
    "derived_from": "You can receive up to 26 weeks of EI sickness benefits.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -264,7 +311,10 @@
    "claim": "Selon la source, vous pouvez recevoir jusqu'à 15 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
    "label": 0,
    "derived_from": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -273,7 +323,10 @@
    "claim": "Selon le document, si cela fait un mois depuis votre 70e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
    "label": 0,
    "derived_from": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -282,7 +335,10 @@
    "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments will increase.",
    "label": 0,
    "derived_from": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -291,7 +347,8 @@
    "claim": "Vous ne pouvez pas déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
    "label": 0,
    "derived_from": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -300,7 +357,8 @@
    "claim": "L'allocation canadienne pour enfants (ACE) est un montant annuel imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 12 ans.",
    "label": 0,
    "derived_from": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -309,7 +367,10 @@
    "claim": "In July 2026, the GST/HST credit was doubled and kept its name.",
    "label": 0,
    "derived_from": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    2
+   ]
   },
   {
    "kind": "perturbed",
@@ -318,7 +379,8 @@
    "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2024, vous devriez avoir reçu ce versement mensuel.",
    "label": 0,
    "derived_from": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -327,7 +389,8 @@
    "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 95 ans.",
    "label": 0,
    "derived_from": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -336,7 +399,10 @@
    "claim": "No, applications for the 2026-2027 benefit period are closed.",
    "label": 0,
    "derived_from": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -345,7 +411,8 @@
    "claim": "Non, les demandes pour la période de prestations 2026-2027 sont fermées.",
    "label": 0,
    "derived_from": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -354,7 +421,8 @@
    "claim": "Si vous étiez couvert pour la période de prestations 2025-2026, votre couverture est renouvelée automatiquement sans interruption.",
    "label": 0,
    "derived_from": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -363,7 +431,8 @@
    "claim": "A study permit is a document that allows foreign nationals to work full-time for any employer in Canada.",
    "label": 0,
    "derived_from": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -372,7 +441,8 @@
    "claim": "Il n'est pas nécessaire d'avoir les documents requis avant de soumettre une demande de permis d'études.",
    "label": 0,
    "derived_from": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "perturbed",
@@ -381,7 +451,10 @@
    "claim": "There are five immigration programs managed through Express Entry.",
    "label": 0,
    "derived_from": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "perturbed",
@@ -390,7 +463,8 @@
    "claim": "Vous y trouverez des informations sur les prestations de maternité de l'assurance-emploi.",
    "label": 0,
    "derived_from": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
-   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources"
+   "note": "hand-written contradiction/unsupported variant of a supported claim; judged against the same sources",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -402,7 +476,10 @@
     "id": "q14",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -414,7 +491,10 @@
     "id": "q26",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -426,7 +506,10 @@
     "id": "q15",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -438,7 +521,10 @@
     "id": "q02",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -450,7 +536,8 @@
     "id": "q10",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -462,7 +549,8 @@
     "id": "q18",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -474,7 +562,10 @@
     "id": "q17",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    2
+   ]
   },
   {
    "kind": "source_swap",
@@ -486,7 +577,8 @@
     "id": "q13",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -498,7 +590,8 @@
     "id": "q10",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -510,7 +603,10 @@
     "id": "q16",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -522,7 +618,8 @@
     "id": "q12",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -534,7 +631,8 @@
     "id": "q20",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -546,7 +644,8 @@
     "id": "q07",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -558,7 +657,8 @@
     "id": "q17",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
   },
   {
    "kind": "source_swap",
@@ -570,7 +670,10 @@
     "id": "q05",
     "lang": "en"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": [
+    1
+   ]
   },
   {
    "kind": "source_swap",
@@ -582,7 +685,190 @@
     "id": "q10",
     "lang": "fr"
    },
-   "note": "supported claim paired with the sources of an unrelated question (easy negative)"
+   "note": "supported claim paired with the sources of an unrelated question (easy negative)",
+   "cites": []
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q01",
+   "lang": "en",
+   "claim": "You need to have been without work and without pay for at least 420 consecutive days in the last 52 weeks.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "You need to have been without work and without pay for at least 7 consecutive days in the last 52 weeks.",
+   "note": "number 7 (in cited chunk [1]) replaced by 420, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q01",
+   "lang": "fr",
+   "claim": "Pour les prestations régulières d'assurance-emploi, il faut avoir travaillé pendant au moins 2 jours consécutifs au cours des 52 dernières semaines.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Pour les prestations régulières d'assurance-emploi, il faut avoir travaillé pendant au moins 7 jours consécutifs au cours des 52 dernières semaines.",
+   "note": "number 7 (in cited chunk [1]) replaced by 2, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q02",
+   "lang": "en",
+   "claim": "You must submit EI reports every 52 weeks either online or over the phone.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "You must submit EI reports every 2 weeks either online or over the phone.",
+   "note": "number 2 (in cited chunk [1]) replaced by 52, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q03",
+   "lang": "en",
+   "claim": "Parents who are away from work to care for their newborn or newly adopted child can receive 61% of their earnings, up to a maximum of $729 a week.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Parents who are away from work to care for their newborn or newly adopted child can receive 55% of their earnings, up to a maximum of $729 a week.",
+   "note": "number 55 (in cited chunk [1]) replaced by 61, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q04",
+   "lang": "en",
+   "claim": "Parents can share up to 52 weeks of standard parental benefits.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Parents can share up to 61 weeks of standard parental benefits.",
+   "note": "number 61 (in cited chunk [1]) replaced by 52, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q04",
+   "lang": "fr",
+   "claim": "Jusqu'à 78 semaines peuvent être partagées entre les parents.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Jusqu'à 35 semaines peuvent être partagées entre les parents.",
+   "note": "number 35 (in cited chunk [1]) replaced by 78, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q05",
+   "lang": "fr",
+   "claim": "Avec les prestations parentales prolongées, il y a jusqu'à 78 semaines que les parents peuvent partager.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Avec les prestations parentales prolongées, il y a jusqu'à 69 semaines que les parents peuvent partager.",
+   "note": "number 69 (in cited chunk [1]) replaced by 78, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q06",
+   "lang": "en",
+   "claim": "You can receive up to 52 weeks of EI sickness benefits.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "You can receive up to 26 weeks of EI sickness benefits.",
+   "note": "number 26 (in cited chunk [1]) replaced by 52, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Vous pouvez recevoir jusqu'à 7 semaines de prestations de maladie de l'assurance-emploi.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi.",
+   "note": "number 26 (in cited chunk [1]) replaced by 7, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q07",
+   "lang": "fr",
+   "claim": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 26 ans.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans.",
+   "note": "number 18 (in cited chunk [1]) replaced by 26, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Vous devez demander la Sécurité de la vieillesse si vous n'avez pas reçu de lettre d'inscription dans un délai de un mois après votre 65e anniversaire.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "Vous devez demander la Sécurité de la vieillesse si vous n'avez pas reçu de lettre d'inscription dans un délai de un mois après votre 64e anniversaire.",
+   "note": "number 64 (in cited chunk [1]) replaced by 65, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q16",
+   "lang": "en",
+   "claim": "A conjugal relationship must have lasted at least 18 continuous months to be considered common-law for a TFSA.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "A conjugal relationship must have lasted at least 12 continuous months to be considered common-law for a TFSA.",
+   "note": "number 12 (in cited chunk [1]) replaced by 18, which occurs in retrieved chunk [3] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q16",
+   "lang": "fr",
+   "claim": "La relation conjugale doit durer au moins 18 mois sans interruption.",
+   "label": 0,
+   "cites": [
+    1
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "La relation conjugale doit durer au moins 12 mois sans interruption.",
+   "note": "number 12 (in cited chunk [1]) replaced by 18, which occurs in retrieved chunk [2] but not in the cited chunk"
+  },
+  {
+   "kind": "distractor_number",
+   "id": "q25",
+   "lang": "fr",
+   "claim": "La Prestation canadienne pour les personnes handicapées peut verser des paiements rétroactifs pour une période allant jusqu'à 150 mois à partir de la date de réception de votre demande, soit depuis juin 2025.",
+   "label": 0,
+   "cites": [
+    2
+   ],
+   "source_answers": "results/answers_B_1.5b_same_fewshot.json",
+   "derived_from": "La Prestation canadienne pour les personnes handicapées peut verser des paiements rétroactifs pour une période allant jusqu'à 24 mois à partir de la date de réception de votre demande, soit depuis juin 2025.",
+   "note": "number 24 (in cited chunk [2]) replaced by 150, which occurs in retrieved chunk [3] but not in the cited chunk"
   }
  ]
 }

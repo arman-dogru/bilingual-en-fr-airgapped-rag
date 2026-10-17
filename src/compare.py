@@ -2,9 +2,8 @@
 Both configs are evaluated on the same resampled questions (EN+FR of a question move together);
 answers with zero claims stay in the resample (they contribute 0/0 to the pooled ratio)."""
 import json, os, sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
-from audit import faith, grounded
+from .audit import faith, grounded
 PAIRS = [("B", "A", "few-shot vs basic prompt (1.5B)"), ("E", "D", "few-shot vs basic prompt (0.5B)"),
          ("F", "E", "mixed-language + rerank vs same-language retrieval (0.5B)"), ("G", "F", "post-hoc attribution (0.5B)"),
          ("H", "B", "post-hoc attribution (1.5B)"), ("B", "E", "1.5B vs 0.5B, same retrieval + prompt"),

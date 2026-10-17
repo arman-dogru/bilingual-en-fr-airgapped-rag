@@ -4,7 +4,6 @@ Per-answer rows are kept for every answer (including zero-claim answers and refu
 compare.py can run paired, question-clustered bootstraps. Judged text == the text shown to the generator.
 """
 import json, re, os, sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 NLI = os.environ.get("NLI_MODEL", "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
 FR_W = set("le la les des du de et est un une pour que qui vous dans pas sur au aux sont avec ou ne oui non semaines jours "
@@ -40,7 +39,27 @@ def sentences(ans):
 REFUSAL_SENTENCES = ("The sources do not contain this information.", "Les sources ne contiennent pas cette information.")
 def _norm_s(t): return re.sub(r"[\s«»\"'.]+", " ", CITE.sub("", t)).strip().lower()
 _REF_N = {_norm_s(x) for x in REFUSAL_SENTENCES}
-def is_refusal_sentence(t): return _norm_s(t) in _REF_N
+_LEAD = re.compile(r"^(no|non|oui|yes|unfortunately|malheureusement|(je suis )?désolée?|(i'?m |i am )?sorry)\s*,?\s*(mais|but)?\s*", re.I)
+_REF_PATTERNS = re.compile(
+    r"^(les |the |these |ces )?(sources?|documents?|informations?|passages?)( [\w'-]+){0,5} (ne (contiennent|contient|mentionnent|mentionne|fournissent|fournit) pas|(do|does) not (contain|mention|provide|include)|don't (contain|mention|provide))"
+    r"|^(je ne (trouve|vois)|je n'ai (pas )?trouvé|i (could not|couldn't|cannot|can't|did not|didn't) find)[^.]{0,40}\b(aucune?|pas d[e']|any|no|specific)\b[^.]{0,30}(information|donnée|data|détail|details?)", re.I)
+_CLAUSE = re.compile(r"[,;:()]|\b(but|mais|however|cependant|toutefois|though|although|bien que|whereas|tandis que|yet|except|sauf)\b", re.I)
+def is_refusal_sentence(t):
+    """True only when the WHOLE sentence is a refusal (M1). Either:
+    - the fixed refusal sentence (EN/FR), compared after normalisation; citation markers are ignored only in this exact case
+      (e.g. "Les sources ne contiennent pas cette information [1]."), or
+    - a paraphrased refusal ("Les sources mentionnées ne contiennent pas…", "Je suis désolé, mais je ne trouve aucune
+      information…", "No, the sources do not contain…") that carries no citation, no digit and no trailing clause
+      (", but …", "; …", "mais …", "however …"). A hedge followed by a claim is a partial answer, not a refusal.
+    There is no fuzzy ratio: "The sources do contain this information" must not match."""
+    n = _norm_s(t)
+    if n in _REF_N: return True
+    if CITE.search(t) or re.search(r"\d", t): return False
+    body = _LEAD.sub("", t.strip().rstrip(".!?").strip())
+    m = _REF_PATTERNS.search(body)
+    if not m: return False
+    rest = body[m.end():]
+    return not _CLAUSE.search(rest) and len(re.findall(r"\w+", rest)) <= 25
 def split_claims(ans):
     """All sentences with their citations: [(text, cites, scored)]. Short / fragment sentences are kept
     (scored=False) so post-hoc attribution never deletes them."""
@@ -52,15 +71,15 @@ def split_claims(ans):
         if not t: continue
         words = re.findall(r"\w+", t)
         scored = len(words) >= 4 or (len(words) >= 2 and bool(re.search(r"\d", t)))  # "Until age 85." is a claim
-        if is_refusal_sentence(t): scored = False   # the fixed refusal sentence is an abstention, not a claim
+        if is_refusal_sentence(s): scored = False   # the fixed refusal sentence is an abstention, not a claim
         out.append([t, cites, scored])
     return out
 def claims(ans):
     """Scored claims only: [(text, cites)]."""
     return [(t, c) for t, c, s in split_claims(ans) if s]
 def is_refusal(ans):
-    """Abstention = empty answer or an answer that starts with the fixed refusal sentence (EN or FR).
-    Hedges inside partial answers ("...does not provide the date") are NOT abstentions."""
+    """Abstention = empty answer, or an answer whose first sentence is entirely a refusal (is_refusal_sentence).
+    Hedges inside partial answers ("...does not provide the date, but ... [1]") are NOT abstentions."""
     if not ans.strip(): return True
     first = sentences(ans)[0] if sentences(ans) else ""
     return is_refusal_sentence(first)
@@ -77,7 +96,7 @@ def grounded(rows):
 def load_judge():
     import torch
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
-    from config import rev, THREADS
+    from .config import rev, THREADS
     torch.set_num_threads(THREADS)
     try:
         tok = AutoTokenizer.from_pretrained(NLI, revision=rev(NLI)); m = AutoModelForSequenceClassification.from_pretrained(NLI, revision=rev(NLI)).eval()
@@ -122,7 +141,7 @@ def main():
                  refusal_sentence_rate=round(sum(r["refusal_sentence"] for r in ans) / max(len(ans), 1), 3))
         for L in ("en", "fr"): s[f"faithfulness_{L}"] = round(faith([r for r in ans if r["lang"] == L]), 3)
         return s
-    rep = dict(nli=NLI, nli_revision=__import__("config").rev(NLI), source_file=inp, normalize=norm, llm=D.get("llm"), env=D.get("env"))
+    rep = dict(nli=NLI, nli_revision=__import__('src.config', fromlist=['rev']).rev(NLI), source_file=inp, normalize=norm, llm=D.get("llm"), env=D.get("env"))
     for sp in ("all_answerable", "dev", "test", "unanswerable"):
         sub = [r for r in answers if (r["answerable"] if sp == "all_answerable" else r["split"] == sp)]
         if sub: rep[sp] = summary(sub)

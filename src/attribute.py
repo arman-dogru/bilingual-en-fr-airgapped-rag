@@ -2,9 +2,8 @@
 embedding similarity (e5). Uses a different model than the NLI judge to avoid circularity.
 Sentences that are not scored (short ones like "Yes.") are kept verbatim, so no answer text is deleted."""
 import json, os, sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from audit import split_claims, is_refusal
-from config import rev
+from .audit import split_claims, is_refusal
+from .config import rev
 def main():
     inp, out = os.environ.get("IN"), os.environ.get("OUT")
     if not inp or not out: raise SystemExit("error: set IN=<answers json> and OUT=<answers json>")

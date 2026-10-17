@@ -23,8 +23,8 @@
   },
   "all_answerable": {
    "answers": 104,
-   "claims": 129,
-   "zero_claim_answers": 15,
+   "claims": 127,
+   "zero_claim_answers": 17,
    "citation_faithfulness": 0.0,
    "citation_faithfulness_ci95": [
     0.0,
@@ -33,14 +33,14 @@
    "faithfulness_of_cited": 0.0,
    "uncited_rate": 0.992,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.667,
+   "grounded_in_any_source": 0.669,
    "grounded_ci95": [
     0.53,
-    0.803
+    0.805
    ],
    "answer_language_match": 0.962,
-   "refusal_rate": 0.144,
-   "refusal_sentence_rate": 0.144,
+   "refusal_rate": 0.163,
+   "refusal_sentence_rate": 0.163,
    "faithfulness_en": 0.0,
    "faithfulness_fr": 0.0
   },
@@ -69,32 +69,32 @@
   },
   "test": {
    "answers": 52,
-   "claims": 50,
-   "zero_claim_answers": 10,
+   "claims": 48,
+   "zero_claim_answers": 12,
    "citation_faithfulness": 0.0,
    "citation_faithfulness_ci95": [
     0.0,
     0.0
    ],
    "faithfulness_of_cited": 0.0,
-   "uncited_rate": 0.98,
+   "uncited_rate": 0.979,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.8,
+   "grounded_in_any_source": 0.812,
    "grounded_ci95": [
-    0.653,
-    0.923
+    0.667,
+    0.933
    ],
    "answer_language_match": 0.923,
-   "refusal_rate": 0.192,
-   "refusal_sentence_rate": 0.192,
+   "refusal_rate": 0.231,
+   "refusal_sentence_rate": 0.231,
    "faithfulness_en": 0.0,
    "faithfulness_fr": 0.0
   },
   "unanswerable": {
    "answers": 50,
-   "claims": 96,
-   "zero_claim_answers": 20,
-   "citation_faithfulness": 0.01,
+   "claims": 94,
+   "zero_claim_answers": 22,
+   "citation_faithfulness": 0.011,
    "citation_faithfulness_ci95": [
     0.0,
     0.03
@@ -102,16 +102,16 @@
    "faithfulness_of_cited": 0.5,
    "uncited_rate": 0.979,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.26,
+   "grounded_in_any_source": 0.245,
    "grounded_ci95": [
-    0.159,
-    0.37
+    0.134,
+    0.358
    ],
    "answer_language_match": 1.0,
-   "refusal_rate": 0.4,
-   "refusal_sentence_rate": 0.4,
+   "refusal_rate": 0.44,
+   "refusal_sentence_rate": 0.44,
    "faithfulness_en": 0.0,
-   "faithfulness_fr": 0.029
+   "faithfulness_fr": 0.031
   }
  },
  "answers": [
@@ -862,13 +862,13 @@
    "lang": "fr",
    "split": "test",
    "answerable": true,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
-   "n_grounded": 1,
-   "n_uncited": 1,
+   "n_grounded": 0,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -1338,13 +1338,13 @@
    "lang": "fr",
    "split": "test",
    "answerable": true,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
    "n_grounded": 0,
-   "n_uncited": 1,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -1814,13 +1814,13 @@
    "lang": "fr",
    "split": "unanswerable",
    "answerable": false,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
-   "n_grounded": 1,
-   "n_uncited": 1,
+   "n_grounded": 0,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -2038,13 +2038,13 @@
    "lang": "fr",
    "split": "unanswerable",
    "answerable": false,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
-   "n_grounded": 1,
-   "n_uncited": 1,
+   "n_grounded": 0,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -3074,16 +3074,6 @@
    "verdict": "uncited"
   },
   {
-   "id": "q27",
-   "lang": "fr",
-   "split": "test",
-   "claim_raw": "Les sources mentionnées dans la réponse ne contiennent pas cette information.",
-   "cites": [],
-   "claim": "Les sources mentionnées dans la réponse ne contiennent pas cette information.",
-   "any_source_entail": 0.675,
-   "verdict": "uncited"
-  },
-  {
    "id": "q29",
    "lang": "en",
    "split": "test",
@@ -3401,16 +3391,6 @@
    "cites": [],
    "claim": "Les sources mentionnent que si vous atteignez l'âge de 85 ans, vous pouvez reporter votre REER ou votre FERR jusqu'à ce que vous atteigniez cet âge.",
    "any_source_entail": 0.997,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q44",
-   "lang": "fr",
-   "split": "test",
-   "claim_raw": "Les sources mentionnées ne contiennent pas cette information.",
-   "cites": [],
-   "claim": "Les sources mentionnées ne contiennent pas cette information.",
-   "any_source_entail": 0.154,
    "verdict": "uncited"
   },
   {
@@ -3877,16 +3857,6 @@
    "verdict": "uncited"
   },
   {
-   "id": "u09",
-   "lang": "fr",
-   "split": "unanswerable",
-   "claim_raw": "Les sources mentionnées ne contiennent pas cette information.",
-   "cites": [],
-   "claim": "Les sources mentionnées ne contiennent pas cette information.",
-   "any_source_entail": 0.936,
-   "verdict": "uncited"
-  },
-  {
    "id": "u10",
    "lang": "en",
    "split": "unanswerable",
@@ -4104,16 +4074,6 @@
    "cites": [],
    "claim": "This typically involves providing identification and completing registration forms.",
    "any_source_entail": 0.069,
-   "verdict": "uncited"
-  },
-  {
-   "id": "u17",
-   "lang": "fr",
-   "split": "unanswerable",
-   "claim_raw": "Les sources mentionnées ne contiennent pas cette information.",
-   "cites": [],
-   "claim": "Les sources mentionnées ne contiennent pas cette information.",
-   "any_source_entail": 0.971,
    "verdict": "uncited"
   },
   {

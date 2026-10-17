@@ -6,9 +6,8 @@ shown to the model (the audit judges that same text).
 Config via env: LLM_MODEL, RETR (same|mixed_rr), PROMPT (basic|fewshot), QA (question file(s), comma-separated), OUT.
 """
 import json, os, sys, random
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, torch
-from config import rev, THREADS, env_info, path
+from .config import rev, THREADS, env_info, path
 K, CTX_CHARS = 3, 700
 MAX_Q_CHARS = 500
 DTYPE = os.environ.get("DTYPE", "float32")  # 1.5B runs use bfloat16: fp32 1.5B does not fit next to other agents on the 16 GB box
@@ -72,7 +71,7 @@ def main():
         if not os.path.exists(f): raise SystemExit(f"error: question file {f} not found")
         qa += json.load(open(f))
     setup_determinism()
-    from retrieval import build, search, retrieve, free_reranker
+    from .retrieval import build, search, retrieve, free_reranker
     m, idx = build()
     def ctx_for(q, l):
         return retrieve(m, idx, q, "mixed", K, rr=True) if cfg["RETR"] == "mixed_rr" else search(m, idx, q, l, K)

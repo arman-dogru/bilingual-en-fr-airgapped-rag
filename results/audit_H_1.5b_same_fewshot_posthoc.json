@@ -92,26 +92,26 @@
   },
   "unanswerable": {
    "answers": 50,
-   "claims": 78,
-   "zero_claim_answers": 4,
-   "citation_faithfulness": 0.167,
+   "claims": 77,
+   "zero_claim_answers": 5,
+   "citation_faithfulness": 0.169,
    "citation_faithfulness_ci95": [
     0.048,
-    0.305
+    0.312
    ],
-   "faithfulness_of_cited": 0.167,
-   "uncited_rate": 0.0,
+   "faithfulness_of_cited": 0.173,
+   "uncited_rate": 0.026,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.256,
+   "grounded_in_any_source": 0.26,
    "grounded_ci95": [
-    0.122,
-    0.4
+    0.123,
+    0.403
    ],
    "answer_language_match": 1.0,
-   "refusal_rate": 0.08,
-   "refusal_sentence_rate": 0.08,
+   "refusal_rate": 0.1,
+   "refusal_sentence_rate": 0.1,
    "faithfulness_en": 0.065,
-   "faithfulness_fr": 0.234
+   "faithfulness_fr": 0.239
   }
  },
  "answers": [
@@ -1932,7 +1932,7 @@
    "n_claims": 2,
    "n_supported": 0,
    "n_grounded": 0,
-   "n_uncited": 0,
+   "n_uncited": 2,
    "n_badref": 0
   },
   {
@@ -2234,10 +2234,10 @@
    "lang": "fr",
    "split": "unanswerable",
    "answerable": false,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
    "n_grounded": 0,
    "n_uncited": 0,
@@ -4371,26 +4371,20 @@
    "lang": "fr",
    "split": "unanswerable",
    "claim_raw": "Je suis désolé, mais je ne trouve pas de données spécifiques concernant la Coupe Stanley pour 2015 dans ces sources.",
-   "cites": [
-    1
-   ],
+   "cites": [],
    "claim": "Je suis désolé, mais je ne trouve pas de données spécifiques concernant la Coupe Stanley pour 2015 dans ces sources.",
    "any_source_entail": 0.057,
-   "entail": 0.0,
-   "verdict": "unsupported"
+   "verdict": "uncited"
   },
   {
    "id": "u13",
    "lang": "fr",
    "split": "unanswerable",
    "claim_raw": "Ces informations semblent être liées à d'autres sujets.",
-   "cites": [
-    1
-   ],
+   "cites": [],
    "claim": "Ces informations semblent être liées à d'autres sujets.",
    "any_source_entail": 0.001,
-   "entail": 0.001,
-   "verdict": "unsupported"
+   "verdict": "uncited"
   },
   {
    "id": "u14",
@@ -4912,19 +4906,6 @@
    "claim": "The boiling point of water at the top of Mount Everest is approximately 70°C.",
    "any_source_entail": 0.211,
    "entail": 0.091,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "u24",
-   "lang": "fr",
-   "split": "unanswerable",
-   "claim_raw": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies.",
-   "cites": [
-    1
-   ],
-   "claim": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies.",
-   "any_source_entail": 0.042,
-   "entail": 0.001,
    "verdict": "unsupported"
   },
   {

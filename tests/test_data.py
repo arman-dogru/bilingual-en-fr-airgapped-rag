@@ -1,5 +1,5 @@
 import json, re
-from rag import validate_query
+from src.rag import validate_query
 import pytest
 QA = json.load(open("data/qa.json")); U = json.load(open("data/unanswerable.json"))
 def test_dev_test_disjoint():
@@ -25,7 +25,7 @@ def test_validate_rejects(bad):
 def test_validate_cleans():
     assert validate_query("  How long  do EI benefits last? ") == "How long do EI benefits last?"
 def test_evidence_regex_occurs_in_gold_doc_both_languages():
-    from retrieval import chunks
+    from src.retrieval import chunks
     C = json.load(open("data/corpus.json"))
     for L in ("en", "fr"):
         cs = chunks(C, L)

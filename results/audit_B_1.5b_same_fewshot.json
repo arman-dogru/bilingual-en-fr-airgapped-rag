@@ -92,26 +92,26 @@
   },
   "unanswerable": {
    "answers": 50,
-   "claims": 78,
-   "zero_claim_answers": 4,
-   "citation_faithfulness": 0.103,
+   "claims": 77,
+   "zero_claim_answers": 5,
+   "citation_faithfulness": 0.104,
    "citation_faithfulness_ci95": [
     0.041,
-    0.179
+    0.182
    ],
    "faithfulness_of_cited": 0.17,
-   "uncited_rate": 0.397,
+   "uncited_rate": 0.39,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.256,
+   "grounded_in_any_source": 0.26,
    "grounded_ci95": [
-    0.122,
-    0.4
+    0.123,
+    0.403
    ],
    "answer_language_match": 1.0,
-   "refusal_rate": 0.08,
-   "refusal_sentence_rate": 0.08,
+   "refusal_rate": 0.1,
+   "refusal_sentence_rate": 0.1,
    "faithfulness_en": 0.065,
-   "faithfulness_fr": 0.128
+   "faithfulness_fr": 0.13
   }
  },
  "answers": [
@@ -2234,13 +2234,13 @@
    "lang": "fr",
    "split": "unanswerable",
    "answerable": false,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
    "n_grounded": 0,
-   "n_uncited": 1,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -4751,16 +4751,6 @@
    "any_source_entail": 0.211,
    "entail": 0.091,
    "verdict": "unsupported"
-  },
-  {
-   "id": "u24",
-   "lang": "fr",
-   "split": "unanswerable",
-   "claim_raw": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies.",
-   "cites": [],
-   "claim": "Je suis désolé, mais je ne trouve aucune information sur la température d'ébullition de l'eau au sommet de l'Everest dans les sources fournies.",
-   "any_source_entail": 0.042,
-   "verdict": "uncited"
   },
   {
    "id": "u25",

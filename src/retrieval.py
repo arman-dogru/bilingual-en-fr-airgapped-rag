@@ -1,8 +1,7 @@
 """Chunk EN/FR corpus, embed with multilingual-e5-small, evaluate recall@k for 4 directions."""
 import json, re, numpy as np, os, sys, hashlib
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sentence_transformers import SentenceTransformer
-from config import rev, path
+from .config import rev, path
 CORPUS = os.environ.get("CORPUS", path("data", "corpus.json"))
 CORPUS_SHA256 = "523784e7807d5e93173cbcbbc787fb813af92119aeaab2e0f6bf7d3f1c28318a"
 EMB = os.environ.get("EMB_MODEL", "intfloat/multilingual-e5-small")
