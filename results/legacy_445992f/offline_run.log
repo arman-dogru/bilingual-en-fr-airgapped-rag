@@ -1,0 +1,8 @@
+== network check
+ lo 
+no network: OK
+retrieval ok
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+rag ok
+ "citation_faithfulness": 0.012,
+ "answer_language_match": 0.962,

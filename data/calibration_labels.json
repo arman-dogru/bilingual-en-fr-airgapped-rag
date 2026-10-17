@@ -1,2 +1,0 @@
-{"source": "results/answers_qwen1.5b.json (26q run), claims sampled with random.seed(0), 30 items; label = is the claim supported by the retrieved sources (1/0), null = fragment or meta-sentence, not a factual claim",
- "labels": {"49":1,"53":null,"5":1,"33":null,"65":0,"62":1,"51":1,"38":null,"61":1,"45":1,"74":1,"27":null,"64":0,"17":1,"36":null,"84":1,"12":null,"79":1,"32":1,"68":0,"77":0,"18":1,"39":1,"81":null,"9":null,"42":1,"60":1,"87":null,"88":0,"55":1}}

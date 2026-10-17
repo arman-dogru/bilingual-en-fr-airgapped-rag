@@ -1,6 +1,10 @@
 """Chunk EN/FR corpus, embed with multilingual-e5-small, evaluate recall@k for 4 directions."""
-import json, re, numpy as np, os
+import json, re, numpy as np, os, sys, hashlib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sentence_transformers import SentenceTransformer
+from config import rev, path
+CORPUS = os.environ.get("CORPUS", path("data", "corpus.json"))
+CORPUS_SHA256 = "523784e7807d5e93173cbcbbc787fb813af92119aeaab2e0f6bf7d3f1c28318a"
 EMB = os.environ.get("EMB_MODEL", "intfloat/multilingual-e5-small")
 def chunks(corpus, lang, win=3):
     out = []
@@ -11,7 +15,10 @@ def chunks(corpus, lang, win=3):
             if t: out.append(dict(cid=f"{d['doc_id']}-{lang}-{i}", doc=d["doc_id"], lang=lang, title=d[lang]["title"], url=d[lang]["url"], text=t))
     return out
 def build(model=None):
-    corpus = json.load(open("data/corpus.json")); m = model or SentenceTransformer(EMB, device="cpu")
+    raw = open(CORPUS, "rb").read()
+    if hashlib.sha256(raw).hexdigest() != CORPUS_SHA256 and os.environ.get("ALLOW_CORPUS_CHANGE") != "1":
+        raise SystemExit(f"error: {CORPUS} sha256 differs from the snapshot the results were produced on (set ALLOW_CORPUS_CHANGE=1 to override)")
+    corpus = json.loads(raw); m = model or SentenceTransformer(EMB, device="cpu", revision=rev(EMB))
     idx = {}
     for lang in ("en", "fr"):
         cs = chunks(corpus, lang)
@@ -23,9 +30,11 @@ RR = os.environ.get("RERANKER", "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"); _
 def rerank(q, cands, k):
     global _rr
     if _rr is None:
-        from sentence_transformers import CrossEncoder; _rr = CrossEncoder(RR, device="cpu")
+        from sentence_transformers import CrossEncoder; _rr = CrossEncoder(RR, device="cpu", revision=rev(RR))
     s = _rr.predict([(q, c["title"] + ". " + c["text"][:1000]) for c in cands], batch_size=16)
     o = np.argsort(-s)[:k]; return [dict(cands[i], rr=float(s[i])) for i in o]
+def free_reranker():
+    global _rr; _rr = None
 def retrieve(m, idx, q, lang, k=5, rr=False, pool=20):
     if not rr: return search(m, idx, q, lang, k)
     return rerank(q, search(m, idx, q, lang, pool), k)

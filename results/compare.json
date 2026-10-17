@@ -1,0 +1,450 @@
+[
+ {
+  "comparison": "B-A",
+  "what": "few-shot vs basic prompt (1.5B)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.206,
+  "ci95": [
+   0.11,
+   0.303
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "B-A",
+  "what": "few-shot vs basic prompt (1.5B)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": 0.065,
+  "ci95": [
+   -0.021,
+   0.146
+  ],
+  "p_two_sided": 0.13,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "B-A",
+  "what": "few-shot vs basic prompt (1.5B)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": 0.167,
+  "ci95": [
+   -0.001,
+   0.329
+  ],
+  "p_two_sided": 0.0524,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "B-A",
+  "what": "few-shot vs basic prompt (1.5B)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": 0.002,
+  "ci95": [
+   -0.144,
+   0.151
+  ],
+  "p_two_sided": 1.0,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "E-D",
+  "what": "few-shot vs basic prompt (0.5B)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.237,
+  "ci95": [
+   0.164,
+   0.326
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "E-D",
+  "what": "few-shot vs basic prompt (0.5B)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": 0.124,
+  "ci95": [
+   -0.015,
+   0.27
+  ],
+  "p_two_sided": 0.0884,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "E-D",
+  "what": "few-shot vs basic prompt (0.5B)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": 0.3,
+  "ci95": [
+   0.185,
+   0.437
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 26,
+  "significant": true
+ },
+ {
+  "comparison": "E-D",
+  "what": "few-shot vs basic prompt (0.5B)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": -0.013,
+  "ci95": [
+   -0.161,
+   0.152
+  ],
+  "p_two_sided": 0.8708,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "F-E",
+  "what": "mixed-language + rerank vs same-language retrieval (0.5B)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": -0.061,
+  "ci95": [
+   -0.123,
+   -0.005
+  ],
+  "p_two_sided": 0.0336,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "F-E",
+  "what": "mixed-language + rerank vs same-language retrieval (0.5B)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": -0.048,
+  "ci95": [
+   -0.103,
+   0.011
+  ],
+  "p_two_sided": 0.1124,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "F-E",
+  "what": "mixed-language + rerank vs same-language retrieval (0.5B)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": -0.098,
+  "ci95": [
+   -0.206,
+   0.014
+  ],
+  "p_two_sided": 0.0852,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "F-E",
+  "what": "mixed-language + rerank vs same-language retrieval (0.5B)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": -0.046,
+  "ci95": [
+   -0.12,
+   0.041
+  ],
+  "p_two_sided": 0.29,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "G-F",
+  "what": "post-hoc attribution (0.5B)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.402,
+  "ci95": [
+   0.321,
+   0.479
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "G-F",
+  "what": "post-hoc attribution (0.5B)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "p_two_sided": 1.0,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "G-F",
+  "what": "post-hoc attribution (0.5B)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": 0.371,
+  "ci95": [
+   0.26,
+   0.48
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 26,
+  "significant": true
+ },
+ {
+  "comparison": "G-F",
+  "what": "post-hoc attribution (0.5B)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "p_two_sided": 1.0,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "H-B",
+  "what": "post-hoc attribution (1.5B)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.123,
+  "ci95": [
+   0.052,
+   0.194
+  ],
+  "p_two_sided": 0.0004,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "H-B",
+  "what": "post-hoc attribution (1.5B)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "p_two_sided": 1.0,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "H-B",
+  "what": "post-hoc attribution (1.5B)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": 0.069,
+  "ci95": [
+   0.0,
+   0.169
+  ],
+  "p_two_sided": 0.2636,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "H-B",
+  "what": "post-hoc attribution (1.5B)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "p_two_sided": 1.0,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "B-E",
+  "what": "1.5B vs 0.5B, same retrieval + prompt",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.34,
+  "ci95": [
+   0.257,
+   0.428
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "B-E",
+  "what": "1.5B vs 0.5B, same retrieval + prompt",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": 0.002,
+  "ci95": [
+   -0.071,
+   0.076
+  ],
+  "p_two_sided": 0.9616,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "B-E",
+  "what": "1.5B vs 0.5B, same retrieval + prompt",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": 0.286,
+  "ci95": [
+   0.179,
+   0.401
+  ],
+  "p_two_sided": 0.0,
+  "n_questions": 26,
+  "significant": true
+ },
+ {
+  "comparison": "B-E",
+  "what": "1.5B vs 0.5B, same retrieval + prompt",
+  "split": "test",
+  "metric": "grounded",
+  "delta": -0.012,
+  "ci95": [
+   -0.119,
+   0.095
+  ],
+  "p_two_sided": 0.8332,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "G-B",
+  "what": "0.5B+post-hoc vs 1.5B without (not like-for-like)",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": 0.0,
+  "ci95": [
+   -0.119,
+   0.112
+  ],
+  "p_two_sided": 0.9808,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "G-B",
+  "what": "0.5B+post-hoc vs 1.5B without (not like-for-like)",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": -0.05,
+  "ci95": [
+   -0.13,
+   0.032
+  ],
+  "p_two_sided": 0.242,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "G-B",
+  "what": "0.5B+post-hoc vs 1.5B without (not like-for-like)",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": -0.013,
+  "ci95": [
+   -0.153,
+   0.114
+  ],
+  "p_two_sided": 0.8412,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "G-B",
+  "what": "0.5B+post-hoc vs 1.5B without (not like-for-like)",
+  "split": "test",
+  "metric": "grounded",
+  "delta": -0.034,
+  "ci95": [
+   -0.151,
+   0.083
+  ],
+  "p_two_sided": 0.5924,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "G-H",
+  "what": "0.5B vs 1.5B, both post-hoc",
+  "split": "dev+test",
+  "metric": "faithfulness",
+  "delta": -0.123,
+  "ci95": [
+   -0.204,
+   -0.044
+  ],
+  "p_two_sided": 0.0012,
+  "n_questions": 52,
+  "significant": true
+ },
+ {
+  "comparison": "G-H",
+  "what": "0.5B vs 1.5B, both post-hoc",
+  "split": "dev+test",
+  "metric": "grounded",
+  "delta": -0.05,
+  "ci95": [
+   -0.13,
+   0.032
+  ],
+  "p_two_sided": 0.242,
+  "n_questions": 52,
+  "significant": false
+ },
+ {
+  "comparison": "G-H",
+  "what": "0.5B vs 1.5B, both post-hoc",
+  "split": "test",
+  "metric": "faithfulness",
+  "delta": -0.082,
+  "ci95": [
+   -0.205,
+   0.042
+  ],
+  "p_two_sided": 0.1892,
+  "n_questions": 26,
+  "significant": false
+ },
+ {
+  "comparison": "G-H",
+  "what": "0.5B vs 1.5B, both post-hoc",
+  "split": "test",
+  "metric": "grounded",
+  "delta": -0.034,
+  "ci95": [
+   -0.151,
+   0.083
+  ],
+  "p_two_sided": 0.5924,
+  "n_questions": 26,
+  "significant": false
+ }
+]

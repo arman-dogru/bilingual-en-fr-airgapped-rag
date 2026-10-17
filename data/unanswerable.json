@@ -1,0 +1,202 @@
+[
+ {
+  "id": "u01",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the capital of Australia?",
+  "fr": "Quelle est la capitale de l'Australie?"
+ },
+ {
+  "id": "u02",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I renew my Ontario driver's licence?",
+  "fr": "Comment renouveler mon permis de conduire de l'Ontario?"
+ },
+ {
+  "id": "u03",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the minimum wage in Alberta?",
+  "fr": "Quel est le salaire minimum en Alberta?"
+ },
+ {
+  "id": "u04",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I apply for US Social Security retirement benefits?",
+  "fr": "Comment demander les prestations de retraite de la Sécurité sociale américaine?"
+ },
+ {
+  "id": "u05",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How much does a TTC monthly pass cost in Toronto?",
+  "fr": "Combien coûte un laissez-passer mensuel de la TTC à Toronto?"
+ },
+ {
+  "id": "u06",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What does OHIP cover for physiotherapy?",
+  "fr": "Qu'est-ce que l'OHIP couvre pour la physiothérapie?"
+ },
+ {
+  "id": "u07",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I register a business name in Quebec?",
+  "fr": "Comment enregistrer un nom d'entreprise au Québec?"
+ },
+ {
+  "id": "u08",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the Bank of Canada's current overnight interest rate?",
+  "fr": "Quel est le taux directeur actuel de la Banque du Canada?"
+ },
+ {
+  "id": "u09",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I get a hunting licence in British Columbia?",
+  "fr": "Comment obtenir un permis de chasse en Colombie-Britannique?"
+ },
+ {
+  "id": "u10",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I get a marriage certificate in Ontario?",
+  "fr": "Comment obtenir un certificat de mariage en Ontario?"
+ },
+ {
+  "id": "u11",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the speed limit on Highway 401?",
+  "fr": "Quelle est la limite de vitesse sur l'autoroute 401?"
+ },
+ {
+  "id": "u12",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I apply for a UK visitor visa?",
+  "fr": "Comment demander un visa de visiteur pour le Royaume-Uni?"
+ },
+ {
+  "id": "u13",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "Who won the Stanley Cup in 2015?",
+  "fr": "Qui a gagné la coupe Stanley en 2015?"
+ },
+ {
+  "id": "u14",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I reset a forgotten iPhone passcode?",
+  "fr": "Comment réinitialiser un code d'iPhone oublié?"
+ },
+ {
+  "id": "u15",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is a good recipe for poutine?",
+  "fr": "Quelle est une bonne recette de poutine?"
+ },
+ {
+  "id": "u16",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How much does it cost to mail a letter to France with Canada Post?",
+  "fr": "Combien coûte l'envoi d'une lettre en France par Postes Canada?"
+ },
+ {
+  "id": "u17",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I vote in a US presidential election from abroad?",
+  "fr": "Comment voter à une élection présidentielle américaine depuis l'étranger?"
+ },
+ {
+  "id": "u18",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What are the rent increase rules for tenants in Ontario?",
+  "fr": "Quelles sont les règles d'augmentation de loyer pour les locataires en Ontario?"
+ },
+ {
+  "id": "u19",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I adopt a dog from the Toronto Humane Society?",
+  "fr": "Comment adopter un chien auprès de la Toronto Humane Society?"
+ },
+ {
+  "id": "u20",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the population of Montreal?",
+  "fr": "Quelle est la population de Montréal?"
+ },
+ {
+  "id": "u21",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I get a building permit for a deck in Ottawa?",
+  "fr": "Comment obtenir un permis de construire pour une terrasse à Ottawa?"
+ },
+ {
+  "id": "u22",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What vaccines do cats need each year?",
+  "fr": "Quels vaccins les chats doivent-ils recevoir chaque année?"
+ },
+ {
+  "id": "u23",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I apply for a Japanese working holiday visa?",
+  "fr": "Comment demander un visa vacances-travail pour le Japon?"
+ },
+ {
+  "id": "u24",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "What is the boiling point of water at the top of Mount Everest?",
+  "fr": "Quelle est la température d'ébullition de l'eau au sommet de l'Everest?"
+ },
+ {
+  "id": "u25",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "en": "How do I appeal a parking ticket in Vancouver?",
+  "fr": "Comment contester une contravention de stationnement à Vancouver?"
+ }
+]

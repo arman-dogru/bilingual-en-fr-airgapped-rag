@@ -1,34 +1,2287 @@
 {
  "summary": {
   "nli": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
-  "answers": 104,
-  "claims": 186,
-  "citation_faithfulness": 0.188,
-  "faithfulness_of_cited": 0.583,
-  "uncited_rate": 0.677,
-  "bad_ref_rate": 0.0,
-  "answer_language_match": 1.0,
-  "refusals": 0,
-  "grounded_in_any_source": 0.72,
-  "faithfulness_en": 0.161,
-  "faithfulness_fr": 0.202,
-  "citation_faithfulness_ci95": [
-   0.137,
-   0.243
-  ],
-  "grounded_ci95": [
-   0.654,
-   0.783
-  ]
+  "nli_revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "source_file": "results/answers_A_1.5b_same_basic.json",
+  "normalize": true,
+  "llm": "Qwen/Qwen2.5-1.5B-Instruct",
+  "env": {
+   "python": "3.13.5",
+   "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+   "torch": "2.14.1+cpu",
+   "transformers": "5.20.1",
+   "sentence_transformers": "6.1.0",
+   "numpy": "2.5.4",
+   "threads": 4,
+   "revisions": {
+    "intfloat/multilingual-e5-small": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1": "1427fd652930e4ba29e8149678df786c240d8825",
+    "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+    "Qwen/Qwen2.5-0.5B-Instruct": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "Qwen/Qwen2.5-1.5B-Instruct": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+   }
+  },
+  "all_answerable": {
+   "answers": 104,
+   "claims": 143,
+   "zero_claim_answers": 13,
+   "citation_faithfulness": 0.371,
+   "citation_faithfulness_ci95": [
+    0.289,
+    0.468
+   ],
+   "faithfulness_of_cited": 0.646,
+   "uncited_rate": 0.427,
+   "bad_ref_rate": 0.0,
+   "grounded_in_any_source": 0.727,
+   "grounded_ci95": [
+    0.637,
+    0.818
+   ],
+   "answer_language_match": 0.971,
+   "refusal_rate": 0.125,
+   "refusal_sentence_rate": 0.125,
+   "faithfulness_en": 0.5,
+   "faithfulness_fr": 0.282
+  },
+  "dev": {
+   "answers": 52,
+   "claims": 81,
+   "zero_claim_answers": 4,
+   "citation_faithfulness": 0.333,
+   "citation_faithfulness_ci95": [
+    0.242,
+    0.443
+   ],
+   "faithfulness_of_cited": 0.614,
+   "uncited_rate": 0.457,
+   "bad_ref_rate": 0.0,
+   "grounded_in_any_source": 0.691,
+   "grounded_ci95": [
+    0.57,
+    0.8
+   ],
+   "answer_language_match": 1.0,
+   "refusal_rate": 0.077,
+   "refusal_sentence_rate": 0.077,
+   "faithfulness_en": 0.5,
+   "faithfulness_fr": 0.235
+  },
+  "test": {
+   "answers": 52,
+   "claims": 62,
+   "zero_claim_answers": 9,
+   "citation_faithfulness": 0.419,
+   "citation_faithfulness_ci95": [
+    0.269,
+    0.612
+   ],
+   "faithfulness_of_cited": 0.684,
+   "uncited_rate": 0.387,
+   "bad_ref_rate": 0.0,
+   "grounded_in_any_source": 0.774,
+   "grounded_ci95": [
+    0.64,
+    0.903
+   ],
+   "answer_language_match": 0.942,
+   "refusal_rate": 0.173,
+   "refusal_sentence_rate": 0.173,
+   "faithfulness_en": 0.5,
+   "faithfulness_fr": 0.353
+  },
+  "unanswerable": {
+   "answers": 50,
+   "claims": 20,
+   "zero_claim_answers": 42,
+   "citation_faithfulness": 0.05,
+   "citation_faithfulness_ci95": [
+    0.0,
+    0.154
+   ],
+   "faithfulness_of_cited": 0.143,
+   "uncited_rate": 0.65,
+   "bad_ref_rate": 0.0,
+   "grounded_in_any_source": 0.25,
+   "grounded_ci95": [
+    0.067,
+    0.417
+   ],
+   "answer_language_match": 1.0,
+   "refusal_rate": 0.84,
+   "refusal_sentence_rate": 0.84,
+   "faithfulness_en": 0.059,
+   "faithfulness_fr": 0.0
+  }
  },
+ "answers": [
+  {
+   "id": "q01",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q01",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q02",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q02",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q03",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q03",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q04",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 4,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q05",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q05",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q06",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q06",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q07",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q07",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q08",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q08",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q09",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 3,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q09",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q10",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q10",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q11",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q11",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q12",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 4,
+   "n_supported": 0,
+   "n_grounded": 3,
+   "n_uncited": 4,
+   "n_badref": 0
+  },
+  {
+   "id": "q13",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q13",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 3,
+   "n_uncited": 3,
+   "n_badref": 0
+  },
+  {
+   "id": "q14",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q14",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q15",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q15",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q16",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q16",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q17",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q17",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q18",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 4,
+   "n_supported": 0,
+   "n_grounded": 3,
+   "n_uncited": 4,
+   "n_badref": 0
+  },
+  {
+   "id": "q19",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q19",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 2,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q20",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q20",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 3,
+   "n_badref": 0
+  },
+  {
+   "id": "q21",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 3,
+   "n_supported": 1,
+   "n_grounded": 3,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q21",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 3,
+   "n_badref": 0
+  },
+  {
+   "id": "q22",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q22",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q23",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 4,
+   "n_supported": 1,
+   "n_grounded": 4,
+   "n_uncited": 3,
+   "n_badref": 0
+  },
+  {
+   "id": "q24",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q24",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q25",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q25",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q26",
+   "lang": "en",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q26",
+   "lang": "fr",
+   "split": "dev",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 1,
+   "n_grounded": 3,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q27",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q27",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 3,
+   "n_uncited": 3,
+   "n_badref": 0
+  },
+  {
+   "id": "q28",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q28",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q29",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q29",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q30",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q30",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q31",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q31",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 4,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 4,
+   "n_badref": 0
+  },
+  {
+   "id": "q32",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q32",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 2,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q33",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q33",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q34",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q34",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 2,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q35",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q35",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q36",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "und",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q36",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q37",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q37",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q38",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q38",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q39",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q39",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q40",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q40",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q41",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q41",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q42",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "und",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q42",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q43",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q43",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q44",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q44",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q45",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q45",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q46",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q46",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q47",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 2,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "q47",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q48",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q48",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q49",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q49",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q50",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q50",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 5,
+   "n_supported": 0,
+   "n_grounded": 5,
+   "n_uncited": 5,
+   "n_badref": 0
+  },
+  {
+   "id": "q51",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "q52",
+   "lang": "en",
+   "split": "test",
+   "answerable": true,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "und",
+   "n_claims": 1,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "q52",
+   "lang": "fr",
+   "split": "test",
+   "answerable": true,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u01",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u01",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u02",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 1,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u02",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u03",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u03",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u04",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "u04",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u05",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u05",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u06",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u06",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u07",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u07",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u08",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u08",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u09",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u09",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u10",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "u10",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u11",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u11",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u12",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 4,
+   "n_supported": 0,
+   "n_grounded": 2,
+   "n_uncited": 4,
+   "n_badref": 0
+  },
+  {
+   "id": "u12",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u13",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u13",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u14",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u14",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u15",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u15",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u16",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u16",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u17",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 3,
+   "n_supported": 1,
+   "n_grounded": 1,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "u17",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u18",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u18",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u19",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u19",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u20",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u20",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u21",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u21",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u22",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u22",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "fr",
+   "n_claims": 3,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 2,
+   "n_badref": 0
+  },
+  {
+   "id": "u23",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 1,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "u23",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u24",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "en",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u24",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  },
+  {
+   "id": "u25",
+   "lang": "en",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": false,
+   "refusal_sentence": false,
+   "lang_detected": "en",
+   "n_claims": 2,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 1,
+   "n_badref": 0
+  },
+  {
+   "id": "u25",
+   "lang": "fr",
+   "split": "unanswerable",
+   "answerable": false,
+   "refusal": true,
+   "refusal_sentence": true,
+   "lang_detected": "fr",
+   "n_claims": 0,
+   "n_supported": 0,
+   "n_grounded": 0,
+   "n_uncited": 0,
+   "n_badref": 0
+  }
+ ],
  "claims": [
   {
    "id": "q01",
    "lang": "en",
-   "claim": "You need to have been without work and without pay for at least 7 consecutive days in the last 52 weeks.",
+   "split": "dev",
+   "claim_raw": "According to Source, you need to have been without work and without pay for at least 7 consecutive days in the last 52 weeks.",
    "cites": [
     1
    ],
+   "claim": "You need to have been without work and without pay for at least 7 consecutive days in the last 52 weeks.",
    "any_source_entail": 0.185,
    "entail": 0.185,
    "verdict": "unsupported"
@@ -36,29 +2289,25 @@
   {
    "id": "q01",
    "lang": "fr",
-   "claim": "Pour obtenir les prestations régulières d'assurance-emploi, il faut être touché par des inondations ou des feux de forêt, avoir travaillé pendant au moins 7 jours consécutifs au cours des 52 dernières semaines, et avoir travaillé au moins un certain nombre d'heures d'emploi assurables dans ces 52 semaines.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, il faut avoir travaillé et non reçu de salaire pendant au moins 7 jours consécutifs au cours des 52 dernières semaines pour être admissible aux prestations régulières d'assurance-emploi.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.958,
-   "entail": 0.958,
+   "claim": "Il faut avoir travaillé et non reçu de salaire pendant au moins 7 jours consécutifs au cours des 52 dernières semaines pour être admissible aux prestations régulières d'assurance-emploi.",
+   "any_source_entail": 0.978,
+   "entail": 0.978,
    "verdict": "supported"
-  },
-  {
-   "id": "q01",
-   "lang": "fr",
-   "claim": "La durée exacte peut varier selon les critères spécifiques définis par la loi.",
-   "cites": [],
-   "any_source_entail": 0.004,
-   "verdict": "uncited"
   },
   {
    "id": "q02",
    "lang": "en",
-   "claim": "You are required to complete EI reports every 2 weeks either online or over the phone.",
+   "split": "dev",
+   "claim_raw": "According to Source, you are required to complete EI reports every 2 weeks either online or over the phone.",
    "cites": [
     1
    ],
+   "claim": "You are required to complete EI reports every 2 weeks either online or over the phone.",
    "any_source_entail": 0.021,
    "entail": 0.021,
    "verdict": "unsupported"
@@ -66,29 +2315,37 @@
   {
    "id": "q02",
    "lang": "fr",
-   "claim": "Vous devez remplir des déclarations de l'assurance-emploi toutes les deux semaines par Internet ou par téléphone afin de démontrer votre admissibilité et recevoir tout paiement auquel vous auriez droit.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, et, il faut remplir vos déclarations d'assurance-emploi tous les deux semaines par Internet ou par téléphone afin de démontrer votre admissibilité et recevoir tout paiement auquel vous auriez droit.",
    "cites": [
-    1
+    1,
+    2,
+    3
    ],
-   "any_source_entail": 0.017,
-   "entail": 0.017,
+   "claim": "Et, il faut remplir vos déclarations d'assurance-emploi tous les deux semaines par Internet ou par téléphone afin de démontrer votre admissibilité et recevoir tout paiement auquel vous auriez droit.",
+   "any_source_entail": 0.057,
+   "entail": 0.057,
    "verdict": "unsupported"
   },
   {
    "id": "q02",
    "lang": "fr",
-   "claim": "Pour obtenir ces détails, il est recommandé de consulter le site web [Mesures temporaires de l'assurance-emploi pour faire face aux changements majeurs des conditions économiques](http://www.mesures-temporaires-assurance-emploi.gouv.fr/).",
+   "split": "dev",
+   "claim_raw": "Un manquement à cette obligation pourrait entraîner une perte de prestations.",
    "cites": [],
-   "any_source_entail": 0.881,
+   "claim": "Un manquement à cette obligation pourrait entraîner une perte de prestations.",
+   "any_source_entail": 0.013,
    "verdict": "uncited"
   },
   {
    "id": "q03",
    "lang": "en",
-   "claim": "Parents who are away from work to care for their newborn or newly adopted child can receive 55% of their earnings, up to a maximum of $729 a week.",
+   "split": "dev",
+   "claim_raw": "According to Source, parents who are away from work to care for their newborn or newly adopted child can receive 55% of their earnings, up to a maximum of $729 a week.",
    "cites": [
     1
    ],
+   "claim": "Parents who are away from work to care for their newborn or newly adopted child can receive 55% of their earnings, up to a maximum of $729 a week.",
    "any_source_entail": 0.944,
    "entail": 0.944,
    "verdict": "supported"
@@ -96,45 +2353,114 @@
   {
    "id": "q03",
    "lang": "fr",
-   "claim": "Une mère qui partage les prestations parentales avec son conjoint pour s'occuper de leur nouveau-né peut obtenir jusqu'à 55% de sa rémunération, ce qui correspond à un maximum de 729$ par semaine.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, et, le montant hebdomadaire maximal des prestations de maternité et parentales de l'assurance-emploi varie selon le nombre de semaines de prestations demandées.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "claim": "Et, le montant hebdomadaire maximal des prestations de maternité et parentales de l'assurance-emploi varie selon le nombre de semaines de prestations demandées.",
+   "any_source_entail": 0.013,
+   "entail": 0.013,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q03",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Pour les premières 15 semaines de maternité, le montant peut atteindre jusqu'à 729$ par semaine.",
    "cites": [],
-   "any_source_entail": 0.066,
+   "claim": "Pour les premières 15 semaines de maternité, le montant peut atteindre jusqu'à 729$ par semaine.",
+   "any_source_entail": 0.017,
    "verdict": "uncited"
   },
   {
    "id": "q03",
    "lang": "fr",
-   "claim": "Le deuxième lien indique que si une mère s'absente du travail pour s'occuper d'un nouveau-né ou d'un enfant nouvellement adopté, elle pourrait également bénéficier de prestations parentales, mais il n'est pas spécifié",
+   "split": "dev",
+   "claim_raw": "Pour les prestations parentales standards, il y a un maximum de 55% de la rémunération, ce qui peut aller jusqu'à 7",
    "cites": [],
-   "any_source_entail": 0.322,
+   "claim": "Pour les prestations parentales standards, il y a un maximum de 55% de la rémunération, ce qui peut aller jusqu'à 7",
+   "any_source_entail": 0.29,
    "verdict": "uncited"
   },
   {
    "id": "q04",
    "lang": "en",
+   "split": "dev",
+   "claim_raw": "Parents can share up to 61 weeks of standard parental benefits.",
+   "cites": [
+    1
+   ],
    "claim": "Parents can share up to 61 weeks of standard parental benefits.",
-   "cites": [],
    "any_source_entail": 0.38,
-   "verdict": "uncited"
+   "entail": 0.38,
+   "verdict": "unsupported"
   },
   {
    "id": "q04",
    "lang": "fr",
-   "claim": "Jusqu'à 69 semaines peuvent être partagées entre les parents, mais un parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies par les sources, et, les parents peuvent partager jusqu'à 35 semaines de prestations standards.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "claim": "Et, les parents peuvent partager jusqu'à 35 semaines de prestations standards.",
+   "any_source_entail": 0.738,
+   "entail": 0.738,
+   "verdict": "supported"
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "(Prestations de maternité et prestations parentales de l’assurance-emploi : Ce qu’offrent ces prestations)",
    "cites": [
     1
    ],
-   "any_source_entail": 0.915,
-   "entail": 0.915,
-   "verdict": "supported"
+   "claim": "(Prestations de maternité et prestations parentales de l’assurance-emploi : Ce qu’offrent ces prestations)",
+   "any_source_entail": 0.164,
+   "entail": 0.032,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "(Prestations de maternité et prestations parentales de l’assurance-emploi : Ce qu’offrent ces prestations)",
+   "cites": [
+    2
+   ],
+   "claim": "(Prestations de maternité et prestations parentales de l’assurance-emploi : Ce qu’offrent ces prestations)",
+   "any_source_entail": 0.164,
+   "entail": 0.006,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "(Prestations de maternité et prest",
+   "cites": [
+    3
+   ],
+   "claim": "(Prestations de maternité et prest",
+   "any_source_entail": 0.471,
+   "entail": 0.26,
+   "verdict": "unsupported"
   },
   {
    "id": "q05",
    "lang": "en",
-   "claim": "One parent cannot receive more than 61 weeks of extended benefits when sharing with the other parent.",
+   "split": "dev",
+   "claim_raw": "According to Source, one parent cannot receive more than 61 weeks of extended benefits when sharing with the other parent.",
    "cites": [
     1
    ],
+   "claim": "One parent cannot receive more than 61 weeks of extended benefits when sharing with the other parent.",
    "any_source_entail": 0.998,
    "entail": 0.998,
    "verdict": "supported"
@@ -142,408 +2468,351 @@
   {
    "id": "q05",
    "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies par les sources, les parents peuvent partager jusqu'à 69 semaines de prestations parentales prolongées.",
+   "cites": [],
    "claim": "Les parents peuvent partager jusqu'à 69 semaines de prestations parentales prolongées.",
-   "cites": [
-    1
-   ],
    "any_source_entail": 0.565,
-   "entail": 0.565,
-   "verdict": "supported"
+   "verdict": "uncited"
   },
   {
    "id": "q05",
    "lang": "fr",
-   "claim": "Cependant, un seul parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
+   "split": "dev",
+   "claim_raw": "Cependant, un seul parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
    "cites": [],
+   "claim": "Cependant, un seul parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
    "any_source_entail": 0.997,
    "verdict": "uncited"
   },
   {
-   "id": "q05",
-   "lang": "fr",
-   "claim": "La source ajoute que les prestations parentales prolongées peuvent être suivies de prestations parentales standard, ce qui pourrait augmenter le nombre total de semaines partagées.",
-   "cites": [
-    2
-   ],
-   "any_source_entail": 0.04,
-   "entail": 0.04,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q05",
-   "lang": "fr",
-   "claim": "Enfin, la source indique que si Kelsey a déjà reçu une partie des prestations parentales prolongées,",
-   "cites": [
-    3
-   ],
-   "any_source_entail": 0.142,
-   "entail": 0.044,
-   "verdict": "unsupported"
-  },
-  {
    "id": "q06",
    "lang": "en",
-   "claim": "You can receive up to 26 weeks of EI sickness benefits.",
-   "cites": [],
-   "any_source_entail": 0.99,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q06",
-   "lang": "fr",
-   "claim": "Vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "split": "dev",
+   "claim_raw": "Up to 26 weeks of financial assistance if you're unable to work due to medical reasons.",
    "cites": [
     1
    ],
+   "claim": "Up to 26 weeks of financial assistance if you're unable to work due to medical reasons.",
+   "any_source_entail": 0.998,
+   "entail": 0.998,
+   "verdict": "supported"
+  },
+  {
+   "id": "q06",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "cites": [
+    1
+   ],
+   "claim": "Vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
    "any_source_entail": 0.985,
    "entail": 0.985,
    "verdict": "supported"
   },
   {
-   "id": "q06",
-   "lang": "fr",
-   "claim": "Pour vérifier si vous avez des congés de maladie payés par l'employeur, consultez la source.",
+   "id": "q07",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "Yes, there is an EI caregiving benefit for a critically ill child under 18.",
    "cites": [
-    2
+    1
    ],
-   "any_source_entail": 0.549,
+   "claim": "Yes, there is an EI caregiving benefit for a critically ill child under 18.",
+   "any_source_entail": 0.023,
+   "entail": 0.023,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q07",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans.",
+   "cites": [
+    1
+   ],
+   "claim": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans.",
+   "any_source_entail": 0.789,
+   "entail": 0.789,
+   "verdict": "supported"
+  },
+  {
+   "id": "q08",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "End-of-life care is defined as providing care or support to a person who has a serious medical condition with a significant risk of death within 26 weeks (6 months), where the person also requires the care or support of at least one caregiver.",
+   "cites": [
+    1
+   ],
+   "claim": "End-of-life care is defined as providing care or support to a person who has a serious medical condition with a significant risk of death within 26 weeks (6 months), where the person also requires the care or support of at least one caregiver.",
+   "any_source_entail": 0.952,
    "entail": 0.018,
    "verdict": "unsupported"
   },
   {
-   "id": "q06",
+   "id": "q08",
    "lang": "fr",
-   "claim": "Enfin, selon la source, pour être admissible aux prestations de maladie de l'assurance-emploi, il faut avoir subi des inondations ou des feux de forêt, avoir",
-   "cites": [
-    3
-   ],
-   "any_source_entail": 0.458,
-   "entail": 0.458,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q07",
-   "lang": "en",
-   "claim": "Yes, there is an EI caregiving benefit for a critically ill child under 18.",
+   "split": "dev",
+   "claim_raw": "Les soins de fin de vie sont définis comme fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochains semaines (6 mois), et ce, même si elle a déjà une maladie chronique.",
    "cites": [],
-   "any_source_entail": 0.023,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q07",
-   "lang": "fr",
-   "claim": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans.",
-   "cites": [],
-   "any_source_entail": 0.789,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q07",
-   "lang": "fr",
-   "claim": "Cette prestation s'applique lorsque le bénéficiaire doit se déplacer au travail pour fournir des soins ou du soutien à cet enfant.",
-   "cites": [],
-   "any_source_entail": 0.033,
+   "claim": "Les soins de fin de vie sont définis comme fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochains semaines (6 mois), et ce, même si elle a déjà une maladie chronique.",
+   "any_source_entail": 0.455,
    "verdict": "uncited"
   },
   {
    "id": "q08",
-   "lang": "en",
-   "claim": "End-of-life care is defined as providing care or support to a person who has a serious medical condition with a significant risk of death within 26 weeks (6 months), where the person also requires the care or support of at least one caregiver.",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Ces soins doivent être confirmés par un médecin ou un infirmier praticien.",
    "cites": [],
+   "claim": "Ces soins doivent être confirmés par un médecin ou un infirmier praticien.",
+   "any_source_entail": 0.995,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q08",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Les soins comprennent également le soutien psychologique ou émotionnel.",
+   "cites": [
+    1
+   ],
+   "claim": "Les soins comprennent également le soutien psychologique ou émotionnel.",
+   "any_source_entail": 0.99,
+   "entail": 0.001,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q09",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "Yes, according to Source, you can continue contributing to increase your pension if you are under 70 and working while receiving your CPP.",
+   "cites": [
+    1
+   ],
+   "claim": "Yes, according to Source, you can continue contributing to increase your pension if you are under 70 and working while receiving your CPP.",
    "any_source_entail": 0.952,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q08",
-   "lang": "fr",
-   "claim": "Les soins de fin de vie sont définis comme fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochains semaines (6 mois), et où cette personne a besoin des soins ou du soutien d'un proche aidant.",
-   "cites": [],
-   "any_source_entail": 0.987,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q08",
-   "lang": "fr",
-   "claim": "Ces soins peuvent inclure aider à s'occuper de la personne gravement malade ou blessée, ou en fin de vie.",
-   "cites": [],
-   "any_source_entail": 0.996,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q08",
-   "lang": "fr",
-   "claim": "Selon le contexte, il peut également y avoir des exigences spécifiques liées à",
-   "cites": [],
-   "any_source_entail": 0.361,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q09",
-   "lang": "en",
-   "claim": "Yes, according to Source, if you're under 70 and working while receiving your CPP, you can still contribute to increase your pension.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.781,
-   "entail": 0.781,
+   "entail": 0.952,
    "verdict": "supported"
   },
   {
    "id": "q09",
-   "lang": "fr",
-   "claim": "Oui, selon le supplément de revenu garanti, vous pouvez continuer à cotiser au RPC même si vous travaillez tout en recevant votre pension du RPC.",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "Can someone with a severe and prolonged disability apply for the Guaranteed Income Supplement at age 65?",
    "cites": [],
-   "any_source_entail": 0.779,
+   "claim": "Can someone with a severe and prolonged disability apply for the Guaranteed Income Supplement at age 65?",
+   "any_source_entail": 0.302,
    "verdict": "uncited"
   },
   {
    "id": "q09",
-   "lang": "fr",
-   "claim": "Vous devez être inférieur à 70 ans et avoir un emploi actif.",
-   "cites": [],
-   "any_source_entail": 0.454,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q10",
    "lang": "en",
-   "claim": "If you have not received an enrollment letter after being eligible for Old Age Security, you should apply within one month of reaching your 64th birthday or later, depending on your age at that time.",
-   "cites": [],
-   "any_source_entail": 0.676,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q10",
-   "lang": "fr",
-   "claim": "Si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devriez peut-être présenter une demande.",
+   "split": "dev",
+   "claim_raw": "No, the text does not provide specific information about applying for the Guaranteed Income Supplement at age 65.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.844,
-   "entail": 0.431,
+   "claim": "No, the text does not provide specific information about applying for the Guaranteed Income Supplement at age 65.",
+   "any_source_entail": 0.156,
+   "entail": 0.079,
    "verdict": "unsupported"
   },
   {
    "id": "q10",
-   "lang": "fr",
-   "claim": "Pour obtenir plus de détails sur les montants spécifiques, consultez le document.",
-   "cites": [
-    3
-   ],
-   "any_source_entail": 0.097,
-   "entail": 0.007,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q11",
    "lang": "en",
-   "claim": "The Guaranteed Income Supplement (GIS) is available to individuals who are 65 years of age or older.",
-   "cites": [],
-   "any_source_entail": 0.999,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q11",
-   "lang": "fr",
-   "claim": "Le Supplément de revenu garanti (SRG) est un paiement mensuel non imposable que vous pouvez obtenir si vous avez 65 ans ou plus.",
+   "split": "dev",
+   "claim_raw": "According to Source, if you have not received an enrollment letter after being eligible for Old Age Security for one month at age 64 or older, you should apply.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.569,
-   "entail": 0.457,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q11",
-   "lang": "fr",
-   "claim": "Cependant, cette information n'est pas suffisante pour répondre complètement à la question car elle ne précise pas qui peut bénéficier du SRG.",
-   "cites": [],
-   "any_source_entail": 0.001,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q11",
-   "lang": "fr",
-   "claim": "La source indique que vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité, mais elle ne donne pas de",
-   "cites": [
-    2
-   ],
-   "any_source_entail": 0.924,
-   "entail": 0.004,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q12",
-   "lang": "en",
-   "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
-   "cites": [],
-   "any_source_entail": 0.977,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q12",
-   "lang": "fr",
-   "claim": "Si vous n'avez pas produit votre déclaration de revenus de 2025 auprès de l'ARC, vos paiements du Supplément de revenu garanti (SRG) peuvent cesser ou être réduits.",
-   "cites": [],
-   "any_source_entail": 0.967,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q12",
-   "lang": "fr",
-   "claim": "Pour éviter ces interruptions, il est recommandé d'effectuer cette tâche dès que possible.",
-   "cites": [],
+   "claim": "If you have not received an enrollment letter after being eligible for Old Age Security for one month at age 64 or older, you should apply.",
    "any_source_entail": 0.998,
+   "entail": 0.265,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q10",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Selon le texte cité dans la source, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "cites": [
+    1
+   ],
+   "claim": "Selon le texte cité dans la source, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "any_source_entail": 0.981,
+   "entail": 0.833,
+   "verdict": "supported"
+  },
+  {
+   "id": "q11",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "You can get the Guaranteed Income Supplement (GIS) if you are 65 or older.",
+   "cites": [
+    1
+   ],
+   "claim": "You can get the Guaranteed Income Supplement (GIS) if you are 65 or older.",
+   "any_source_entail": 0.999,
+   "entail": 0.999,
+   "verdict": "supported"
+  },
+  {
+   "id": "q12",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "If you haven't filed your taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "cites": [
+    1
+   ],
+   "claim": "If you haven't filed your taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "any_source_entail": 0.998,
+   "entail": 0.988,
+   "verdict": "supported"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Selon le supplément de revenu garanti, si vous n'avez pas produit votre déclaration de revenus de 2025 auprès de l'ARC, vos paiements du Supplément de revenu garanti (SRG) peuvent cesser ou être réduits.",
+   "cites": [],
+   "claim": "Selon le supplément de revenu garanti, si vous n'avez pas produit votre déclaration de revenus de 2025 auprès de l'ARC, vos paiements du Supplément de revenu garanti (SRG) peuvent cesser ou être réduits.",
+   "any_source_entail": 0.471,
    "verdict": "uncited"
   },
   {
    "id": "q12",
    "lang": "fr",
-   "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
-   "cites": [
-    1,
-    2,
-    3
-   ],
+   "split": "dev",
+   "claim_raw": "Pour éviter ces interruptions, il est recommandé de produire votre déclaration de revenus dès que possible.",
+   "cites": [],
+   "claim": "Pour éviter ces interruptions, il est recommandé de produire votre déclaration de revenus dès que possible.",
    "any_source_entail": 0.996,
-   "entail": 0.996,
-   "verdict": "supported"
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "cites": [],
+   "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "any_source_entail": 0.996,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Si vous avez des questions ou des préoccup",
+   "cites": [],
+   "claim": "Si vous avez des questions ou des préoccup",
+   "any_source_entail": 0.866,
+   "verdict": "uncited"
   },
   {
    "id": "q13",
    "lang": "en",
-   "claim": "The Canada child benefit (CCB) is a tax-free monthly payment for eligible families to help with the cost of raising children under 18 years of age.",
+   "split": "dev",
+   "claim_raw": "The Canada child benefit (CCB) is a tax-free monthly payment for eligible families to help with the cost of raising children under 18 years of age.",
    "cites": [],
+   "claim": "The Canada child benefit (CCB) is a tax-free monthly payment for eligible families to help with the cost of raising children under 18 years of age.",
    "any_source_entail": 0.189,
    "verdict": "uncited"
   },
   {
    "id": "q13",
    "lang": "en",
+   "split": "dev",
+   "claim_raw": "It includes the child disability benefit and any related provincial and territorial programs.",
+   "cites": [
+    1
+   ],
    "claim": "It includes the child disability benefit and any related provincial and territorial programs.",
-   "cites": [],
    "any_source_entail": 0.199,
-   "verdict": "uncited"
+   "entail": 0.199,
+   "verdict": "unsupported"
   },
   {
    "id": "q13",
    "lang": "fr",
-   "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
+   "split": "dev",
+   "claim_raw": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
    "cites": [],
+   "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
    "any_source_entail": 0.572,
    "verdict": "uncited"
   },
   {
    "id": "q13",
    "lang": "fr",
-   "claim": "Ce montant peut inclure des montants de la prestation pour enfants handicapés et de programmes provinciaux ou territoriaux connexes.",
+   "split": "dev",
+   "claim_raw": "Ce montant peut inclure des montants de la prestation pour enfants handicapés et de programmes provinciaux ou territoriaux connexes.",
    "cites": [],
+   "claim": "Ce montant peut inclure des montants de la prestation pour enfants handicapés et de programmes provinciaux ou territoriaux connexes.",
    "any_source_entail": 0.975,
    "verdict": "uncited"
   },
   {
    "id": "q13",
    "lang": "fr",
-   "claim": "Il est administré par l'Agence du revenu du Canada (ARC).",
+   "split": "dev",
+   "claim_raw": "Il est administré par l'Agence du revenu du Canada (ARC).",
    "cites": [],
+   "claim": "Il est administré par l'Agence du revenu du Canada (ARC).",
    "any_source_entail": 0.993,
    "verdict": "uncited"
   },
   {
-   "id": "q13",
-   "lang": "fr",
-   "claim": "Les enfants visés par l'allocation canadienne pour enfants comprennent tous les enfants mineurs de moins de 1",
-   "cites": [],
-   "any_source_entail": 0.384,
-   "verdict": "uncited"
-  },
-  {
    "id": "q14",
    "lang": "en",
-   "claim": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
-   "cites": [],
-   "any_source_entail": 0.997,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q14",
-   "lang": "fr",
-   "claim": "Le versement supplémentaire unique du crédit pour la TPS/TVH a été émis le 5 juin 2026 afin de fournir un soutien immédiat avant l'entrée en vigueur de l'ACEBE en juillet 2026.",
-   "cites": [],
-   "any_source_entail": 0.758,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q14",
-   "lang": "fr",
-   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
-   "cites": [],
-   "any_source_entail": 0.903,
-   "verdict": "uncited"
+   "split": "dev",
+   "claim_raw": "Replaced with: Canada Groceries and Essentials Benefit (CGEB) The GST/HST credit has been renamed the Canada Groceries and Essentials Benefit (CGEB) as of July 2026.",
+   "cites": [
+    2
+   ],
+   "claim": "Replaced with: Canada Groceries and Essentials Benefit (CGEB) The GST/HST credit has been renamed the Canada Groceries and Essentials Benefit (CGEB) as of July 2026.",
+   "any_source_entail": 0.615,
+   "entail": 0.054,
+   "verdict": "unsupported"
   },
   {
    "id": "q15",
    "lang": "en",
-   "claim": "When you turn 71, your RRSP options include purchasing an advanced life deferred annuity (ALDA), which allows you to defer contributions until age 85.",
-   "cites": [],
-   "any_source_entail": 0.978,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q15",
-   "lang": "fr",
-   "claim": "Et, voici les options possibles pour un REER à 71 ans :",
+   "split": "dev",
+   "claim_raw": "According to Source, your RRSP options when turning 71 include purchasing an advanced life deferred annuity (ALDA), which allows you to defer contributions until age 85.",
    "cites": [
     1,
-    2,
-    3
+    1
    ],
-   "any_source_entail": 0.956,
-   "entail": 0.956,
+   "claim": "Your RRSP options when turning 71 include purchasing an advanced life deferred annuity (ALDA), which allows you to defer contributions until age 85.",
+   "any_source_entail": 0.968,
+   "entail": 0.968,
    "verdict": "supported"
   },
   {
    "id": "q15",
    "lang": "fr",
-   "claim": "Vous pouvez choisir de retirer des fonds de votre REER pour acheter ou construire une première maison si vous avez plus de 60 ans.",
-   "cites": [],
-   "any_source_entail": 0.991,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q15",
-   "lang": "fr",
-   "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
-   "cites": [],
-   "any_source_entail": 0.992,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q15",
-   "lang": "fr",
-   "claim": "Cependant, il est important de noter que ces options peuvent varier selon les régulations locales et les conditions spécifiques de votre plan",
-   "cites": [],
-   "any_source_entail": 0.008,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q16",
-   "lang": "en",
-   "claim": "A conjugal relationship must have lasted at least 12 continuous months to be considered common-law for a Tax-Free Savings Account (TFSA).",
+   "split": "dev",
+   "claim_raw": "Les options pour votre REER lorsque vous atteignez 71 ans incluent la possibilité de retirer des fonds sans frais d'administration.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.95,
-   "entail": 0.95,
-   "verdict": "supported"
+   "claim": "Les options pour votre REER lorsque vous atteignez 71 ans incluent la possibilité de retirer des fonds sans frais d'administration.",
+   "any_source_entail": 0.181,
+   "entail": 0.057,
+   "verdict": "unsupported"
   },
   {
    "id": "q16",
    "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Selon la source, pour que la relation conjugale soit considérée comme une union de fait pour le compte d'épargne libre d'impôt (CELI), elle doit avoir duré au moins 12 mois sans interruption.",
+   "cites": [
+    1
+   ],
    "claim": "Pour que la relation conjugale soit considérée comme une union de fait pour le compte d'épargne libre d'impôt (CELI), elle doit avoir duré au moins 12 mois sans interruption.",
-   "cites": [
-    1
-   ],
    "any_source_entail": 0.933,
    "entail": 0.933,
    "verdict": "supported"
@@ -551,10 +2820,12 @@
   {
    "id": "q17",
    "lang": "en",
-   "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
+   "split": "dev",
+   "claim_raw": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
    "cites": [
     1
    ],
+   "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
    "any_source_entail": 0.82,
    "entail": 0.82,
    "verdict": "supported"
@@ -562,97 +2833,95 @@
   {
    "id": "q17",
    "lang": "fr",
-   "claim": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
-   "cites": [],
-   "any_source_entail": 0.991,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q17",
-   "lang": "fr",
-   "claim": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
-   "cites": [],
-   "any_source_entail": 0.875,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "en",
-   "claim": "If you urgently need your passport, you should contact them for urgent or express service.",
-   "cites": [],
-   "any_source_entail": 0.94,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "fr",
-   "claim": "Si vous avez besoin de votre passeport de toute urgence, contactez-nous immédiatement.",
-   "cites": [],
-   "any_source_entail": 0.092,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "fr",
-   "claim": "Vous devez pouvoir accéder à votre courrier pour nous envoyer votre demande.",
-   "cites": [],
-   "any_source_entail": 0.821,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "fr",
-   "claim": "Il est recommandé d'imprimer toutes les pages de cette section pour faciliter l'envoi de votre demande.",
-   "cites": [],
-   "any_source_entail": 0.004,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "fr",
-   "claim": "Un point de service de passeport peut être trouvé dans votre région.",
-   "cites": [],
-   "any_source_entail": 0.03,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q18",
-   "lang": "fr",
-   "claim": "Pour obtenir un service urgent ou express, il est nécessaire de communiquer avec le Programme de passeport.",
-   "cites": [],
+   "split": "dev",
+   "claim_raw": "Oui, les demandes sont ouvertes pour le Régime canadien de soins dentaires.",
+   "cites": [
+    1
+   ],
+   "claim": "Oui, les demandes sont ouvertes pour le Régime canadien de soins dentaires.",
    "any_source_entail": 0.994,
-   "verdict": "uncited"
+   "entail": 0.994,
+   "verdict": "supported"
   },
   {
-   "id": "q19",
+   "id": "q18",
    "lang": "en",
-   "claim": "To apply for Canadian citizenship, you can use a maximum of 365 days of physical presence as a temporary resident or protected person.",
+   "split": "dev",
+   "claim_raw": "If you urgently need your passport, you can contact them to see if they can mail it to you.",
+   "cites": [
+    1
+   ],
+   "claim": "If you urgently need your passport, you can contact them to see if they can mail it to you.",
+   "any_source_entail": 0.986,
+   "entail": 0.986,
+   "verdict": "supported"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Si vous avez besoin de votre passeport de toute urgence, vous devez :",
    "cites": [],
-   "any_source_entail": 0.34,
+   "claim": "Si vous avez besoin de votre passeport de toute urgence, vous devez :",
+   "any_source_entail": 0.938,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Contacter le Service du passeport pour obtenir un service urgent ou express.",
+   "cites": [],
+   "claim": "Contacter le Service du passeport pour obtenir un service urgent ou express.",
+   "any_source_entail": 0.995,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Trouver un point de service de passeport près de chez vous.",
+   "cites": [],
+   "claim": "Trouver un point de service de passeport près de chez vous.",
+   "any_source_entail": 0.057,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Commencer par communiquer avec le Programme de passeport.",
+   "cites": [],
+   "claim": "Commencer par communiquer avec le Programme de passeport.",
+   "any_source_entail": 0.976,
    "verdict": "uncited"
   },
   {
    "id": "q19",
    "lang": "en",
-   "claim": "This is equivalent to 730 calendar days (730 days x 0.5 = 365 days of physical presence).",
+   "split": "dev",
+   "claim_raw": "To apply for Canadian citizenship, you can use a maximum of 365 days of physical presence as a temporary resident or protected person, which equals 730 calendar days.",
    "cites": [
     1,
     2,
     3
    ],
-   "any_source_entail": 0.882,
-   "entail": 0.882,
+   "claim": "To apply for Canadian citizenship, you can use a maximum of 365 days of physical presence as a temporary resident or protected person, which equals 730 calendar days.",
+   "any_source_entail": 0.872,
+   "entail": 0.872,
    "verdict": "supported"
   },
   {
    "id": "q19",
    "lang": "fr",
-   "claim": "Et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
    "cites": [
     1,
     2,
     3
    ],
+   "claim": "Et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
    "any_source_entail": 0.969,
    "entail": 0.969,
    "verdict": "supported"
@@ -660,176 +2929,209 @@
   {
    "id": "q19",
    "lang": "fr",
-   "claim": "Ces 365 jours peuvent être accumulés pendant toute la période d'admissibilité, ce qui signifie que vous pouvez passer jusqu'à 365 jours par an sans avoir besoin de faire une demande.",
+   "split": "dev",
+   "claim_raw": "Ces sources précisent que chaque jour passé à titre de résident temporaire ou de personne protégée compte pour 0,5 jour de présence effective au Canada, ce qui permet de cumuler jusqu'à 365 jours de présence effective.",
    "cites": [],
-   "any_source_entail": 0.056,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q19",
-   "lang": "fr",
-   "claim": "Il est important de noter que ces 365 jours comprennent tous les jours que vous avez passé à",
-   "cites": [],
-   "any_source_entail": 0.721,
+   "claim": "Ces sources précisent que chaque jour passé à titre de résident temporaire ou de personne protégée compte pour 0,5 jour de présence effective au Canada, ce qui permet de cumuler jusqu'à 365 jours de présence effective.",
+   "any_source_entail": 0.712,
    "verdict": "uncited"
   },
   {
    "id": "q20",
    "lang": "en",
-   "claim": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada.",
-   "cites": [],
-   "any_source_entail": 0.976,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q20",
-   "lang": "fr",
-   "claim": "Chaque jour que vous passez à titre de résident temporaire ou de personne protégée au cours de votre période d'admissibilité compte pour 0,5 jour de présence effective au Canada.",
+   "split": "dev",
+   "claim_raw": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.983,
-   "entail": 0.951,
+   "claim": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada.",
+   "any_source_entail": 0.976,
+   "entail": 0.976,
    "verdict": "supported"
   },
   {
    "id": "q20",
    "lang": "fr",
-   "claim": "Vous pouvez cumuler un maximum de 365 jours de présence effective à titre de résident temporaire ou de personne protégée.",
+   "split": "dev",
+   "claim_raw": "Les jours en tant que résident temporaire sont comptabilisés à hauteur de 0,5 jour de présence effective au Canada.",
    "cites": [],
-   "any_source_entail": 0.968,
+   "claim": "Les jours en tant que résident temporaire sont comptabilisés à hauteur de 0,5 jour de présence effective au Canada.",
+   "any_source_entail": 0.998,
    "verdict": "uncited"
   },
   {
    "id": "q20",
    "lang": "fr",
-   "claim": "Cela équivaut à 730 jours civils (730 jours x 0,5 = 365 jours de présence effective).",
+   "split": "dev",
+   "claim_raw": "Cette règle s'applique également aux mineurs.",
    "cites": [],
-   "any_source_entail": 0.875,
+   "claim": "Cette règle s'applique également aux mineurs.",
+   "any_source_entail": 0.025,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q20",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Le total maximal de jours de présence effective est de 365 jours, ce qui correspond à 730 jours civils (730 jours x 0,5 = 365 jours de présence effective).",
+   "cites": [],
+   "claim": "Le total maximal de jours de présence effective est de 365 jours, ce qui correspond à 730 jours civils (730 jours x 0,5 = 365 jours de présence effective).",
+   "any_source_entail": 0.996,
    "verdict": "uncited"
   },
   {
    "id": "q21",
    "lang": "en",
-   "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
+   "split": "dev",
+   "claim_raw": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
    "cites": [],
+   "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
    "any_source_entail": 0.791,
    "verdict": "uncited"
   },
   {
    "id": "q21",
    "lang": "en",
-   "claim": "It's important to ensure you have all necessary documents before applying and to apply well in advance of traveling to Canada.",
+   "split": "dev",
+   "claim_raw": "It's essential to ensure you have all necessary documents before applying and to apply well in advance of traveling to Canada.",
    "cites": [],
-   "any_source_entail": 0.536,
+   "claim": "It's essential to ensure you have all necessary documents before applying and to apply well in advance of traveling to Canada.",
+   "any_source_entail": 0.747,
    "verdict": "uncited"
   },
   {
    "id": "q21",
    "lang": "en",
-   "claim": "For those pursuing higher education, such as a master's or doctoral degree, there are specific procedures available to facilitate quicker processing.",
-   "cites": [],
-   "any_source_entail": 0.993,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q21",
-   "lang": "fr",
-   "claim": "Un permis d'études est un document délivré par le gouvernement du Canada qui autorise les étrangers à étudier dans un établissement d'enseignement désigné (EED).",
-   "cites": [],
-   "any_source_entail": 0.458,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q21",
-   "lang": "fr",
-   "claim": "Il est nécessaire de présenter tous les documents requis avant de faire une demande de permis d'études.",
-   "cites": [],
-   "any_source_entail": 0.999,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q21",
-   "lang": "fr",
-   "claim": "Pour plus d'informations sur comment obtenir votre maîtrise ou votre doctorat au Canada, voir les ressources mentionnées ci-dessus.",
-   "cites": [],
-   "any_source_entail": 0.241,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q22",
-   "lang": "en",
-   "claim": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
-   "cites": [],
-   "any_source_entail": 0.502,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q22",
-   "lang": "fr",
-   "claim": "Trois programmes d'immigration sont gérés dans le cadre d'Entrée express: la catégorie de l'expérience canadienne, le programme des travailleurs de métiers spécialisés (fédéral), et le programme des travailleurs qualifiés (fédéral).",
+   "split": "dev",
+   "claim_raw": "For pursuing a master's or doctoral degree in Canada, one can also consider applying with their family and potentially expedite processing status as a doctoral student.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.996,
-   "entail": 0.819,
+   "claim": "For pursuing a master's or doctoral degree in Canada, one can also consider applying with their family and potentially expedite processing status as a doctoral student.",
+   "any_source_entail": 0.997,
+   "entail": 0.991,
    "verdict": "supported"
   },
   {
-   "id": "q23",
-   "lang": "en",
-   "claim": "You can get money to study at college or university through grants, loans, scholarships, and help to repay your student loans.",
+   "id": "q21",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Un permis d'études est un document délivré par le gouvernement canadien qui autorise les étrangers à étudier dans un établissement d'enseignement désigné au Canada.",
    "cites": [],
+   "claim": "Un permis d'études est un document délivré par le gouvernement canadien qui autorise les étrangers à étudier dans un établissement d'enseignement désigné au Canada.",
+   "any_source_entail": 0.345,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Il est nécessaire d'avoir tous les documents requis avant de présenter la demande.",
+   "cites": [],
+   "claim": "Il est nécessaire d'avoir tous les documents requis avant de présenter la demande.",
    "any_source_entail": 0.998,
    "verdict": "uncited"
   },
   {
-   "id": "q23",
+   "id": "q21",
    "lang": "fr",
-   "claim": "Pour obtenir de l'argent pour étudier au collège ou à l'université, vous pouvez consulter le site web du Centre de service national de prêts aux étudiants (CSNPE).",
+   "split": "dev",
+   "claim_raw": "Pour plus d'informations sur comment obtenir votre maîtrise ou votre doctorat au Canada, voir les sources mentionnées ci-dessus.",
    "cites": [],
-   "any_source_entail": 0.988,
+   "claim": "Pour plus d'informations sur comment obtenir votre maîtrise ou votre doctorat au Canada, voir les sources mentionnées ci-dessus.",
+   "any_source_entail": 0.445,
    "verdict": "uncited"
   },
   {
-   "id": "q23",
-   "lang": "fr",
-   "claim": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
-   "cites": [],
-   "any_source_entail": 0.609,
-   "verdict": "uncited"
+   "id": "q22",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "There are 3 immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and another unspecified program.",
+   "cites": [
+    1
+   ],
+   "claim": "There are 3 immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and another unspecified program.",
+   "any_source_entail": 0.123,
+   "entail": 0.003,
+   "verdict": "unsupported"
   },
   {
-   "id": "q23",
+   "id": "q22",
    "lang": "fr",
-   "claim": "De plus, il existe des bourses et des subventions disponibles pour les étudiants et les apprentis.",
+   "split": "dev",
+   "claim_raw": "Les trois programmes d'immigration gérés par Entrée express sont le programme des travailleurs qualifiés, le programme des travailleurs de métiers spécialisés fédéraux et la catégorie de l'expérience canadienne.",
    "cites": [],
+   "claim": "Les trois programmes d'immigration gérés par Entrée express sont le programme des travailleurs qualifiés, le programme des travailleurs de métiers spécialisés fédéraux et la catégorie de l'expérience canadienne.",
    "any_source_entail": 0.996,
    "verdict": "uncited"
   },
   {
    "id": "q23",
+   "lang": "en",
+   "split": "dev",
+   "claim_raw": "To get money to study at college or university, you can apply for grants, loans, scholarships, or apprentice loans and grants.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "claim": "To get money to study at college or university, you can apply for grants, loans, scholarships, or apprentice loans and grants.",
+   "any_source_entail": 0.994,
+   "entail": 0.994,
+   "verdict": "supported"
+  },
+  {
+   "id": "q23",
    "lang": "fr",
-   "claim": "Pour les bourses, vous pouvez présenter une demande directement auprès des organismes qui offrent ces aides.",
+   "split": "dev",
+   "claim_raw": "Pour obtenir de l'argent pour étudier au collège ou à l'université, vous pouvez demander des bourses et des prêts.",
    "cites": [],
-   "any_source_entail": 0.782,
+   "claim": "Pour obtenir de l'argent pour étudier au collège ou à l'université, vous pouvez demander des bourses et des prêts.",
+   "any_source_entail": 0.994,
    "verdict": "uncited"
   },
   {
    "id": "q23",
    "lang": "fr",
-   "claim": "Les conditions spécifiques peuvent",
+   "split": "dev",
+   "claim_raw": "Vous pouvez consulter le site web du Centre de service national de prêts aux étudiants (CSNPE) pour vérifier le solde de votre prêt et accéder à votre compte.",
    "cites": [],
-   "any_source_entail": 0.787,
+   "claim": "Vous pouvez consulter le site web du Centre de service national de prêts aux étudiants (CSNPE) pour vérifier le solde de votre prêt et accéder à votre compte.",
+   "any_source_entail": 0.967,
    "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "De plus, il existe des aides spécifiques pour les apprentis, telles que des bourses pour commencer et terminer leur apprentissage.",
+   "cites": [],
+   "claim": "De plus, il existe des aides spécifiques pour les apprentis, telles que des bourses pour commencer et terminer leur apprentissage.",
+   "any_source_entail": 0.986,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "split": "dev",
+   "claim_raw": "Ces informations sont fournies par les sources, [",
+   "cites": [
+    1
+   ],
+   "claim": "Ces informations sont fournies par les sources, [",
+   "any_source_entail": 0.74,
+   "entail": 0.74,
+   "verdict": "supported"
   },
   {
    "id": "q24",
    "lang": "en",
-   "claim": "The Canada Disability Benefit (CDB) provides direct financial support to people with disabilities who are between 18 and 64 years old.",
+   "split": "dev",
+   "claim_raw": "The Canada Disability Benefit (CDB) provides direct financial support to people with disabilities who are between 18 and 64 years old.",
    "cites": [
     1
    ],
+   "claim": "The Canada Disability Benefit (CDB) provides direct financial support to people with disabilities who are between 18 and 64 years old.",
    "any_source_entail": 0.959,
    "entail": 0.959,
    "verdict": "supported"
@@ -837,12 +3139,12 @@
   {
    "id": "q24",
    "lang": "fr",
-   "claim": "Et, l'âge requis pour obtenir la Prestation canadienne pour les personnes handicapées (PCPH) est de 18 à 64 ans.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, l'âge requis pour obtenir la Prestation canadienne pour les personnes handicapées (PCPH) est de 18 à 64 ans.",
    "cites": [
-    1,
-    2,
-    3
+    1
    ],
+   "claim": "L'âge requis pour obtenir la Prestation canadienne pour les personnes handicapées (PCPH) est de 18 à 64 ans.",
    "any_source_entail": 0.999,
    "entail": 0.999,
    "verdict": "supported"
@@ -850,37 +3152,47 @@
   {
    "id": "q25",
    "lang": "en",
-   "claim": "The Canada Disability Benefit can provide back payments for up to 24 months from when they receive an application, starting from June 2025.",
+   "split": "dev",
+   "claim_raw": "The Canada Disability Benefit can provide back payments for up to 24 months from when they receive an application, starting from June 2025.",
    "cites": [],
+   "claim": "The Canada Disability Benefit can provide back payments for up to 24 months from when they receive an application, starting from June 2025.",
    "any_source_entail": 0.994,
    "verdict": "uncited"
   },
   {
    "id": "q25",
    "lang": "fr",
-   "claim": "La Prestation canadienne pour les personnes handicapées (PCPH) peut verser des paiements rétroactifs pendant une période allant jusqu'à 24 mois à partir de la date de réception de la demande.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, et, la Prestation canadienne pour les personnes handicapées peut verser des paiements rétroactifs pour une période allant jusqu'à 24 mois à partir de la date de réception de la demande.",
    "cites": [
-    2
+    1,
+    2,
+    3
    ],
-   "any_source_entail": 0.996,
-   "entail": 0.949,
+   "claim": "Et, la Prestation canadienne pour les personnes handicapées peut verser des paiements rétroactifs pour une période allant jusqu'à 24 mois à partir de la date de réception de la demande.",
+   "any_source_entail": 0.993,
+   "entail": 0.993,
    "verdict": "supported"
   },
   {
    "id": "q25",
    "lang": "fr",
-   "claim": "Cependant, cette durée peut être prolongée jusqu'à 36 mois si la personne est admissible aux paiements.",
+   "split": "dev",
+   "claim_raw": "Cependant, il est important de noter que ces informations peuvent varier selon les conditions spécifiques de chaque individu.",
    "cites": [],
-   "any_source_entail": 0.773,
+   "claim": "Cependant, il est important de noter que ces informations peuvent varier selon les conditions spécifiques de chaque individu.",
+   "any_source_entail": 0.03,
    "verdict": "uncited"
   },
   {
    "id": "q26",
    "lang": "en",
-   "claim": "Fishers and Employment Insurance",
+   "split": "dev",
+   "claim_raw": "Fishers and Employment Insurance",
    "cites": [
     1
    ],
+   "claim": "Fishers and Employment Insurance",
    "any_source_entail": 0.715,
    "entail": 0.715,
    "verdict": "supported"
@@ -888,188 +3200,219 @@
   {
    "id": "q26",
    "lang": "fr",
-   "claim": "Les pêcheurs peuvent recevoir des prestations de pêcheur si ils sont admissibles et cherchent activement un emploi, même s'ils n'ont pas d'heures d'emploi assurables comme cela est le cas pour les autres prestations régulières.",
+   "split": "dev",
+   "claim_raw": "Selon les informations fournies dans les sources, les pêcheurs peuvent recevoir les prestations de pêcheur si ils sont admissibles à ces prestations.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.989,
-   "entail": 0.989,
+   "claim": "Les pêcheurs peuvent recevoir les prestations de pêcheur si ils sont admissibles à ces prestations.",
+   "any_source_entail": 0.992,
+   "entail": 0.992,
    "verdict": "supported"
   },
   {
    "id": "q26",
    "lang": "fr",
-   "claim": "Ces pêcheurs peuvent également bénéficier de prestations de maladie, de maternité, de parentale, de compassion ou admissibles ou pour les aidants proches.",
+   "split": "dev",
+   "claim_raw": "Cela signifie que leur admissibilité est basée sur la rémunération plutôt que sur les heures d'emploi assurables, ce qui diffère par rapport aux autres prestations régulières.",
    "cites": [],
-   "any_source_entail": 0.936,
+   "claim": "Cela signifie que leur admissibilité est basée sur la rémunération plutôt que sur les heures d'emploi assurables, ce qui diffère par rapport aux autres prestations régulières.",
+   "any_source_entail": 0.981,
    "verdict": "uncited"
   },
   {
    "id": "q26",
    "lang": "fr",
-   "claim": "La source ajoute que ces prestations",
-   "cites": [
-    2
-   ],
-   "any_source_entail": 0.013,
-   "entail": 0.005,
-   "verdict": "unsupported"
+   "split": "dev",
+   "claim_raw": "Les pêcheurs peuvent également bénéficier de prestations de maladie, de maternité, de parentale, de compassion ou pour les aidants proches.",
+   "cites": [],
+   "claim": "Les pêcheurs peuvent également bénéficier de prestations de maladie, de maternité, de parentale, de compassion ou pour les aidants proches.",
+   "any_source_entail": 0.938,
+   "verdict": "uncited"
   },
   {
    "id": "q27",
    "lang": "en",
-   "claim": "To keep a written record of employers contacted while on EI regular benefits, one should register with employment agencies or sign up for job search tools such as Job Bank.",
+   "split": "test",
+   "claim_raw": "To keep a written record of employers contacted while on EI regular benefits, you should register with employment agencies or sign up for job search tools such as Job Bank.",
+   "cites": [
+    1
+   ],
+   "claim": "To keep a written record of employers contacted while on EI regular benefits, you should register with employment agencies or sign up for job search tools such as Job Bank.",
+   "any_source_entail": 0.862,
+   "entail": 0.017,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q27",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon les informations fournies dans les sources, il faut tenir un registre de recherche d'emploi pour documenter les contacts avec les employeurs que vous avez faites, notamment en inscrivant ces informations auprès d'agences de placement ou d'utiliser des outils de recherche d'emploi comme Guichet-Emplois.",
    "cites": [],
-   "any_source_entail": 0.932,
+   "claim": "Il faut tenir un registre de recherche d'emploi pour documenter les contacts avec les employeurs que vous avez faites, notamment en inscrivant ces informations auprès d'agences de placement ou d'utiliser des outils de recherche d'emploi comme Guichet-Emplois.",
+   "any_source_entail": 0.601,
    "verdict": "uncited"
   },
   {
    "id": "q27",
    "lang": "fr",
-   "claim": "Pour s'adapter aux changements économiques, il est recommandé de vous inscrire auprès d'agences de placement ou utiliser des outils de recherche d'emploi tels que Guichet-Emplois.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.97,
-   "entail": 0.97,
-   "verdict": "supported"
+   "split": "test",
+   "claim_raw": "Ces documents sont nécessaires pour prouver votre admissibilité aux prestations de l'assurance-emploi et pour recevoir tous les paiements correspondants.",
+   "cites": [],
+   "claim": "Ces documents sont nécessaires pour prouver votre admissibilité aux prestations de l'assurance-emploi et pour recevoir tous les paiements correspondants.",
+   "any_source_entail": 0.537,
+   "verdict": "uncited"
   },
   {
    "id": "q27",
    "lang": "fr",
-   "claim": "Ces démarches permettent de conserver un historique des contacts avec les employeurs, qui sont nécessaires pour prouver votre admissibilité aux prestations de l'assurance-emploi.",
+   "split": "test",
+   "claim_raw": "Il est important de respecter les délais fixés pour remplir",
    "cites": [],
-   "any_source_entail": 0.988,
+   "claim": "Il est important de respecter les délais fixés pour remplir",
+   "any_source_entail": 0.953,
    "verdict": "uncited"
   },
   {
    "id": "q28",
    "lang": "en",
+   "split": "test",
+   "claim_raw": "No, you cannot get EI if you lost your job through your own fault.",
+   "cites": [
+    1
+   ],
    "claim": "No, you cannot get EI if you lost your job through your own fault.",
-   "cites": [],
    "any_source_entail": 0.941,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q28",
-   "lang": "fr",
-   "claim": "Oui, selon les conditions mentionnées ci-dessus, si vous avez perdu votre emploi en raison de votre propre inconduite, vous pouvez recevoir l'assurance-emploi.",
-   "cites": [],
-   "any_source_entail": 0.946,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q28",
-   "lang": "fr",
-   "claim": "Cependant, il est important de vérifier ces critères exacts car ils peuvent varier selon les régions et les lois locales.",
-   "cites": [],
-   "any_source_entail": 0.005,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q29",
-   "lang": "en",
-   "claim": "EI maternity benefits pay 55% of your earnings, up to a maximum of $729 per week.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.308,
-   "entail": 0.308,
+   "entail": 0.017,
    "verdict": "unsupported"
   },
   {
    "id": "q29",
-   "lang": "fr",
-   "claim": "Les prestations de maternité de l'assurance-emploi peuvent atteindre jusqu'à 55% de la rémunération, mais ce montant peut être limité à un maximum de 729$ par semaine.",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "55% of your earnings, up to a maximum of $729 a week.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.967,
-   "entail": 0.967,
+   "claim": "55% of your earnings, up to a maximum of $729 a week.",
+   "any_source_entail": 0.95,
+   "entail": 0.95,
+   "verdict": "supported"
+  },
+  {
+   "id": "q29",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, les prestations de maternité peuvent atteindre jusqu'à 55% de la rémunération, avec un maximum de 729$ par semaine.",
+   "cites": [
+    1
+   ],
+   "claim": "Les prestations de maternité peuvent atteindre jusqu'à 55% de la rémunération, avec un maximum de 729$ par semaine.",
+   "any_source_entail": 0.707,
+   "entail": 0.707,
    "verdict": "supported"
   },
   {
    "id": "q30",
    "lang": "en",
+   "split": "test",
+   "claim_raw": "The Province of Quebec is responsible for providing maternity, paternity, parental and adoption benefits to its residents.",
+   "cites": [
+    1
+   ],
    "claim": "The Province of Quebec is responsible for providing maternity, paternity, parental and adoption benefits to its residents.",
-   "cites": [],
    "any_source_entail": 0.967,
-   "verdict": "uncited"
+   "entail": 0.497,
+   "verdict": "unsupported"
   },
   {
    "id": "q30",
    "lang": "fr",
-   "claim": "La province de Québec est responsable d'offrir des prestations de maternité, de paternité, parentales et d'adoption à ses résidents.",
-   "cites": [],
-   "any_source_entail": 0.988,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q30",
-   "lang": "fr",
-   "claim": "Ces prestations couvrent également les parents qui s'absentent du travail pour s'occuper de leur nouveau-né ou de leur enfant nouvellement adopté.",
-   "cites": [],
-   "any_source_entail": 0.393,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q30",
-   "lang": "fr",
-   "claim": "Pour plus de détails sur les prestations disponibles, il est recommandé de consulter le Régime québécois d'assurance parentale.",
-   "cites": [],
+   "split": "test",
+   "claim_raw": "Les prestations parentales sont versées par la province de Québec.",
+   "cites": [
+    1
+   ],
+   "claim": "Les prestations parentales sont versées par la province de Québec.",
    "any_source_entail": 0.999,
-   "verdict": "uncited"
+   "entail": 0.999,
+   "verdict": "supported"
   },
   {
    "id": "q31",
    "lang": "en",
+   "split": "test",
+   "claim_raw": "Yes, maternity benefits can be shared between parents, with each parent receiving a maximum of 35 weeks of standard benefits and 61 weeks of extended benefits combined.",
+   "cites": [
+    1
+   ],
    "claim": "Yes, maternity benefits can be shared between parents, with each parent receiving a maximum of 35 weeks of standard benefits and 61 weeks of extended benefits combined.",
-   "cites": [],
    "any_source_entail": 0.309,
-   "verdict": "uncited"
+   "entail": 0.067,
+   "verdict": "unsupported"
   },
   {
    "id": "q31",
    "lang": "fr",
-   "claim": "Oui, les prestations de maternité peuvent être partagées entre les parents.",
+   "split": "test",
+   "claim_raw": "Oui, les prestations de maternité peuvent être partagées entre les parents.",
    "cites": [],
+   "claim": "Oui, les prestations de maternité peuvent être partagées entre les parents.",
    "any_source_entail": 0.997,
    "verdict": "uncited"
   },
   {
    "id": "q31",
    "lang": "fr",
-   "claim": "Selon le texte, jusqu'à 40 semaines peuvent être partagées entre les deux parents, avec un limité respectivement à 35 semaines pour le premier et 61 semaines pour le second.",
+   "split": "test",
+   "claim_raw": "Selon le texte, jusqu'à 40 semaines peuvent être partagées entre les parents, mais un parent ne peut pas recevoir plus de 35 semaines de prestations standards.",
    "cites": [],
-   "any_source_entail": 0.154,
+   "claim": "Selon le texte, jusqu'à 40 semaines peuvent être partagées entre les parents, mais un parent ne peut pas recevoir plus de 35 semaines de prestations standards.",
+   "any_source_entail": 0.494,
    "verdict": "uncited"
   },
   {
    "id": "q31",
    "lang": "fr",
-   "claim": "Cependant, il est important de noter que chaque parent doit choisir la même option et présenter sa propre demande.",
+   "split": "test",
+   "claim_raw": "Cependant, il est important de noter que ce texte ne mentionne pas spécifiquement si les prestations parentales peuvent également être partagées.",
    "cites": [],
-   "any_source_entail": 0.923,
+   "claim": "Cependant, il est important de noter que ce texte ne mentionne pas spécifiquement si les prestations parentales peuvent également être partagées.",
+   "any_source_entail": 0.964,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q31",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Pour obtenir des informations sur les prestations parentales, il faudrait consulter les sources appropriées.",
+   "cites": [],
+   "claim": "Pour obtenir des informations sur les prestations parentales, il faudrait consulter les sources appropriées.",
+   "any_source_entail": 0.087,
    "verdict": "uncited"
   },
   {
    "id": "q32",
    "lang": "en",
-   "claim": "EI sickness benefits can provide up to 55% of your earnings, up to a maximum of $729 a week.",
+   "split": "test",
+   "claim_raw": "Up to $729 a week.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.989,
-   "entail": 0.989,
+   "claim": "Up to $729 a week.",
+   "any_source_entail": 0.967,
+   "entail": 0.967,
    "verdict": "supported"
   },
   {
    "id": "q32",
    "lang": "fr",
-   "claim": "Les prestations de maladie de l'assurance-emploi peuvent vous offrir jusqu'à 26 semaines d'aide financière si vous ne pouvez pas travailler pour des raisons médicales.",
+   "split": "test",
+   "claim_raw": "Selon la source, les prestations de maladie de l'assurance-emploi peuvent vous offrir jusqu'à 26 semaines d'aide financière si vous ne pouvez pas travailler pour des raisons médicales.",
    "cites": [
     1
    ],
+   "claim": "Les prestations de maladie de l'assurance-emploi peuvent vous offrir jusqu'à 26 semaines d'aide financière si vous ne pouvez pas travailler pour des raisons médicales.",
    "any_source_entail": 0.601,
    "entail": 0.601,
    "verdict": "supported"
@@ -1077,26 +3420,35 @@
   {
    "id": "q32",
    "lang": "fr",
-   "claim": "Vous pourriez recevoir 55% de votre rémunération jusqu'à un maximum de 729$ par semaine.",
+   "split": "test",
+   "claim_raw": "Vous pourriez recevoir 55% de votre rémunération jusqu'à un maximum de 729$ par semaine.",
    "cites": [],
+   "claim": "Vous pourriez recevoir 55% de votre rémunération jusqu'à un maximum de 729$ par semaine.",
    "any_source_entail": 0.948,
    "verdict": "uncited"
   },
   {
    "id": "q33",
    "lang": "en",
-   "claim": "There are three types of EI caregiving benefits: Family caregiver benefits for children, if applicable; and two other unspecified categories that may include benefits for caring for someone in need of end-of-life care.",
-   "cites": [],
-   "any_source_entail": 0.007,
-   "verdict": "uncited"
+   "split": "test",
+   "claim_raw": "There are three types of EI caregiving benefits: Family caregiver benefits for children, if applicable, and caregiver benefits for adults caring for someone who needs end-of-life care.",
+   "cites": [
+    1
+   ],
+   "claim": "There are three types of EI caregiving benefits: Family caregiver benefits for children, if applicable, and caregiver benefits for adults caring for someone who needs end-of-life care.",
+   "any_source_entail": 0.013,
+   "entail": 0.01,
+   "verdict": "unsupported"
   },
   {
    "id": "q33",
    "lang": "fr",
-   "claim": "L'assurance-emploi fournit trois types de prestations pour proches aidants :",
+   "split": "test",
+   "claim_raw": "Selon le document cité, l'assurance-emploi offre trois types de prestations pour proches aidants :",
    "cites": [
     1
    ],
+   "claim": "L'assurance-emploi offre trois types de prestations pour proches aidants :",
    "any_source_entail": 0.979,
    "entail": 0.979,
    "verdict": "supported"
@@ -1104,606 +3456,741 @@
   {
    "id": "q33",
    "lang": "fr",
-   "claim": "Prestations pour proches aidants d'enfants",
+   "split": "test",
+   "claim_raw": "**Prestations pour proches aidants d'enfants** - Ces prestations sont destinées aux parents qui ont recours à l'aide sociale car ils sont incapables de travailler et veulent se concentrer sur leur enfant.",
    "cites": [],
-   "any_source_entail": 0.965,
+   "claim": "**Prestations pour proches aidants d'enfants** - Ces prestations sont destinées aux parents qui ont recours à l'aide sociale car ils sont incapables de travailler et veulent se concentrer sur leur enfant.",
+   "any_source_entail": 0.112,
    "verdict": "uncited"
   },
   {
    "id": "q33",
    "lang": "fr",
-   "claim": "Prestations pour proches aidants de personnes âgées",
+   "split": "test",
+   "claim_raw": "**Prestations pour proches aidants** - Ce type de prestations concerne tous ceux qui ont recours à l'aide sociale pour aider leurs proches, quel qu'il",
    "cites": [],
-   "any_source_entail": 0.896,
+   "claim": "**Prestations pour proches aidants** - Ce type de prestations concerne tous ceux qui ont recours à l'aide sociale pour aider leurs proches, quel qu'il",
+   "any_source_entail": 0.152,
    "verdict": "uncited"
   },
   {
-   "id": "q33",
+   "id": "q34",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "A caregiver is a family member or someone considered to be like a family member providing care or support to a critically ill or injured person or someone needing end-of-life care.",
+   "cites": [
+    1,
+    2
+   ],
+   "claim": "A caregiver is a family member or someone considered to be like a family member providing care or support to a critically ill or injured person or someone needing end-of-life care.",
+   "any_source_entail": 0.867,
+   "entail": 0.867,
+   "verdict": "supported"
+  },
+  {
+   "id": "q34",
    "lang": "fr",
-   "claim": "Prestations pour proches aidants de personnes atteintes de maladies chroniques",
+   "split": "test",
+   "claim_raw": "Selon le texte, un proche aidant est un membre de la famille ou une personne considérée comme un membre de la famille qui aide ou soutient une personne gravement malade ou blessée, ou en fin de vie.",
    "cites": [],
-   "any_source_entail": 0.115,
+   "claim": "Selon le texte, un proche aidant est un membre de la famille ou une personne considérée comme un membre de la famille qui aide ou soutient une personne gravement malade ou blessée, ou en fin de vie.",
+   "any_source_entail": 0.99,
    "verdict": "uncited"
   },
   {
-   "id": "q33",
+   "id": "q34",
    "lang": "fr",
-   "claim": "Cependant, selon le document cité, lorsque la personne à laquelle on donne des soins est une personne âgée et qu'elle n'est pas votre mère, père, fr",
+   "split": "test",
+   "claim_raw": "Les soins de fin de vie signifient fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochaines semaines (6 mois).",
    "cites": [
     2
    ],
-   "any_source_entail": 0.002,
-   "entail": 0.001,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q34",
-   "lang": "en",
-   "claim": "A caregiver for EI caregiving benefits is a family member or someone considered to be like a family member providing care or support to a critically ill or injured person or someone needing end-of-life care.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.093,
-   "entail": 0.049,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q34",
-   "lang": "fr",
-   "claim": "Un proche aidant pour l'assurance-emploi peut être n'importe quel membre de la famille ou une personne considérée comme telle qui aide ou soutient une personne gravement malade ou blessée, ou en fin de vie.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.627,
-   "entail": 0.146,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q34",
-   "lang": "fr",
-   "claim": "Cependant, cette personne doit avoir une relation de parenté avec la personne dont elle aide ou soutient.",
-   "cites": [],
-   "any_source_entail": 0.502,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q34",
-   "lang": "fr",
-   "claim": "Il n'est pas nécessaire qu'elle vive avec cette personne ni qu'ils aient un lien de parenté, mais la personne doit considérer la personne comme étant un membre",
-   "cites": [],
-   "any_source_entail": 0.999,
-   "verdict": "uncited"
+   "claim": "Les soins de fin de vie signifient fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochaines semaines (6 mois).",
+   "any_source_entail": 0.902,
+   "entail": 0.617,
+   "verdict": "supported"
   },
   {
    "id": "q35",
    "lang": "en",
+   "split": "test",
+   "claim_raw": "Yes, if you are under 65, receive a CPP retirement pension, and now have a severe and prolonged disability, you may be eligible for a CPP disability benefit.",
+   "cites": [
+    1
+   ],
    "claim": "Yes, if you are under 65, receive a CPP retirement pension, and now have a severe and prolonged disability, you may be eligible for a CPP disability benefit.",
-   "cites": [],
    "any_source_entail": 0.977,
-   "verdict": "uncited"
+   "entail": 0.821,
+   "verdict": "supported"
   },
   {
    "id": "q35",
    "lang": "fr",
-   "claim": "Oui, selon le contenu des sources mentionnées, si vous avez moins de 65 ans, que vous recevez une pension de retraite du RPC et que vous avez maintenant une invalidité grave et prolongée, vous pouvez présenter une demande pour une prestation d'invalidité.",
+   "split": "test",
+   "claim_raw": "Oui, selon le texte, si vous avez moins de 65 ans, que vous recevez une pension de retraite du RPC et que vous avez maintenant une invalidité grave et prolongée, vous pouvez présenter une demande pour une prestation d'invalidité.",
+   "cites": [
+    1
+   ],
+   "claim": "Oui, selon le texte, si vous avez moins de 65 ans, que vous recevez une pension de retraite du RPC et que vous avez maintenant une invalidité grave et prolongée, vous pouvez présenter une demande pour une prestation d'invalidité.",
+   "any_source_entail": 0.877,
+   "entail": 0.877,
+   "verdict": "supported"
+  },
+  {
+   "id": "q36",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "$762.50/month",
+   "cites": [
+    2
+   ],
+   "claim": "$762.50/month",
+   "any_source_entail": 0.142,
+   "entail": 0.142,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q36",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, le montant de la pension de la Sécurité de la vieillesse à 65 ans d'octobre à décembre 2026 est de 838,75 $.",
+   "cites": [
+    1
+   ],
+   "claim": "Le montant de la pension de la Sécurité de la vieillesse à 65 ans d'octobre à décembre 2026 est de 838,75 $.",
+   "any_source_entail": 0.043,
+   "entail": 0.015,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q37",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "According to Source, at age 75 in October to December 2026, the Old Age Security (OAS) pension would be $838.75 per month.",
+   "cites": [
+    1
+   ],
+   "claim": "At age 75 in October to December 2026, the Old Age Security (OAS) pension would be $838.75 per month.",
+   "any_source_entail": 0.978,
+   "entail": 0.978,
+   "verdict": "supported"
+  },
+  {
+   "id": "q37",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon les informations fournies dans les sources, le montant de la pension de la Sécurité canadienne (RPC) pour un individu âgé de 75 ans à la fin de 2026 serait de 838,75 $ par mois.",
+   "cites": [
+    1
+   ],
+   "claim": "Le montant de la pension de la Sécurité canadienne (RPC) pour un individu âgé de 75 ans à la fin de 2026 serait de 838,75 $ par mois.",
+   "any_source_entail": 0.99,
+   "entail": 0.99,
+   "verdict": "supported"
+  },
+  {
+   "id": "q37",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "(Sécurité de vieillesse) <source>À 75 ans (octobre à décembre 2026) : 838,75 $/mois Dates de paiement du RPC et de",
+   "cites": [
+    1
+   ],
+   "claim": "(Sécurité de vieillesse) <source>À 75 ans (octobre à décembre 2026) : 838,75 $/mois Dates de paiement du RPC et de",
+   "any_source_entail": 0.247,
+   "entail": 0.247,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q38",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Yes, if Service Canada has your eligibility information, they will automatically enroll you for the Old Age Security (OAS) pension.",
+   "cites": [
+    1
+   ],
+   "claim": "Yes, if Service Canada has your eligibility information, they will automatically enroll you for the Old Age Security (OAS) pension.",
+   "any_source_entail": 0.981,
+   "entail": 0.981,
+   "verdict": "supported"
+  },
+  {
+   "id": "q38",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Oui, si nous avons vos renseignements d'admissibilité, Service Canada pourra vous inscrire automatiquement à la pension de la Sécurité de la vieillesse (SV).",
+   "cites": [
+    1
+   ],
+   "claim": "Oui, si nous avons vos renseignements d'admissibilité, Service Canada pourra vous inscrire automatiquement à la pension de la Sécurité de la vieillesse (SV).",
+   "any_source_entail": 0.979,
+   "entail": 0.979,
+   "verdict": "supported"
+  },
+  {
+   "id": "q39",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, le montant mensuel maximal du SRG pour une personne célibataire est de 1 138,90 $.",
+   "cites": [
+    3
+   ],
+   "claim": "Le montant mensuel maximal du SRG pour une personne célibataire est de 1 138,90 $.",
+   "any_source_entail": 0.996,
+   "entail": 0.996,
+   "verdict": "supported"
+  },
+  {
+   "id": "q40",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "No, the sources do not contain this information.",
+   "cites": [],
+   "claim": "No, the sources do not contain this information.",
+   "any_source_entail": 0.032,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q40",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Oui, le Supplément de revenu garanti est un paiement mensuel non imposable.",
+   "cites": [],
+   "claim": "Oui, le Supplément de revenu garanti est un paiement mensuel non imposable.",
+   "any_source_entail": 0.998,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q41",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "According to Source, the last quarterly payment under the GST/HST credit was issued on April 2, 2026.",
+   "cites": [
+    1
+   ],
+   "claim": "The last quarterly payment under the GST/HST credit was issued on April 2, 2026.",
+   "any_source_entail": 0.924,
+   "entail": 0.924,
+   "verdict": "supported"
+  },
+  {
+   "id": "q42",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "June 5, 2026",
+   "cites": [
+    1
+   ],
+   "claim": "June 5, 2026",
+   "any_source_entail": 0.816,
+   "entail": 0.816,
+   "verdict": "supported"
+  },
+  {
+   "id": "q43",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "According to Source, one can defer their RRSP until age 85 with an option to defer further under the Advanced Life Deferred Annuity (ALDA).",
+   "cites": [
+    1,
+    1
+   ],
+   "claim": "One can defer their RRSP until age 85 with an option to defer further under the Advanced Life Deferred Annuity (ALDA).",
+   "any_source_entail": 0.99,
+   "entail": 0.99,
+   "verdict": "supported"
+  },
+  {
+   "id": "q43",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon les informations fournies par les sources, et, une rente viagère différée à un âge avancé (RVDAA) permet de reporter son REER jusqu'à l'âge de 85 ans.",
    "cites": [
     1,
     2,
     3
    ],
-   "any_source_entail": 0.328,
-   "entail": 0.328,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q36",
-   "lang": "en",
-   "claim": "At age 65 (October to December 2026), the Old Age Security pension is $762.50/month.",
-   "cites": [],
-   "any_source_entail": 0.998,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q36",
-   "lang": "fr",
-   "claim": "À 65 ans (octobre à décembre 2026), la pension de la Sécurité de la vieillesse est de 838,75 $ par mois.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.003,
-   "entail": 0.003,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q37",
-   "lang": "en",
-   "claim": "At age 75 in late 2026, the Old Age Security (OAS) pension would be approximately $838.",
-   "cites": [],
-   "any_source_entail": 0.995,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q37",
-   "lang": "fr",
-   "claim": "Le montant de la pension de la Sécurité canadienne des retraites (RPC) à 75 ans au cours de l'année 2026 sera de 838,75 $ par mois.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.988,
-   "entail": 0.988,
-   "verdict": "supported"
-  },
-  {
-   "id": "q37",
-   "lang": "fr",
-   "claim": "Pour obtenir le montant de la pension de la Sécurité de vieillesse (SV), il faut consulter le document, qui indique qu'en cas de célébration d'un mariage après le 64ème anniversaire, le supplément de",
-   "cites": [
-    2
-   ],
-   "any_source_entail": 0.05,
-   "entail": 0.043,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q38",
-   "lang": "en",
-   "claim": "Yes, if Service Canada has your eligibility information, they will automatically enroll you for the Old Age Security (OAS) pension.",
-   "cites": [],
-   "any_source_entail": 0.981,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q38",
-   "lang": "fr",
-   "claim": "Oui, dans la plupart des cas, Service Canada pourra vous inscrire automatiquement à la pension de la Sécurité de la vieillesse (SV) si nous avons vos renseignements d'admissibilité.",
-   "cites": [],
-   "any_source_entail": 0.986,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q39",
-   "lang": "en",
-   "claim": "The maximum monthly GIS for a single person is $789.",
-   "cites": [],
-   "any_source_entail": 0.0,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q39",
-   "lang": "fr",
-   "claim": "Pour une personne célibataire, le montant maximal du supplément de revenu garanti (SRG) est de 1 138,90 $.",
-   "cites": [
-    3
-   ],
-   "any_source_entail": 0.995,
-   "entail": 0.995,
-   "verdict": "supported"
-  },
-  {
-   "id": "q40",
-   "lang": "en",
-   "claim": "Yes, the Guaranteed Income Supplement (GIS) is a monthly, tax-free payment available to individuals aged 65 or older.",
-   "cites": [],
-   "any_source_entail": 0.996,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q40",
-   "lang": "fr",
-   "claim": "Oui, le Supplément de revenu garanti (SRG) est un paiement mensuel non imposable que vous pouvez obtenir si vous avez 65 ans ou plus.",
-   "cites": [],
+   "claim": "Et, une rente viagère différée à un âge avancé (RVDAA) permet de reporter son REER jusqu'à l'âge de 85 ans.",
    "any_source_entail": 0.993,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q41",
-   "lang": "en",
-   "claim": "The last quarterly GST/HST credit payment was issued on April 2, 2026.",
-   "cites": [],
-   "any_source_entail": 0.976,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q41",
-   "lang": "fr",
-   "claim": "Le dernier versement trimestriel du crédit pour la TPS/TVH a été envoyé le 2 avril 2026.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.921,
-   "entail": 0.908,
+   "entail": 0.993,
    "verdict": "supported"
-  },
-  {
-   "id": "q42",
-   "lang": "en",
-   "claim": "The one-time GST/HST credit top-up was paid on June 5, 2026.",
-   "cites": [],
-   "any_source_entail": 0.836,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q42",
-   "lang": "fr",
-   "claim": "Le versement supplémentaire unique du crédit pour la TPS/TVH a été émis le 5 juin 2026.",
-   "cites": [],
-   "any_source_entail": 0.892,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q42",
-   "lang": "fr",
-   "claim": "Cet événement était destiné à fournir un soutien immédiat avant l'entrée en vigueur de l'ACEBE en juillet 2026.",
-   "cites": [],
-   "any_source_entail": 0.998,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q42",
-   "lang": "fr",
-   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
-   "cites": [],
-   "any_source_entail": 0.903,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q42",
-   "lang": "fr",
-   "claim": "Pour obtenir plus d'informations, consultez le document \"Versement suppl",
-   "cites": [],
-   "any_source_entail": 0.588,
-   "verdict": "uncited"
   },
   {
    "id": "q43",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Cependant, il est important de noter que ces informations peuvent varier selon les régimes spécifiques et les conditions locales, donc il est recommandé de consulter directement le site web du gouvernement ou un conseiller fiscal local pour obtenir des informations précises.",
+   "cites": [],
+   "claim": "Cependant, il est important de noter que ces informations peuvent varier selon les régimes spécifiques et les conditions locales, donc il est recommandé de consulter directement le site web du gouvernement ou un conseiller fiscal local pour obtenir des informations précises.",
+   "any_source_entail": 0.005,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q44",
    "lang": "en",
-   "claim": "One can defer their RRSP or RRIF until age 85 with an option to do so.",
+   "split": "test",
+   "claim_raw": "Yes, you can withdraw from your RRSP to buy or build a qualified home under the Home Buyers' Plan.",
    "cites": [
     1
    ],
+   "claim": "Yes, you can withdraw from your RRSP to buy or build a qualified home under the Home Buyers' Plan.",
+   "any_source_entail": 0.996,
+   "entail": 0.992,
+   "verdict": "supported"
+  },
+  {
+   "id": "q44",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Oui, selon les informations fournies, il est possible de retirer des fonds du REER pour acheter ou construire une maison admissible.",
+   "cites": [],
+   "claim": "Oui, selon les informations fournies, il est possible de retirer des fonds du REER pour acheter ou construire une maison admissible.",
+   "any_source_entail": 0.994,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q44",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Cela correspond au lien mentionné ci-dessus qui précise que \"Retirer des fonds de vos REER pour acheter ou construire une habitation admissible\" est un option disponible.",
+   "cites": [],
+   "claim": "Cela correspond au lien mentionné ci-dessus qui précise que \"Retirer des fonds de vos REER pour acheter ou construire une habitation admissible\" est un option disponible.",
+   "any_source_entail": 0.956,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q45",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, l'âge limite de l'enfant dans la règle de garde pour l'union de fait du CELI est 19 ans.",
+   "cites": [
+    1
+   ],
+   "claim": "L'âge limite de l'enfant dans la règle de garde pour l'union de fait du CELI est 19 ans.",
+   "any_source_entail": 0.997,
+   "entail": 0.997,
+   "verdict": "supported"
+  },
+  {
+   "id": "q46",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, la période de 12 mois d'union de fait pour le compte d'épargne libre d'impôt (CELI) commence lorsque deux personnes vivent ensemble dans une relation conjugale et que leur relation a duré au moins 12 mois sans interruption.",
+   "cites": [
+    1
+   ],
+   "claim": "La période de 12 mois d'union de fait pour le compte d'épargne libre d'impôt (CELI) commence lorsque deux personnes vivent ensemble dans une relation conjugale et que leur relation a duré au moins 12 mois sans interruption.",
+   "any_source_entail": 0.868,
+   "entail": 0.868,
+   "verdict": "supported"
+  },
+  {
+   "id": "q47",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "If you did not renew your dental care coverage by the deadline, you can still re-apply through the link provided in the Canadian Dental Care Plan's website.",
+   "cites": [],
+   "claim": "If you did not renew your dental care coverage by the deadline, you can still re-apply through the link provided in the Canadian Dental Care Plan's website.",
+   "any_source_entail": 0.057,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q47",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "However, there will be a gap in coverage during this time.",
+   "cites": [
+    1
+   ],
+   "claim": "However, there will be a gap in coverage during this time.",
+   "any_source_entail": 0.814,
+   "entail": 0.814,
+   "verdict": "supported"
+  },
+  {
+   "id": "q47",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Selon la source, si vous n'avez pas renouvelé votre couverture de soins dentaires avant la date limite, vous recevrez une interruption de couverture.",
+   "cites": [
+    1
+   ],
+   "claim": "Si vous n'avez pas renouvelé votre couverture de soins dentaires avant la date limite, vous recevrez une interruption de couverture.",
+   "any_source_entail": 0.017,
+   "entail": 0.017,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q47",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Source: Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n’avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande; cependant, vous aurez une interruption de couverture.",
+   "cites": [
+    1
+   ],
+   "claim": "Source: Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n’avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande; cependant, vous aurez une interruption de couverture.",
+   "any_source_entail": 0.523,
+   "entail": 0.25,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q48",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Yes, a removal order can affect your citizenship application as it may suspend or delay processing until you are no longer under review.",
+   "cites": [
+    1
+   ],
+   "claim": "Yes, a removal order can affect your citizenship application as it may suspend or delay processing until you are no longer under review.",
+   "any_source_entail": 0.059,
+   "entail": 0.027,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q48",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Les sources mentionnent clairement que \"Une mesure de renvoi (une ordonnance de quitter le Canada délivrée par les autorités canadiennes)\" peut affecter votre demande de citoyenneté.",
+   "cites": [
+    1
+   ],
+   "claim": "Les sources mentionnent clairement que \"Une mesure de renvoi (une ordonnance de quitter le Canada délivrée par les autorités canadiennes)\" peut affecter votre demande de citoyenneté.",
+   "any_source_entail": 0.834,
+   "entail": 0.364,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q49",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Express Entry manages three immigration programs for skilled workers: Federal Skilled Worker Program.",
+   "cites": [
+    1
+   ],
+   "claim": "Express Entry manages three immigration programs for skilled workers: Federal Skilled Worker Program.",
+   "any_source_entail": 0.998,
+   "entail": 0.998,
+   "verdict": "supported"
+  },
+  {
+   "id": "q50",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "You can manage your student loan account by accessing and updating your loan account through the National Student Loans Service Centre (NSLSC).",
+   "cites": [
+    1
+   ],
+   "claim": "You can manage your student loan account by accessing and updating your loan account through the National Student Loans Service Centre (NSLSC).",
    "any_source_entail": 0.999,
    "entail": 0.999,
    "verdict": "supported"
   },
   {
-   "id": "q43",
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "According to the text provided, your first Canada Disability Benefit payment will be on the third Thursday of the month following your approval and will include any back payments that were due.",
+   "cites": [],
+   "claim": "According to the text provided, your first Canada Disability Benefit payment will be on the third Thursday of the month following your approval and will include any back payments that were due.",
+   "any_source_entail": 0.998,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Specifically, the text states:",
+   "cites": [],
+   "claim": "Specifically, the text states:",
+   "any_source_entail": 0.934,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "\"The first month of eligibility for the CDB was June 2025.",
+   "cites": [],
+   "claim": "\"The first month of eligibility for the CDB was June 2025.",
+   "any_source_entail": 0.957,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Payments began in July 2025.\"",
+   "cites": [],
+   "claim": "Payments began in July 2025.\"",
+   "any_source_entail": 0.969,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "Therefore, your first payment will be made approximately one month after your application is approved.",
+   "cites": [],
+   "claim": "Therefore, your first payment will be made approximately one month after your application is approved.",
+   "any_source_entail": 0.992,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
    "lang": "fr",
-   "claim": "Et, une rente viagère différée à un âge avancé (RVDAA) permet de reporter votre REER ou votre FERR jusqu'à ce que vous atteigniez l'âge de 85 ans.",
+   "split": "test",
+   "claim_raw": "Selon les informations fournies dans les sources, vous recevrez votre premier paiement de la Prestation canadienne pour les personnes handicapées le troisième jeudi du mois suivant votre approbation.",
+   "cites": [],
+   "claim": "Vous recevrez votre premier paiement de la Prestation canadienne pour les personnes handicapées le troisième jeudi du mois suivant votre approbation.",
+   "any_source_entail": 0.987,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q51",
+   "lang": "fr",
+   "split": "test",
+   "claim_raw": "Cela se produit généralement au début de l'année suivante à partir de juin 2025.",
+   "cites": [],
+   "claim": "Cela se produit généralement au début de l'année suivante à partir de juin 2025.",
+   "any_source_entail": 0.976,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q52",
+   "lang": "en",
+   "split": "test",
+   "claim_raw": "June 2025.",
+   "cites": [
+    1
+   ],
+   "claim": "June 2025.",
+   "any_source_entail": 0.944,
+   "entail": 0.739,
+   "verdict": "supported"
+  },
+  {
+   "id": "u02",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "To renew your Ontario driver's licence, you should visit the Department of Transportation website for more detailed steps on applying online or by mail.",
+   "cites": [
+    3
+   ],
+   "claim": "To renew your Ontario driver's licence, you should visit the Department of Transportation website for more detailed steps on applying online or by mail.",
+   "any_source_entail": 0.024,
+   "entail": 0.009,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "u04",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "To apply for US Social Security retirement benefits, you must be under 65 years old, receive a CPP retirement pension, and now have a severe and prolonged disability.",
+   "cites": [],
+   "claim": "To apply for US Social Security retirement benefits, you must be under 65 years old, receive a CPP retirement pension, and now have a severe and prolonged disability.",
+   "any_source_entail": 0.942,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u04",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "You can also apply if you are unable to work due to a severe and prolonged disability, either as part of your CPP post-retirement disability benefit application or as an additional application for a dependent child of someone receiving a CPP disability benefit.",
    "cites": [
     1,
     2,
     3
    ],
-   "any_source_entail": 0.987,
-   "entail": 0.987,
-   "verdict": "supported"
-  },
-  {
-   "id": "q43",
-   "lang": "fr",
-   "claim": "Cela signifie qu'une fois que vous avez atteint cet âge, vous pouvez retirer les fonds de votre REER sans impôts sur le montant reporté avant cette date.",
-   "cites": [],
-   "any_source_entail": 0.888,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q44",
-   "lang": "en",
-   "claim": "Yes, you can withdraw from your RRSP to buy or build a qualified home under the Home Buyers' Plan.",
-   "cites": [],
-   "any_source_entail": 0.996,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q44",
-   "lang": "fr",
-   "claim": "Oui, selon les informations fournies, il est possible de retirer des fonds du REER pour acheter ou construire une maison admissible.",
-   "cites": [],
-   "any_source_entail": 0.994,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q44",
-   "lang": "fr",
-   "claim": "Cela peut être fait sous certaines conditions spécifiques, notamment si vous utilisez ces fonds pour financer l'acquisition d'une résidence principale ou secondaire.",
-   "cites": [],
-   "any_source_entail": 0.783,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q44",
-   "lang": "fr",
-   "claim": "Il est important de vérifier les règles exactes en fonction de votre situation personnelle et de votre région.",
-   "cites": [],
-   "any_source_entail": 0.031,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q45",
-   "lang": "en",
-   "claim": "The age cutoff for a child in the TFSA common-law custody rule is 19 years old.",
-   "cites": [],
-   "any_source_entail": 0.947,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q45",
-   "lang": "fr",
-   "claim": "L'âge limite de l'enfant dans la règle de garde pour l'union de fait du CELI est fixée à 19 ans.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.989,
-   "entail": 0.989,
-   "verdict": "supported"
-  },
-  {
-   "id": "q46",
-   "lang": "en",
-   "claim": "The separation must last for less than 90 days to break the 12-month common-law period for a TFSA.",
-   "cites": [],
-   "any_source_entail": 0.57,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q46",
-   "lang": "fr",
-   "claim": "La durée minimale de la relation conjugale pendant laquelle la période de 12 mois d'union de fait pour le compte d'épargne libre d'impôt (CELI) peut commencer est de 12 mois sans interruption.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.09,
-   "entail": 0.09,
+   "claim": "You can also apply if you are unable to work due to a severe and prolonged disability, either as part of your CPP post-retirement disability benefit application or as an additional application for a dependent child of someone receiving a CPP disability benefit.",
+   "any_source_entail": 0.057,
+   "entail": 0.057,
    "verdict": "unsupported"
   },
   {
-   "id": "q46",
-   "lang": "fr",
-   "claim": "Pour préciser, la source indique que \"la relation actuelle avec cette personne a duré au moins 12 mois sans interruption\".",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.388,
-   "entail": 0.233,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q46",
-   "lang": "fr",
-   "claim": "Cela signifie que même si vous avez vécu séparément pendant plus de 90 jours, ce ne serait pas suff",
-   "cites": [],
-   "any_source_entail": 0.28,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q47",
+   "id": "u10",
    "lang": "en",
-   "claim": "If you did not renew your dental care coverage by the deadline, you can still apply again through the link provided in the Canadian Dental Care Plan's website.",
+   "split": "unanswerable",
+   "claim_raw": "To obtain a marriage certificate in Ontario, you should contact the local registrar's office where the ceremony took place.",
    "cites": [],
-   "any_source_entail": 0.036,
+   "claim": "To obtain a marriage certificate in Ontario, you should contact the local registrar's office where the ceremony took place.",
+   "any_source_entail": 0.399,
    "verdict": "uncited"
   },
   {
-   "id": "q47",
+   "id": "u10",
    "lang": "en",
-   "claim": "However, there will be a gap in your coverage during this time.",
+   "split": "unanswerable",
+   "claim_raw": "This process typically involves submitting necessary documentation such as proof of identity and residency, along with any required fees.",
    "cites": [],
-   "any_source_entail": 0.787,
+   "claim": "This process typically involves submitting necessary documentation such as proof of identity and residency, along with any required fees.",
+   "any_source_entail": 0.018,
    "verdict": "uncited"
   },
   {
-   "id": "q47",
-   "lang": "fr",
-   "claim": "Si vous n'avez pas renouvelé votre couverture de soins dentaires avant la date limite, vous recevrez une interruption de couverture pour la période suivante.",
-   "cites": [],
-   "any_source_entail": 0.014,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q47",
-   "lang": "fr",
-   "claim": "Vous pouvez présenter une nouvelle demande en cliquant sur le lien fourni dans la source, mais cela entraînera une suspension de votre couverture pendant cette période.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.968,
-   "entail": 0.852,
-   "verdict": "supported"
-  },
-  {
-   "id": "q47",
-   "lang": "fr",
-   "claim": "Pour plus d'informations sur le processus de renouvellement, consultez la source.",
-   "cites": [
-    3
-   ],
-   "any_source_entail": 0.914,
-   "entail": 0.052,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q48",
+   "id": "u10",
    "lang": "en",
-   "claim": "Yes, a removal order can affect your citizenship application if it is asked by Canadian officials and relates to your Permanent Resident (PR) status.",
+   "split": "unanswerable",
+   "claim_raw": "For specific details on what documents are needed and how to proceed, you may want to visit the official government website or consult with a local registrar directly.",
    "cites": [
     1,
     2
    ],
-   "any_source_entail": 0.418,
-   "entail": 0.418,
+   "claim": "For specific details on what documents are needed and how to proceed, you may want to visit the official government website or consult with a local registrar directly.",
+   "any_source_entail": 0.099,
+   "entail": 0.062,
    "verdict": "unsupported"
   },
   {
-   "id": "q48",
+   "id": "u12",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "To apply for a UK visitor visa, you should first confirm your eligibility by contacting the relevant embassy, high commission, or consulate of your current country of citizenship.",
+   "cites": [],
+   "claim": "To apply for a UK visitor visa, you should first confirm your eligibility by contacting the relevant embassy, high commission, or consulate of your current country of citizenship.",
+   "any_source_entail": 0.455,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u12",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "Then, print all pages from the application section and select the waiver checkbox in the signature section of your online or paper application.",
+   "cites": [],
+   "claim": "Then, print all pages from the application section and select the waiver checkbox in the signature section of your online or paper application.",
+   "any_source_entail": 0.001,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u12",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "Ensure you meet all the requirements for minors as specified in point 5(1).",
+   "cites": [],
+   "claim": "Ensure you meet all the requirements for minors as specified in point 5(1).",
+   "any_source_entail": 0.915,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u12",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "Additionally, before applying, verify if you are no longer a PR status holder since losing this status could suspend your application.",
+   "cites": [],
+   "claim": "Additionally, before applying, verify if you are no longer a PR status holder since losing this status could suspend your application.",
+   "any_source_entail": 0.956,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u17",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "To vote in a US presidential election from abroad, you should first confirm your eligibility by contacting the U.S.",
+   "cites": [],
+   "claim": "To vote in a US presidential election from abroad, you should first confirm your eligibility by contacting the U.S.",
+   "any_source_entail": 0.23,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u17",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "Embassy, High Commission, or Consulate of your current country of citizenship.",
+   "cites": [],
+   "claim": "Embassy, High Commission, or Consulate of your current country of citizenship.",
+   "any_source_entail": 0.103,
+   "verdict": "uncited"
+  },
+  {
+   "id": "u17",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "Ensure you are not currently a Permanent Resident (PR) before proceeding with the application process.",
+   "cites": [
+    1
+   ],
+   "claim": "Ensure you are not currently a Permanent Resident (PR) before proceeding with the application process.",
+   "any_source_entail": 0.961,
+   "entail": 0.716,
+   "verdict": "supported"
+  },
+  {
+   "id": "u22",
    "lang": "fr",
-   "claim": "Oui, une mesure de renvoi peut affecter votre demande de citoyenneté.",
+   "split": "unanswerable",
+   "claim_raw": "Les chats doivent recevoir un vaccin contre le feline immunodeficience maigre (FIM), également connu sous le nom de FIV, tous les trois ans.",
    "cites": [],
-   "any_source_entail": 0.983,
+   "claim": "Les chats doivent recevoir un vaccin contre le feline immunodeficience maigre (FIM), également connu sous le nom de FIV, tous les trois ans.",
+   "any_source_entail": 0.024,
    "verdict": "uncited"
   },
   {
-   "id": "q48",
+   "id": "u22",
    "lang": "fr",
-   "claim": "Si vous êtes visé par une ordonnance de quitter le Canada délivrée par les autorités canadiennes, cela signifie que vous pourriez être exclu de la possibilité de faire une demande de citoyenneté.",
+   "split": "unanswerable",
+   "claim_raw": "Cependant, il existe aussi un vaccin contre le feline hépatite B (FHBV).",
    "cites": [],
-   "any_source_entail": 0.908,
+   "claim": "Cependant, il existe aussi un vaccin contre le feline hépatite B (FHBV).",
+   "any_source_entail": 0.012,
    "verdict": "uncited"
   },
   {
-   "id": "q48",
+   "id": "u22",
    "lang": "fr",
-   "claim": "Cependant, il est possible que votre demande soit suspendue pendant que vous effectuez cet examen.",
+   "split": "unanswerable",
+   "claim_raw": "Il est recommandé de vérifier auprès du vétérinaire local pour connaître les vaccinations nécessaires selon vos préférences locales.",
+   "cites": [
+    1
+   ],
+   "claim": "Il est recommandé de vérifier auprès du vétérinaire local pour connaître les vaccinations nécessaires selon vos préférences locales.",
+   "any_source_entail": 0.126,
+   "entail": 0.064,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "u23",
+   "lang": "en",
+   "split": "unanswerable",
+   "claim_raw": "To apply for a Japanese working holiday visa, you should first determine if you are eligible by contacting the embassy, high commission, or consulate of your current country of citizenship.",
    "cites": [],
-   "any_source_entail": 0.995,
+   "claim": "To apply for a Japanese working holiday visa, you should first determine if you are eligible by contacting the embassy, high commission, or consulate of your current country of citizenship.",
+   "any_source_entail": 0.773,
    "verdict": "uncited"
   },
   {
-   "id": "q49",
+   "id": "u23",
    "lang": "en",
-   "claim": "Express Entry manages three main immigration programs for skilled workers:",
-   "cites": [],
-   "any_source_entail": 0.992,
-   "verdict": "uncited"
+   "split": "unanswerable",
+   "claim_raw": "Then, print out all relevant pages from that section.",
+   "cites": [
+    1
+   ],
+   "claim": "Then, print out all relevant pages from that section.",
+   "any_source_entail": 0.047,
+   "entail": 0.047,
+   "verdict": "unsupported"
   },
   {
-   "id": "q49",
+   "id": "u25",
    "lang": "en",
-   "claim": "**Federal Skilled Worker Program** - This program focuses on individuals who have specialized skills or experience relevant to Canada's economy.",
+   "split": "unanswerable",
+   "claim_raw": "Appealing a parking ticket in Vancouver typically involves contacting the city's transportation department directly for assistance.",
    "cites": [],
-   "any_source_entail": 0.066,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q49",
-   "lang": "en",
-   "claim": "**Canadian Experience Class** - Designed for foreign nationals who have worked in Canada for at least two years under certain conditions.",
-   "cites": [],
-   "any_source_entail": 0.007,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q49",
-   "lang": "en",
-   "claim": "**Federal Skilled Trades Program** - For those with trades-related skills and experience, particularly in areas where there is a shortage of qualified workers.",
-   "cites": [],
+   "claim": "Appealing a parking ticket in Vancouver typically involves contacting the city's transportation department directly for assistance.",
    "any_source_entail": 0.004,
    "verdict": "uncited"
   },
   {
-   "id": "q49",
+   "id": "u25",
    "lang": "en",
-   "claim": "These programs utilize the Express Entry system to streamline the processing of applications by inviting candidates based on their scores calculated through a point system",
-   "cites": [],
-   "any_source_entail": 0.808,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q49",
-   "lang": "fr",
-   "claim": "Entrée express gère trois programmes d'immigration : la catégorie de l'expérience canadienne, le programme de réintégration et le programme de renouvellement de permis de travail.",
+   "split": "unanswerable",
+   "claim_raw": "There are no specific appeals processes outlined in the provided sources that could guide how to appeal a parking ticket in Vancouver.",
    "cites": [
     1
    ],
-   "any_source_entail": 0.258,
-   "entail": 0.258,
+   "claim": "There are no specific appeals processes outlined in the provided sources that could guide how to appeal a parking ticket in Vancouver.",
+   "any_source_entail": 0.022,
+   "entail": 0.013,
    "verdict": "unsupported"
-  },
-  {
-   "id": "q50",
-   "lang": "en",
-   "claim": "You can manage your student loan account by accessing and updating your loan information through the National Student Loans Service Centre (NSLSC).",
-   "cites": [],
-   "any_source_entail": 0.997,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q50",
-   "lang": "fr",
-   "claim": "Vous pouvez gérer votre compte de prêt au Centre de service national de prêts aux étudiants (CSNPE).",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.999,
-   "entail": 0.997,
-   "verdict": "supported"
-  },
-  {
-   "id": "q50",
-   "lang": "fr",
-   "claim": "Vous devez accéder à votre compte et mettre à jour vos informations pour conserver votre prêt exempt de paiements.",
-   "cites": [],
-   "any_source_entail": 0.902,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q50",
-   "lang": "fr",
-   "claim": "Pour obtenir plus d'informations sur comment faire une demande de bourses et de prêts d'études, consultez le document.",
-   "cites": [
-    2
-   ],
-   "any_source_entail": 0.748,
-   "entail": 0.028,
-   "verdict": "unsupported"
-  },
-  {
-   "id": "q50",
-   "lang": "fr",
-   "claim": "Enfin, si vous avez besoin d'aide pour obtenir une exonération du prêt d'études canadien, vous devriez consulter",
-   "cites": [],
-   "any_source_entail": 0.935,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q51",
-   "lang": "en",
-   "claim": "Your first Canada Disability Benefit payment will be made the month after your application is received and approved.",
-   "cites": [],
-   "any_source_entail": 0.995,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q51",
-   "lang": "en",
-   "claim": "Specifically, the sources state that \"If you qualify for payments, you will begin receiving payments the month after your application is received and approved.\" This means that your first payment would come approximately three months after submitting your application.",
-   "cites": [],
-   "any_source_entail": 0.981,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q51",
-   "lang": "fr",
-   "claim": "Votre premier paiement de la Prestation canadienne pour les personnes handicapées devrait être effectué le troisième jeudi du mois suivant votre approbation.",
-   "cites": [],
-   "any_source_entail": 0.992,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q51",
-   "lang": "fr",
-   "claim": "Cela se produit généralement au début de l'année qui suit votre demande.",
-   "cites": [],
-   "any_source_entail": 0.591,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q52",
-   "lang": "en",
-   "claim": "The first month of eligibility for the Canada Disability Benefit was June 2025.",
-   "cites": [],
-   "any_source_entail": 0.994,
-   "verdict": "uncited"
-  },
-  {
-   "id": "q52",
-   "lang": "fr",
-   "claim": "Le premier mois d'admissibilité pour la Prestation canadienne pour les personnes handicapées (PCPH) était juin 2025.",
-   "cites": [
-    1
-   ],
-   "any_source_entail": 0.99,
-   "entail": 0.99,
-   "verdict": "supported"
   }
  ]
 }
