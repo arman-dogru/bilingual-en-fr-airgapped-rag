@@ -76,8 +76,8 @@ The DEV-split table is in `results/tables.md`. DEV values are similar, except th
 |---|---|---|---|
 | D · 0.5B, same settings | fp32 | 4 → 4 | 104/104 (1.000) |
 | D · 0.5B, different thread count | fp32 | 4 → 8 | 104/104 (1.000) |
-B_RERUN_ROW
-The old pipeline (bf16, thread count = `os.cpu_count()`) matched on only 61/104 answers in the reviewer's rerun. That drift (about 0.03 absolute) was as large as several ablation deltas. The new runs are identical, so every delta above reflects question-sampling uncertainty only, and the CIs capture that.
+| B · 1.5B, same settings | bf16 | 4 → 4 | 99/104 (0.952). Citation faithfulness is unchanged (0.577 dev+test, 0.586 test, same 130 claims). |
+The old pipeline (bf16, thread count = `os.cpu_count()`) matched on only 61/104 answers in the reviewer's rerun. That drift (about 0.03 absolute) was as large as several ablation deltas. With fp32, the 0.5B answers are byte-identical, even across thread counts. The 1.5B bf16 run still varies on 5% of answers, but the metric doesn't move. Every delta above therefore reflects question-sampling uncertainty, and the CIs capture that.
 
 ### Abstention on out-of-corpus questions (TEST: 13 unanswerable × 2 languages vs 26 answerable × 2; τ tuned on DEV)
 | Config | Mechanism | Precision | Recall | False-refusal rate | Unanswerable answered |
@@ -103,7 +103,7 @@ Raw (un-normalized) claims at 0.5 reach 0.89 accuracy over all 53 items, with re
 3. **0.5B + post-hoc is comparable to 1.5B few-shot** (Δ −0.01 [−0.15, +0.11]). That isn't a like-for-like test. Like for like, 0.5B + post-hoc vs 1.5B + post-hoc is also comparable on TEST (−0.08 [−0.21, +0.04]), but lower on dev+test.
 4. **Mixed-language retrieval with the reranker doesn't help generation.** It's comparable on TEST and slightly worse on dev+test.
 5. **The models don't abstain reliably on their own.** The few-shot demo teaches them to always answer: 23–26 of 26 unanswerable test questions get an answer. A **retrieval-score gate** refuses all of them, at the cost of refusing 15% (reranker) to 23% (cosine) of answerable questions.
-6. **Generation is now reproducible.** Same settings give byte-identical answers. See the determinism table for thread-count sensitivity.
+6. **Generation is now reproducible.** 0.5B fp32 answers are byte-identical (104/104 at 4 and at 8 threads). 1.5B bf16 matches on 99/104 answers with identical faithfulness.
 
 ## Error analysis (qualitative; all examples are from the DEV split / calibration run)
 - **Wrong number, still "entailed":** "il faut compter au moins 365 jours de présence effective…" (gold: 1 095 days). The judge scored it 0.97 because a retrieved chunk mentions "365 days" for temporary-resident credit. NLI is known to be weak with numbers.
@@ -128,7 +128,7 @@ OUT=data/corpus.refetch.json .venv/bin/python src/fetch_corpus.py   # optional: 
 ```
 Configuration is read from environment variables, and invalid values are rejected: `LLM_MODEL`, `RETR` (`same` or `mixed_rr`), `PROMPT` (`basic` or `fewshot`), `DTYPE`, `THREADS`, `QA`, `IN`/`OUT`, and `NORMALIZE`. Results from the previous iteration, which used the old parser and nondeterministic decoding, are kept for reference in `results/legacy_445992f/`.
 
-**Air-gapped run:** `run_offline.sh` runs inside `unshare -rn`, a network namespace with only loopback. It requires `curl` to fail with "could not resolve" or "could not connect" (rc 6/7) and aborts on any other outcome. Then, with `HF_HUB_OFFLINE=1`, it runs retrieval, config F, post-hoc attribution and the audit, and compares the offline answers byte-for-byte with the committed online run (`results/offline_run.log`).
+**Air-gapped run:** `run_offline.sh` runs inside `unshare -rn`, a network namespace with only loopback. It requires `curl` to fail with "could not resolve" or "could not connect" (rc 6/7) and aborts on any other outcome. Then, with `HF_HUB_OFFLINE=1`, it runs retrieval, config F, post-hoc attribution and the audit, and compares the offline answers byte-for-byte with the committed online run (`results/offline_run.log`). **Last run (PR #10): offline F answers were identical to the online run on 104/104, and offline G citation faithfulness was 0.577 [0.50, 0.66], equal to the online G value on dev+test.**
 
 ## Limitations
 - The corpus is small (20 page pairs) and some pages are mostly navigation. The Q&A set, splits, gold labels, unanswerable set and calibration labels all come from one author, the Developer agent. The test split is disjoint by construction but wasn't written independently.

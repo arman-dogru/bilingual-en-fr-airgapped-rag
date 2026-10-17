@@ -1,4 +1,12 @@
 {
+ "B_1.5b_same_fewshot": {
+  "reference": "answers_B_1.5b_same_fewshot.json",
+  "n": 104,
+  "identical": 99,
+  "match_rate": 0.952,
+  "threads": 4,
+  "reference_threads": 4
+ },
  "D_0.5b_same_basic": {
   "reference": "answers_D_0.5b_same_basic.json",
   "n": 104,

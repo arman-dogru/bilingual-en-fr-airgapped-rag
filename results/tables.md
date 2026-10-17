@@ -64,6 +64,7 @@
 
 | Rerun | Threads (ref -> rerun) | Identical | Match rate |
 |---|---|---|---|
+| B_1.5b_same_fewshot | 4 -> 4 | 99/104 | 0.952 |
 | D_0.5b_same_basic | 4 -> 4 | 104/104 | 1.000 |
 | D_0.5b_same_basic_threads8 | 4 -> 8 | 104/104 | 1.000 |
 

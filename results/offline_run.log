@@ -1,0 +1,8 @@
+== interfaces:  lo 
+no network: OK (curl rc=6: could not resolve/connect)
+retrieval ok
+rag (F) ok
+post-hoc attribution ok
+audit ok
+offline vs online F answers identical: 104/104
+offline G citation faithfulness: 0.577 [0.498, 0.659]
