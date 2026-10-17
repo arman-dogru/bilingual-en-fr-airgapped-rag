@@ -7,8 +7,10 @@ import json, re, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 NLI = os.environ.get("NLI_MODEL", "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
-FR_W = set("le la les des du de et est un une pour que qui vous dans pas sur au aux sont avec ou ne oui non semaines jours".split())
-EN_W = set("the and is of to for you in are a an that with your be can not or on as if yes no weeks days".split())
+FR_W = set("le la les des du de et est un une pour que qui vous dans pas sur au aux sont avec ou ne oui non semaines jours "
+           "comment quand où combien quel quelle quels quelles qu est-ce je j' mon ma mes puis-je dois-je faut-il il elle on ce cette ces leur par".split())
+EN_W = set("the and is of to for you in are a an that with your be can not or on as if yes no weeks days "
+           "how what when where who which why do does did i my me much many long get should will it this there from by".split())
 def lang_of(t):
     """'en' / 'fr' by stopword vote; 'und' when there is no signal or a tie (no default to EN)."""
     w = re.findall(r"[a-zàâçéèêëîïôûùüÿœ']+", t.lower()); f = sum(x in FR_W for x in w); e = sum(x in EN_W for x in w)
@@ -35,6 +37,10 @@ def sentences(ans):
         if merged and ABBR.search(merged[-1]): merged[-1] += " " + p
         else: merged.append(p)
     return merged
+REFUSAL_SENTENCES = ("The sources do not contain this information.", "Les sources ne contiennent pas cette information.")
+def _norm_s(t): return re.sub(r"[\s«»\"'.]+", " ", CITE.sub("", t)).strip().lower()
+_REF_N = {_norm_s(x) for x in REFUSAL_SENTENCES}
+def is_refusal_sentence(t): return _norm_s(t) in _REF_N
 def split_claims(ans):
     """All sentences with their citations: [(text, cites, scored)]. Short / fragment sentences are kept
     (scored=False) so post-hoc attribution never deletes them."""
@@ -46,14 +52,19 @@ def split_claims(ans):
         if not t: continue
         words = re.findall(r"\w+", t)
         scored = len(words) >= 4 or (len(words) >= 2 and bool(re.search(r"\d", t)))  # "Until age 85." is a claim
+        if is_refusal_sentence(t): scored = False   # the fixed refusal sentence is an abstention, not a claim
         out.append([t, cites, scored])
     return out
 def claims(ans):
     """Scored claims only: [(text, cites)]."""
     return [(t, c) for t, c, s in split_claims(ans) if s]
-REFUSAL = re.compile(r"(sources? (do|does) not contain|(do not|don't|doesn't|does not) (contain|provide|mention|include|specify)|not (mentioned|provided|specified|available) in the sources|no information|"
-                     r"ne contiennent pas|ne contient pas|ne (mentionnent|mentionne|précisent|précise|fournissent|fournit) pas|pas d'information|aucune information|je ne peux pas|i cannot|i can't)", re.I)
-def is_refusal(ans): return bool(REFUSAL.search(ans)) or not ans.strip()
+def is_refusal(ans):
+    """Abstention = empty answer or an answer that starts with the fixed refusal sentence (EN or FR).
+    Hedges inside partial answers ("...does not provide the date") are NOT abstentions."""
+    if not ans.strip(): return True
+    first = sentences(ans)[0] if sentences(ans) else ""
+    return is_refusal_sentence(first)
+def has_refusal_sentence(ans): return any(is_refusal_sentence(s) for s in sentences(ans))
 def split_of(qid): return "unanswerable" if qid.startswith("u") else ("dev" if int(qid[1:]) <= 26 else "test")
 def boot_ci(per_q, f, B=2000, seed=0):
     """Cluster bootstrap over questions (EN+FR of a question resampled together). per_q: list of per-question payloads."""
@@ -84,7 +95,7 @@ def main():
     D = json.load(open(inp)); A = D["answers"]; entail = load_judge(); norm = os.environ.get("NORMALIZE", "1") == "1"
     rows, answers = [], []
     for a in A:
-        ar = dict(id=a["id"], lang=a["lang"], split=split_of(a["id"]), answerable=a.get("answerable", True), refusal=is_refusal(a["answer"]),
+        ar = dict(id=a["id"], lang=a["lang"], split=split_of(a["id"]), answerable=a.get("answerable", True), refusal=is_refusal(a["answer"]), refusal_sentence=has_refusal_sentence(a["answer"]),
                   lang_detected=lang_of(a["answer"]), n_claims=0, n_supported=0, n_grounded=0, n_uncited=0, n_badref=0)
         for t, cites in claims(a["answer"]):
             r = dict(id=a["id"], lang=a["lang"], split=ar["split"], claim_raw=t, cites=cites); t = normalize(t) if norm else t; r["claim"] = t
@@ -107,7 +118,8 @@ def main():
                  uncited_rate=round(sum(r["n_uncited"] for r in ans) / max(tot, 1), 3), bad_ref_rate=round(sum(r["n_badref"] for r in ans) / max(tot, 1), 3),
                  grounded_in_any_source=round(grounded(ans), 3), grounded_ci95=boot_ci(Q, lambda qs: grounded(flat(qs))),
                  answer_language_match=round(sum(r["lang_detected"] == r["lang"] for r in ans) / max(len(ans), 1), 3),
-                 refusal_rate=round(sum(r["refusal"] for r in ans) / max(len(ans), 1), 3))
+                 refusal_rate=round(sum(r["refusal"] for r in ans) / max(len(ans), 1), 3),
+                 refusal_sentence_rate=round(sum(r["refusal_sentence"] for r in ans) / max(len(ans), 1), 3))
         for L in ("en", "fr"): s[f"faithfulness_{L}"] = round(faith([r for r in ans if r["lang"] == L]), 3)
         return s
     rep = dict(nli=NLI, nli_revision=__import__("config").rev(NLI), source_file=inp, normalize=norm, llm=D.get("llm"), env=D.get("env"))

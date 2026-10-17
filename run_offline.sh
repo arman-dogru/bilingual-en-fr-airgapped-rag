@@ -20,6 +20,11 @@ import json
 a = {(x["id"], x["lang"]): x["answer"] for x in json.load(open("results/offline_answers_F.json"))["answers"]}
 b = {(x["id"], x["lang"]): x["answer"] for x in json.load(open("results/answers_F_0.5b_mixrr_fewshot.json"))["answers"]}
 same = sum(a[k] == b.get(k) for k in a); print(f"offline vs online F answers identical: {same}/{len(a)}")
-s = json.load(open("results/offline_audit_G.json"))["summary"]["all_answerable"]; print("offline G citation faithfulness:", s["citation_faithfulness"], s["citation_faithfulness_ci95"])
+g1 = {(x["id"], x["lang"]): x["answer"] for x in json.load(open("results/offline_answers_G.json"))["answers"]}
+g2 = {(x["id"], x["lang"]): x["answer"] for x in json.load(open("results/answers_G_0.5b_mixrr_fewshot_posthoc.json"))["answers"]}
+print(f"offline vs online G answers identical: {sum(g1[k] == g2.get(k) for k in g1)}/{len(g1)}")
+s = json.load(open("results/offline_audit_G.json"))["summary"]["all_answerable"]; o = json.load(open("results/audit_G_0.5b_mixrr_fewshot_posthoc.json"))["summary"]["all_answerable"]
+keys = [k for k in s if not k.endswith("ci95")]
+print("offline G citation faithfulness:", s["citation_faithfulness"], s["citation_faithfulness_ci95"], "| audit summary identical to online:", all(s[k] == o[k] for k in keys))
 PY
 ' 2>&1 | tee results/offline_run.log

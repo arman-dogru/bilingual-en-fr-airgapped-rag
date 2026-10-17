@@ -4,6 +4,7 @@ import json, math, os
 CONFIGS = ["A_1.5b_same_basic", "B_1.5b_same_fewshot", "H_1.5b_same_fewshot_posthoc",
            "D_0.5b_same_basic", "E_0.5b_same_fewshot", "F_0.5b_mixrr_fewshot", "G_0.5b_mixrr_fewshot_posthoc"]
 def wilson(p, n, z=1.96):
+    p = round(p * n) / n  # recall is stored rounded; recover the exact count k/n first
     d = 1 + z*z/n; c = (p + z*z/(2*n)) / d; h = z*math.sqrt(p*(1-p)/n + z*z/(4*n*n)) / d; return f"[{c-h:.2f}, {c+h:.2f}]"
 def load(p): return json.load(open(p)) if os.path.exists(p) else None
 def main():

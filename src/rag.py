@@ -8,7 +8,7 @@ Config via env: LLM_MODEL, RETR (same|mixed_rr), PROMPT (basic|fewshot), QA (que
 import json, os, sys, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np, torch
-from config import rev, THREADS, env_info
+from config import rev, THREADS, env_info, path
 K, CTX_CHARS = 3, 700
 MAX_Q_CHARS = 500
 DTYPE = os.environ.get("DTYPE", "float32")  # 1.5B runs use bfloat16: fp32 1.5B does not fit next to other agents on the 16 GB box
@@ -68,7 +68,7 @@ def main():
     out_path = os.environ.get("OUT"); 
     if not out_path: raise SystemExit("error: set OUT=<answers json path>")
     qa = []
-    for f in os.environ.get("QA", "data/qa.json,data/unanswerable.json").split(","):
+    for f in os.environ.get("QA", f'{path("data", "qa.json")},{path("data", "unanswerable.json")}').split(","):
         if not os.path.exists(f): raise SystemExit(f"error: question file {f} not found")
         qa += json.load(open(f))
     setup_determinism()

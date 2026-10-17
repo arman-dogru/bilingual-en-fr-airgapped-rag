@@ -24,3 +24,10 @@ def test_refusal():
     assert is_refusal("") and not is_refusal("EI lasts 26 weeks [1].")
 def test_split_names():
     assert split_of("q01") == "dev" and split_of("q26") == "dev" and split_of("q27") == "test" and split_of("u03") == "unanswerable"
+def test_refusal_sentence_not_a_claim():
+    assert claims("The sources do not contain this information.") == []
+    assert claims("Les sources ne contiennent pas cette information.") == []
+    assert claims("EI lasts 26 weeks [1]. The sources do not contain this information.") == [("EI lasts 26 weeks.", [1])]
+def test_hedge_is_not_abstention():
+    assert not is_refusal("Yes, you can keep contributing [1]. The document does not provide the date.")
+    assert is_refusal("The sources do not contain this information.") and is_refusal("Les sources ne contiennent pas cette information.")

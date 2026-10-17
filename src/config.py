@@ -1,5 +1,7 @@
 """Pinned model revisions (HF commit SHAs) and run metadata, so every result file records what produced it."""
 import os, platform, sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root; all data/results paths resolve from here
+def path(*parts): return os.path.join(ROOT, *parts)
 REVISIONS = {
     "intfloat/multilingual-e5-small": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
     "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1": "1427fd652930e4ba29e8149678df786c240d8825",

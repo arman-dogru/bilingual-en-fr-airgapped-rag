@@ -1,30 +1,65 @@
 """Ask one question from the command line:  python src/ask.py "How long do EI sickness benefits last?" [--lang en|fr]
 
-Validates input (empty, too long, no letters), detects the language when --lang is omitted, and refuses
-without calling the LLM when retrieval finds nothing relevant (threshold tau from results/abstain.json, tuned on dev)."""
+Works from any directory. Validates input (empty, too long, no letters), detects the language when --lang is
+omitted (falls back to English with a warning), always applies the retrieval abstention gate (tau from
+results/abstain.json, tuned on dev; exits with an error if it is missing), and runs the NLI citation checker on the
+answer: every sentence is reported as supported / unsupported / uncited against its cited chunk, and --strict
+drops sentences that are not supported."""
 import argparse, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import path
+GATE_KEY = {"mixed_rr": "F_0.5b_mixrr_fewshot", "same": "E_0.5b_same_fewshot"}
+def detect_lang(q, warn=lambda m: print(m, file=sys.stderr)):
+    from audit import lang_of
+    lang = lang_of(q)
+    if lang == "und": warn("warning: could not detect the language; assuming English (pass --lang fr for French)"); lang = "en"
+    return lang
+def load_tau(retr, abstain_path=None):
+    p = abstain_path or path("results", "abstain.json")
+    if not os.path.exists(p): raise SystemExit(f"error: {p} not found; run src/abstain.py first (the abstention gate is mandatory)")
+    tau = json.load(open(p)).get(GATE_KEY[retr], {}).get("tau")
+    if tau is None: raise SystemExit(f"error: no gate threshold for {GATE_KEY[retr]} in {p}")
+    return tau
+def check_citations(answer, ctx, entail, th=0.5):
+    """Per-sentence verdicts against the cited chunk(s), using the same judge and parser as the audit."""
+    from audit import split_claims, normalize
+    out = []
+    for t, cites, scored in split_claims(answer):
+        r = dict(sentence=t, cites=cites)
+        if not scored: r["verdict"] = "not_scored"
+        elif not cites: r["verdict"] = "uncited"
+        elif any(c < 1 or c > len(ctx) for c in cites): r["verdict"] = "bad_ref"
+        else:
+            s = max(entail(ctx[c - 1]["prompt_text"], normalize(t)) for c in cites); r["entail"] = round(s, 3)
+            r["verdict"] = "supported" if s >= th else "unsupported"
+        out.append(r)
+    return out
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("question"); ap.add_argument("--lang", choices=("en", "fr"))
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct"); ap.add_argument("--retr", choices=("same", "mixed_rr"), default="mixed_rr")
     ap.add_argument("--prompt", choices=("basic", "fewshot"), default="fewshot")
+    ap.add_argument("--strict", action="store_true", help="drop answer sentences the citation checker does not support")
     a = ap.parse_args(argv)
     from rag import validate_query, REFUSAL, setup_determinism, prompt_sources, messages, load_llm, generate, K
-    from audit import lang_of
     try: q = validate_query(a.question)
     except ValueError as e: ap.error(str(e))
-    lang = a.lang or lang_of(q)
-    if lang == "und": ap.error("could not detect the language; pass --lang en or --lang fr")
+    lang = a.lang or detect_lang(q); tau = load_tau(a.retr)
     setup_determinism()
     from retrieval import build, search, retrieve, free_reranker
     m, idx = build(); ctx = retrieve(m, idx, q, "mixed", K, rr=True) if a.retr == "mixed_rr" else search(m, idx, q, lang, K); free_reranker()
-    tau, key = None, "F_0.5b_mixrr_fewshot" if a.retr == "mixed_rr" else "D_0.5b_same_basic"
-    if os.path.exists("results/abstain.json"): tau = json.load(open("results/abstain.json")).get(key, {}).get("tau")
-    top = ctx[0].get("rr", ctx[0].get("score"))
-    if tau is not None and top < tau:
+    top = ctx[0]["rr"] if a.retr == "mixed_rr" else ctx[0]["score"]
+    if top < tau:
         print(json.dumps(dict(lang=lang, answer=REFUSAL[lang], abstained="retrieval_gate", top_score=round(top, 3), tau=tau), ensure_ascii=False)); return 0
     tok, lm = load_llm(a.model); ctx = prompt_sources(ctx)
     ans = generate(tok, lm, messages(q, lang, ctx, a.prompt))
-    print(json.dumps(dict(lang=lang, answer=ans, sources=[dict(n=i + 1, url=c["url"], cid=c["cid"]) for i, c in enumerate(ctx)]), ensure_ascii=False, indent=1)); return 0
+    from audit import load_judge, is_refusal
+    checks = [] if is_refusal(ans) else check_citations(ans, ctx, load_judge())
+    final = ans
+    if a.strict and checks:
+        kept = [c for c in checks if c["verdict"] in ("supported", "not_scored")]
+        final = " ".join(c["sentence"].rstrip(".") + "".join(f" [{x}]" for x in c["cites"]) + "." for c in kept) or REFUSAL[lang]
+    print(json.dumps(dict(lang=lang, answer=final, raw_answer=ans, top_score=round(top, 3), tau=tau,
+                          all_supported=all(c["verdict"] in ("supported", "not_scored") for c in checks), citation_check=checks,
+                          sources=[dict(n=i + 1, url=c["url"], cid=c["cid"]) for i, c in enumerate(ctx)]), ensure_ascii=False, indent=1)); return 0
 if __name__ == "__main__": sys.exit(main())

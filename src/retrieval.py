@@ -2,8 +2,8 @@
 import json, re, numpy as np, os, sys, hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sentence_transformers import SentenceTransformer
-from config import rev
-CORPUS = os.environ.get("CORPUS", "data/corpus.json")
+from config import rev, path
+CORPUS = os.environ.get("CORPUS", path("data", "corpus.json"))
 CORPUS_SHA256 = "523784e7807d5e93173cbcbbc787fb813af92119aeaab2e0f6bf7d3f1c28318a"
 EMB = os.environ.get("EMB_MODEL", "intfloat/multilingual-e5-small")
 def chunks(corpus, lang, win=3):
