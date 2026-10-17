@@ -1,0 +1,18 @@
+{
+ "D_0.5b_same_basic": {
+  "reference": "answers_D_0.5b_same_basic.json",
+  "n": 104,
+  "identical": 104,
+  "match_rate": 1.0,
+  "threads": 4,
+  "reference_threads": 4
+ },
+ "D_0.5b_same_basic_threads8": {
+  "reference": "answers_D_0.5b_same_basic.json",
+  "n": 104,
+  "identical": 104,
+  "match_rate": 1.0,
+  "threads": 8,
+  "reference_threads": 4
+ }
+}
