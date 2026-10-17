@@ -4,8 +4,8 @@ Run from the repository root (src/ is a package; PYTHONPATH=<repo> works elsewhe
 omitted (falls back to English with a warning), always applies the retrieval abstention gate (tau from
 results/abstain.json, tuned on dev; exits with an error if it is missing), and runs the NLI citation checker on the
 answer: every non-refusal sentence is reported as supported / unsupported / uncited / bad_ref against its cited chunk.
-By default (strict) only supported sentences are kept (refusal and short unscored sentences ride along) and the answer becomes
-the refusal sentence if no supported claim remains; --no-strict keeps everything and prints a one-line warning to stderr."""
+By default (strict) the answer is only the citation-supported claim sentences, or the fixed refusal sentence if none survive;
+no other model text is echoed. --no-strict prints the raw answer and a WARNING listing every unverified sentence."""
 import argparse, json, os, sys, warnings
 warnings.filterwarnings("ignore", category=FutureWarning, message=".*torch.jit.*")
 from .config import path
@@ -36,31 +36,33 @@ def check_citations(answer, ctx, entail, th=0.5):
         out.append(r)
     return out
 def rebuild(checks):
-    """Keep supported / unscored sentences, re-attach their citations, preserve the original end punctuation."""
+    """Strict output: ONLY citation-supported claim sentences, with their citations and original end punctuation.
+    Nothing else the model wrote is echoed: not refusal-like sentences (the refusal classifier is for metrics only and is
+    never trusted here), not unscored fragments, not uncited/unsupported sentences."""
     parts = []
     for c in checks:
-        if c["verdict"] not in ("supported", "not_scored", "refusal"): continue
+        if c["verdict"] != "supported": continue
         t = c["sentence"]; end = t[-1] if t[-1] in ".!?" else "."
         parts.append(t.rstrip(".!?") + "".join(f" [{x}]" for x in c["cites"]) + end)
     return " ".join(parts)
 def final_answer(ans, ctx, entail, lang, strict=True):
     """The one place that turns a generated answer into what the user sees (used by main() and robustness.py).
-    The citation checker runs on every sentence that is not itself a refusal sentence; nothing is skipped because the
-    answer *starts* like a refusal. Returns dict(answer, checks, all_supported, refused):
-      all_supported is None when no claim was checked (pure refusal / nothing scorable), else True iff every claim is supported;
-      strict: keep supported claims (+ unscored fragments); if no supported claim survives -> the refusal sentence."""
+    Every sentence goes through the citation checker (check_citations); the refusal classifier only labels sentences.
+      strict:     answer = the supported claim sentences (rebuild); if there are none, our own constant REFUSAL[lang]
+                  (never the model's refusal text).
+      not strict: answer = the raw model text; `warnings` lists every sentence that is unsupported / uncited / bad_ref,
+                  every sentence classed as a refusal that is not byte-exact one of the fixed refusal sentences, and
+                  every other unchecked fragment.
+    all_supported: None only when the answer is empty or consists solely of the exact fixed refusal sentence(s);
+                   otherwise True iff every sentence is a supported claim."""
     from .rag import REFUSAL
+    fixed = set(REFUSAL.values())
     checks = check_citations(ans, ctx, entail)
-    claims_ = [c for c in checks if c["verdict"] not in ("not_scored", "refusal")]
-    ok = all(c["verdict"] == "supported" for c in claims_) if claims_ else None
-    if not claims_:  # pure refusal, empty, or only fragments
-        refused = not ans.strip() or any(c["verdict"] == "refusal" for c in checks)
-        final = REFUSAL[lang] if not ans.strip() or (strict and refused) else ans
-        return dict(answer=final, checks=checks, all_supported=None, refused=final == REFUSAL[lang])
-    if strict:
-        final = rebuild(checks) if any(c["verdict"] == "supported" for c in claims_) else REFUSAL[lang]
-    else: final = ans
-    return dict(answer=final, checks=checks, all_supported=ok, refused=final == REFUSAL[lang])
+    warn = [c["sentence"] for c in checks if c["verdict"] != "supported" and not (c["verdict"] == "refusal" and c["sentence"] in fixed)]
+    claims_ = [c for c in checks if c["verdict"] == "supported"]
+    ok = None if not claims_ and not warn else not warn
+    final = (rebuild(checks) or REFUSAL[lang]) if strict else (ans if ans.strip() else REFUSAL[lang])
+    return dict(answer=final, checks=checks, all_supported=ok, refused=final == REFUSAL[lang], warnings=[] if strict else warn)
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("question"); ap.add_argument("--lang", choices=("en", "fr"))
@@ -83,9 +85,11 @@ def main(argv=None):
     ans = generate(tok, lm, messages(q, lang, ctx, a.prompt))
     from . import audit
     r = final_answer(ans, ctx, audit.load_judge(), lang, strict=a.strict)
-    if not a.strict and r["all_supported"] is False:
-        print("WARNING: some answer sentences are not supported by their cited source (see citation_check); "
-              "rerun without --no-strict to drop them.", file=sys.stderr)
+    if r["warnings"]:
+        print(f"WARNING: {len(r['warnings'])} answer sentence(s) were not verified against a cited source "
+              "(unsupported, uncited, or refusal-like text that is not the fixed refusal sentence); see citation_check. "
+              "Rerun without --no-strict to drop them:", file=sys.stderr)
+        for w in r["warnings"]: print(f"  - {w}", file=sys.stderr)
     print(json.dumps(dict(lang=lang, answer=r["answer"], raw_answer=ans, top_score=round(top, 3), tau=tau,
                           all_supported=r["all_supported"], strict=a.strict, citation_check=r["checks"],
                           sources=[dict(n=i + 1, url=c["url"], cid=c["cid"]) for i, c in enumerate(ctx)]), ensure_ascii=False, indent=1)); return 0

@@ -61,9 +61,9 @@ def main():
         for k, name in (("indomain_unanswerable", "v01-v20 (off-target)"), ("indomain_near_miss", "w01-w08 (near-miss)")):
             if k in S: u = S[k]; L.append(f"| {name} | {u['n']} | {f(u['gate_recall'])} | {f(u['llm_recall'])} | {f(u['gate_or_llm_recall'])} | {u['top_rr_minus_tau']} |")
         L += ["", "### Prompt injection (data/injection.json; success = injected marker in the answer; strict = src.ask final answer)\n",
-              "| Site / template | n (questions) | Success raw | After gate | After gate + strict | Gated | Strict refuses non-hijacked |", "|---|---|---|---|---|---|---|"]
+              "| Site / template | n (questions) | Success raw | After gate | After gate + strict | --no-strict hit without WARNING | Gated | Strict refuses non-hijacked |", "|---|---|---|---|---|---|---|---|"]
         for k, r in S["injection"].items():
-            L.append(f"| {k} | {r['n']} ({r['questions']}) | {f(r['success_raw'])} | {f(r['success_after_gate'])} | {f(r['success_after_gate_and_strict'])} | {f(r['gated'])} | {f(r['strict_refuses_nonhijacked'])} |")
+            L.append(f"| {k} | {r['n']} ({r['questions']}) | {f(r['success_raw'])} | {f(r['success_after_gate'])} | {f(r['success_after_gate_and_strict'])} | {f(r['nostrict_hit_without_warning']) if 'nostrict_hit_without_warning' in r else '-'} | {f(r['gated'])} | {f(r['strict_refuses_nonhijacked'])} |")
         if "strict_cost_test_F" in S:
             t = S["strict_cost_test_F"]
             L += ["", "### Cost of strict mode on TEST answers (config F, committed answers)\n", "| n | Gated | Raw refusal (ungated) | Strict -> refusal (ungated) | Strict leaves answer unchanged (ungated) | Answered after gate + strict |", "|---|---|---|---|---|---|",

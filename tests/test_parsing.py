@@ -49,6 +49,8 @@ HEDGED_PARTIAL = [  # PR #12 review M1: hedge-first or affirmative sentences car
     "Je ne trouve aucune information sur la date, cependant les paiements commencent en juillet [1].",
     "Les sources ne fournissent pas le numéro; vous pouvez faire une demande en ligne [1].",
 ]
+# Conjunction-joined refusal paraphrases (PR #12 re-review M1') may still be *classified* as refusals for the abstention
+# metric; that classification is never trusted user-side (see tests/test_cli.py::test_reviewer_strings_through_final_answer).
 def test_hedged_partial_answers_are_not_refusals():
     for t in HEDGED_PARTIAL:
         assert not is_refusal(t) and len(claims(t)) == 1, t
