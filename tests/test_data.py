@@ -24,3 +24,10 @@ def test_validate_rejects(bad):
     with pytest.raises(ValueError): validate_query(bad)
 def test_validate_cleans():
     assert validate_query("  How long  do EI benefits last? ") == "How long do EI benefits last?"
+def test_evidence_regex_occurs_in_gold_doc_both_languages():
+    from retrieval import chunks
+    C = json.load(open("data/corpus.json"))
+    for L in ("en", "fr"):
+        cs = chunks(C, L)
+        for q in QA:
+            assert any(c["doc"] == q["doc"] and re.search(q["ev"], c["text"]) for c in cs), (q["id"], L)

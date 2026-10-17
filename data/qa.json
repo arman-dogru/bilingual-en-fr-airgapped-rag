@@ -2,14 +2,14 @@
  {
   "id": "q01",
   "doc": "d00",
-  "ev": "7",
+  "ev": "(?i)\\b7\\b[^.]{0,40}(consecutive|consécutifs)",
   "en": "How many consecutive days without work and pay do I need for EI regular benefits?",
   "fr": "Combien de jours consécutifs sans travail et sans salaire faut-il pour les prestations régulières d'assurance-emploi?"
  },
  {
   "id": "q02",
   "doc": "d00",
-  "ev": "2",
+  "ev": "(?i)(every|toutes les) 2 (weeks|semaines)",
   "en": "How often do I have to submit EI reports?",
   "fr": "À quelle fréquence dois-je remplir mes déclarations d'assurance-emploi?"
  },
@@ -121,7 +121,7 @@
  {
   "id": "q18",
   "doc": "d13",
-  "ev": "passport|passeport",
+  "ev": "(?i)(urgent|urgence)",
   "en": "What should I do if I urgently need my passport?",
   "fr": "Que dois-je faire si j'ai besoin de mon passeport de toute urgence?"
  },
@@ -149,14 +149,14 @@
  {
   "id": "q22",
   "doc": "d17",
-  "ev": "3|Trois",
+  "ev": "(?i)\\b(3|Trois)\\b[^.]{0,30}(immigration programs|programmes d.immigration)",
   "en": "How many immigration programs are managed through Express Entry?",
   "fr": "Combien de programmes d'immigration sont gérés par Entrée express?"
  },
  {
   "id": "q23",
   "doc": "d20",
-  "ev": "loan|prêt",
+  "ev": "(?i)(grants and loans|bourses et (de )?prêts)",
   "en": "How can I get money to study at college or university?",
   "fr": "Comment obtenir de l'argent pour étudier au collège ou à l'université?"
  },
@@ -226,7 +226,7 @@
  {
   "id": "q33",
   "doc": "d03",
-  "ev": "3",
+  "ev": "(?i)\\b(3|trois)\\b[^.]{0,30}(types|prestations|benefits)",
   "en": "How many types of EI caregiving benefits are there?",
   "fr": "Combien de types de prestations pour proches aidants l'assurance-emploi offre-t-elle?"
  },

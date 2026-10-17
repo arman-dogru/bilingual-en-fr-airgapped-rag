@@ -33,8 +33,8 @@
    "doc_R@5": 1.0
   },
   "FR->EN": {
-   "passage_R@1": 0.635,
-   "passage_R@3": 0.923,
+   "passage_R@1": 0.615,
+   "passage_R@3": 0.904,
    "passage_R@5": 0.962,
    "doc_R@1": 0.808,
    "doc_R@3": 0.962,
