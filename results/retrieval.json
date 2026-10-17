@@ -1,0 +1,99 @@
+{
+ "model": "intfloat/multilingual-e5-small",
+ "n_questions": 26,
+ "n_chunks": {
+  "en": 310,
+  "fr": 339
+ },
+ "recall": {
+  "EN->EN": {
+   "passage_R@1": 0.923,
+   "passage_R@3": 0.962,
+   "passage_R@5": 1.0,
+   "doc_R@1": 0.962,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "EN->FR": {
+   "passage_R@1": 0.654,
+   "passage_R@3": 0.808,
+   "passage_R@5": 0.885,
+   "doc_R@1": 0.808,
+   "doc_R@3": 0.923,
+   "doc_R@5": 0.962
+  },
+  "FR->EN": {
+   "passage_R@1": 0.692,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.962,
+   "doc_R@1": 0.885,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "FR->FR": {
+   "passage_R@1": 0.846,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.962,
+   "doc_R@1": 0.962,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  }
+ },
+ "misses": [
+  {
+   "dir": "en->fr",
+   "q": "q02",
+   "got": [
+    "d14",
+    "d14",
+    "d00",
+    "d06",
+    "d00"
+   ]
+  },
+  {
+   "dir": "en->fr",
+   "q": "q15",
+   "got": [
+    "d06",
+    "d06",
+    "d05",
+    "d06",
+    "d05"
+   ]
+  },
+  {
+   "dir": "en->fr",
+   "q": "q22",
+   "got": [
+    "d17",
+    "d17",
+    "d17",
+    "d14",
+    "d17"
+   ]
+  },
+  {
+   "dir": "fr->en",
+   "q": "q19",
+   "got": [
+    "d14",
+    "d14",
+    "d14",
+    "d14",
+    "d14"
+   ]
+  },
+  {
+   "dir": "fr->fr",
+   "q": "q22",
+   "got": [
+    "d17",
+    "d17",
+    "d17",
+    "d17",
+    "d14"
+   ]
+  }
+ ]
+}
