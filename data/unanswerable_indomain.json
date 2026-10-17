@@ -178,5 +178,85 @@
   "in_domain": true,
   "en": "What is the name of the software Service Canada uses to process EI claims?",
   "fr": "Quel est le nom du logiciel utilisé par Service Canada pour traiter les demandes d'assurance-emploi?"
+ },
+ {
+  "id": "w01",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "What was the maximum weekly amount of EI regular benefits in 2015?",
+  "fr": "Quel était le montant hebdomadaire maximal des prestations régulières d'assurance-emploi en 2015?"
+ },
+ {
+  "id": "w02",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "How many people received EI caregiving benefits last year?",
+  "fr": "Combien de personnes ont reçu des prestations de proches aidants de l'assurance-emploi l'an dernier?"
+ },
+ {
+  "id": "w03",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "What is the address of the passport office in Halifax?",
+  "fr": "Quelle est l'adresse du bureau des passeports à Halifax?"
+ },
+ {
+  "id": "w04",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "How long does it take to process a study permit application?",
+  "fr": "Combien de temps faut-il pour traiter une demande de permis d'études?"
+ },
+ {
+  "id": "w05",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "What was the TFSA contribution limit in 2009?",
+  "fr": "Quel était le plafond de cotisation au CELI en 2009?"
+ },
+ {
+  "id": "w06",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "How many dentists in Manitoba accept the Canadian Dental Care Plan?",
+  "fr": "Combien de dentistes au Manitoba acceptent le Régime canadien de soins dentaires?"
+ },
+ {
+  "id": "w07",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "What was the minimum CRS score in the most recent Express Entry draw?",
+  "fr": "Quel était le score SCG minimal lors de la plus récente ronde d'invitations d'Entrée express?"
+ },
+ {
+  "id": "w08",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "near_miss": true,
+  "en": "What percentage of seniors receive the Guaranteed Income Supplement?",
+  "fr": "Quel pourcentage des aînés reçoit le Supplément de revenu garanti?"
  }
 ]

@@ -92,26 +92,26 @@
   },
   "unanswerable": {
    "answers": 50,
-   "claims": 76,
+   "claims": 77,
    "zero_claim_answers": 5,
-   "citation_faithfulness": 0.105,
+   "citation_faithfulness": 0.104,
    "citation_faithfulness_ci95": [
-    0.042,
-    0.183
+    0.041,
+    0.182
    ],
    "faithfulness_of_cited": 0.17,
-   "uncited_rate": 0.382,
+   "uncited_rate": 0.39,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.263,
+   "grounded_in_any_source": 0.26,
    "grounded_ci95": [
-    0.125,
-    0.408
+    0.123,
+    0.403
    ],
    "answer_language_match": 1.0,
-   "refusal_rate": 0.12,
-   "refusal_sentence_rate": 0.12,
+   "refusal_rate": 0.1,
+   "refusal_sentence_rate": 0.1,
    "faithfulness_en": 0.065,
-   "faithfulness_fr": 0.133
+   "faithfulness_fr": 0.13
   }
  },
  "answers": [
@@ -1926,13 +1926,13 @@
    "lang": "fr",
    "split": "unanswerable",
    "answerable": false,
-   "refusal": true,
-   "refusal_sentence": true,
+   "refusal": false,
+   "refusal_sentence": false,
    "lang_detected": "fr",
-   "n_claims": 1,
+   "n_claims": 2,
    "n_supported": 0,
    "n_grounded": 0,
-   "n_uncited": 1,
+   "n_uncited": 2,
    "n_badref": 0
   },
   {
@@ -4263,6 +4263,16 @@
    "any_source_entail": 0.027,
    "entail": 0.027,
    "verdict": "unsupported"
+  },
+  {
+   "id": "u13",
+   "lang": "fr",
+   "split": "unanswerable",
+   "claim_raw": "Je suis désolé, mais je ne trouve pas de données spécifiques concernant la Coupe Stanley pour 2015 dans ces sources.",
+   "cites": [],
+   "claim": "Je suis désolé, mais je ne trouve pas de données spécifiques concernant la Coupe Stanley pour 2015 dans ces sources.",
+   "any_source_entail": 0.057,
+   "verdict": "uncited"
   },
   {
    "id": "u13",

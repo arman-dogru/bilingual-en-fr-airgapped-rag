@@ -38,3 +38,17 @@ def test_near_verbatim_refusals():
         assert is_refusal(t) and claims(t) == [], t
     for t in ["No, you cannot get EI if you lost your job through your own fault [1].", "One parent cannot receive more than 61 weeks [1]."]:
         assert not is_refusal(t), t
+HEDGED_PARTIAL = [  # PR #12 review M1: hedge-first or affirmative sentences carrying a claim are NOT refusals
+    "The sources do contain this information [1].",
+    "The sources do contain this information.",
+    "The sources do not mention the exact date, but EI sickness benefits last up to 26 weeks [1].",
+    "The document does not provide a phone number, but you can apply online through My Service Canada Account [2].",
+    "Les sources ne mentionnent pas la date exacte, mais les prestations durent jusqu'à 26 semaines [1].",
+    "I could not find any specific information on the exact date, but payments start in July 2025 [1].",
+    "Sorry, but the sources do not provide that; EI pays 55% of earnings up to $729 per week [1].",
+    "Je ne trouve aucune information sur la date, cependant les paiements commencent en juillet [1].",
+    "Les sources ne fournissent pas le numéro; vous pouvez faire une demande en ligne [1].",
+]
+def test_hedged_partial_answers_are_not_refusals():
+    for t in HEDGED_PARTIAL:
+        assert not is_refusal(t) and len(claims(t)) == 1, t

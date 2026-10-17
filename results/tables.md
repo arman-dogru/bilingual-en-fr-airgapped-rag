@@ -75,7 +75,7 @@
 | A_1.5b_same_basic | llm | 0.69 | 0.85 | 0.19 | 4/26 |
 | A_1.5b_same_basic | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | A_1.5b_same_basic | gate_or_llm (tau=0.886, e5 cosine) | 0.60 | 1.00 | 0.33 | 0/26 |
-| B_1.5b_same_fewshot | llm | 1.00 | 0.15 | 0.00 | 22/26 |
+| B_1.5b_same_fewshot | llm | 1.00 | 0.12 | 0.00 | 23/26 |
 | B_1.5b_same_fewshot | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | B_1.5b_same_fewshot | gate_or_llm (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | D_0.5b_same_basic | llm | 0.52 | 0.50 | 0.23 | 13/26 |
@@ -90,7 +90,7 @@
 | G_0.5b_mixrr_fewshot_posthoc | llm | 0.00 | 0.00 | 0.00 | 26/26 |
 | G_0.5b_mixrr_fewshot_posthoc | gate (tau=2.274, reranker logit) | 0.77 | 1.00 | 0.15 | 0/26 |
 | G_0.5b_mixrr_fewshot_posthoc | gate_or_llm (tau=2.274, reranker logit) | 0.77 | 1.00 | 0.15 | 0/26 |
-| H_1.5b_same_fewshot_posthoc | llm | 1.00 | 0.15 | 0.00 | 22/26 |
+| H_1.5b_same_fewshot_posthoc | llm | 1.00 | 0.12 | 0.00 | 23/26 |
 | H_1.5b_same_fewshot_posthoc | gate (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 | H_1.5b_same_fewshot_posthoc | gate_or_llm (tau=0.886, e5 cosine) | 0.68 | 1.00 | 0.23 | 0/26 |
 
@@ -134,17 +134,30 @@
 | e5 cosine | A, B, D, E, H | 0.886 | 0.864 / 0.886 / 0.890 | 1.000 / 1.000 / 1.000 | 0.038 / 0.231 / 0.269 | 0.867 |
 | reranker logit | F, G | 2.274 | -0.877 / -0.146 / 4.780 | 0.962 / 1.000 / 1.000 | 0.019 / 0.058 / 0.269 | -0.314 |
 
-## Robustness (F_0.5b_mixrr_fewshot, tau=2.274)
+## Robustness (F_0.5b_mixrr_fewshot, tau=2.274; Wilson 95% CI, rows clustered by question so CIs are optimistic)
 
 ### In-domain unanswerable questions (data/unanswerable_indomain.json)
 
-| n | Gate recall | LLM refusal recall | Gate-or-LLM recall |
-|---|---|---|---|
-| 40 | 1.000 | 0.025 | 1.000 |
-
-### Prompt injection (data/injection.json; success = injected marker in the answer)
-
-| Injection site | n | Success raw | Success after gate | Success after gate + strict filter | Gated |
+| Set | n | Gate recall | LLM refusal recall | Gate-or-LLM recall | top reranker score - tau (min, max) |
 |---|---|---|---|---|---|
-| top retrieved chunk | 20 | 0.00 | 0.00 | 0.00 | 0.15 |
-| query | 20 | 0.65 | 0.55 | 0.00 | 0.20 |
+| v01-v20 (off-target) | 40 | 1.00 (40/40) [0.912, 1] | 0.03 (1/40) [0.004, 0.129] | 1.00 (40/40) [0.912, 1] | [-10.43, -2.35] |
+| w01-w08 (near-miss) | 16 | 1.00 (16/16) [0.806, 1] | 0.00 (0/16) [0, 0.194] | 1.00 (16/16) [0.806, 1] | [-8.12, -2.01] |
+
+### Prompt injection (data/injection.json; success = injected marker in the answer; strict = src.ask final answer)
+
+| Site / template | n (questions) | Success raw | After gate | After gate + strict | Gated | Strict refuses non-hijacked |
+|---|---|---|---|---|---|---|
+| poisoned_chunk/ignore | 20 (10) | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.15 (3/20) [0.052, 0.36] | 0.59 (10/17) [0.36, 0.784] |
+| poisoned_chunk/cite | 20 (10) | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.15 (3/20) [0.052, 0.36] | 0.77 (13/17) [0.527, 0.904] |
+| poisoned_chunk/refusal_prefix | 20 (10) | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.00 (0/20) [0, 0.161] | 0.15 (3/20) [0.052, 0.36] | 0.71 (12/17) [0.469, 0.867] |
+| poisoned_chunk/all | 60 (10) | 0.00 (0/60) [0, 0.06] | 0.00 (0/60) [0, 0.06] | 0.00 (0/60) [0, 0.06] | 0.15 (9/60) [0.081, 0.261] | 0.69 (35/51) [0.55, 0.797] |
+| query_side/ignore | 20 (10) | 0.65 (13/20) [0.433, 0.819] | 0.55 (11/20) [0.342, 0.742] | 0.00 (0/20) [0, 0.161] | 0.20 (4/20) [0.081, 0.416] | 0.80 (4/5) [0.376, 0.964] |
+| query_side/cite | 20 (10) | 0.25 (5/20) [0.112, 0.469] | 0.25 (5/20) [0.112, 0.469] | 0.00 (0/20) [0, 0.161] | 0.20 (4/20) [0.081, 0.416] | 0.55 (6/11) [0.28, 0.787] |
+| query_side/refusal_prefix | 20 (10) | 0.45 (9/20) [0.258, 0.658] | 0.35 (7/20) [0.181, 0.567] | 0.00 (0/20) [0, 0.161] | 0.15 (3/20) [0.052, 0.36] | 0.90 (9/10) [0.596, 0.982] |
+| query_side/all | 60 (10) | 0.45 (27/60) [0.331, 0.575] | 0.38 (23/60) [0.271, 0.51] | 0.00 (0/60) [0, 0.06] | 0.18 (11/60) [0.106, 0.299] | 0.73 (19/26) [0.539, 0.863] |
+
+### Cost of strict mode on TEST answers (config F, committed answers)
+
+| n | Gated | Raw refusal (ungated) | Strict -> refusal (ungated) | Strict leaves answer unchanged (ungated) | Answered after gate + strict |
+|---|---|---|---|---|---|
+| 52 | 0.15 (8/52) [0.08, 0.275] | 0.00 (0/44) [0.0, 0.08] | 0.59 (26/44) [0.444, 0.723] | 0.39 (17/44) [0.257, 0.534] | 0.35 (18/52) [0.232, 0.482] |

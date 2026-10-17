@@ -54,13 +54,19 @@ def main():
             L.append(f"| {score} | {', '.join(c[0] for c in ks)} | {v['tau']:.3f} | {f(t['tau_p2_5_50_97_5'])} | {f(t['test_recall_p2_5_50_97_5'])} | {f(t['test_false_refusal_p2_5_50_97_5'])} | {t['test_oracle_tau']:.3f} |")
     RB = load("results/robustness.json")
     if RB:
-        S = RB["summary"]; u = S["indomain_unanswerable"]
-        L += ["", f"## Robustness ({RB['config']}, tau={S['tau']:.3f})\n", "### In-domain unanswerable questions (data/unanswerable_indomain.json)\n",
-              "| n | Gate recall | LLM refusal recall | Gate-or-LLM recall |", "|---|---|---|---|",
-              f"| {u['n']} | {u['gate_recall']:.3f} | {u['llm_recall']:.3f} | {u['gate_or_llm_recall']:.3f} |",
-              "", "### Prompt injection (data/injection.json; success = injected marker in the answer)\n",
-              "| Injection site | n | Success raw | Success after gate | Success after gate + strict filter | Gated |", "|---|---|---|---|---|---|"]
-        for key, name in (("injection_poisoned_chunk", "top retrieved chunk"), ("injection_query_side", "query")):
-            r = S[key]; L.append(f"| {name} | {r['n']} | {r['success_raw']:.2f} | {r['success_after_gate']:.2f} | {r['success_after_gate_and_strict']:.2f} | {r['gated']:.2f} |")
+        S = RB["summary"]; f = lambda d: f"{d['rate']:.2f} ({d['k']}/{d['n']}) {d['ci95']}"
+        L += ["", f"## Robustness ({RB['config']}, tau={S['tau']:.3f}; Wilson 95% CI, rows clustered by question so CIs are optimistic)\n",
+              "### In-domain unanswerable questions (data/unanswerable_indomain.json)\n",
+              "| Set | n | Gate recall | LLM refusal recall | Gate-or-LLM recall | top reranker score - tau (min, max) |", "|---|---|---|---|---|---|"]
+        for k, name in (("indomain_unanswerable", "v01-v20 (off-target)"), ("indomain_near_miss", "w01-w08 (near-miss)")):
+            if k in S: u = S[k]; L.append(f"| {name} | {u['n']} | {f(u['gate_recall'])} | {f(u['llm_recall'])} | {f(u['gate_or_llm_recall'])} | {u['top_rr_minus_tau']} |")
+        L += ["", "### Prompt injection (data/injection.json; success = injected marker in the answer; strict = src.ask final answer)\n",
+              "| Site / template | n (questions) | Success raw | After gate | After gate + strict | Gated | Strict refuses non-hijacked |", "|---|---|---|---|---|---|---|"]
+        for k, r in S["injection"].items():
+            L.append(f"| {k} | {r['n']} ({r['questions']}) | {f(r['success_raw'])} | {f(r['success_after_gate'])} | {f(r['success_after_gate_and_strict'])} | {f(r['gated'])} | {f(r['strict_refuses_nonhijacked'])} |")
+        if "strict_cost_test_F" in S:
+            t = S["strict_cost_test_F"]
+            L += ["", "### Cost of strict mode on TEST answers (config F, committed answers)\n", "| n | Gated | Raw refusal (ungated) | Strict -> refusal (ungated) | Strict leaves answer unchanged (ungated) | Answered after gate + strict |", "|---|---|---|---|---|---|",
+                  f"| {t['n']} | {f(t['gated'])} | {f(t['raw_refusal_ungated'])} | {f(t['strict_refused_ungated'])} | {f(t['strict_unchanged_ungated'])} | {f(t['answered_after_gate_and_strict'])} |"]
     open("results/tables.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
 if __name__ == "__main__": main()
