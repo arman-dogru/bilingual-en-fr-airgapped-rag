@@ -9,7 +9,7 @@ Public-sector and regulated customers need LLM systems that run on-prem or fully
 | Component | Choice |
 |---|---|
 | Corpus | 20 EN/FR page pairs from Canada.ca (EI, CPP/OAS/GIS, CCB, GST/HST, RRSP, TFSA, dental, passports, citizenship, permits, Express Entry, student aid, CDB, EI fishing) under the Open Government Licence – Canada. URLs are in `data/corpus.json`. |
-| Chunking | 3-paragraph windows that overlap by 1 paragraph (358 EN and 383 FR chunks). |
+| Chunking | 3-paragraph windows that overlap by 1 paragraph (310 EN and 339 FR chunks). |
 | Retriever | `intfloat/multilingual-e5-small` with indexes per language and one mixed EN+FR index. |
 | Reranker | `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` (top-20 → top-k). |
 | Generator | `Qwen2.5-0.5B/1.5B-Instruct`, bf16 on CPU, greedy decoding, top-3 sources, inline `[n]` citations. |
