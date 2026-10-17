@@ -11,10 +11,10 @@ unshare -rn bash -c '
   rc=0; curl -s -m 5 https://huggingface.co >/dev/null || rc=$?
   case $rc in 6|7) echo "no network: OK (curl rc=$rc: could not resolve/connect)";; 0) echo "NETWORK REACHABLE - abort"; exit 1;; *) echo "unexpected curl rc=$rc - abort"; exit 1;; esac
   export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
-  $P src/retrieval.py > logs/offline_retrieval.log 2>&1 && echo "retrieval ok"
-  QA=data/qa.json LLM_MODEL=Qwen/Qwen2.5-0.5B-Instruct RETR=mixed_rr PROMPT=fewshot OUT=results/offline_answers_F.json $P src/rag.py > logs/offline_rag.log 2>&1 && echo "rag (F) ok"
-  IN=results/offline_answers_F.json OUT=results/offline_answers_G.json $P src/attribute.py > logs/offline_attr.log 2>&1 && echo "post-hoc attribution ok"
-  IN=results/offline_answers_G.json OUT=results/offline_audit_G.json $P src/audit.py > logs/offline_audit.log 2>&1 && echo "audit ok"
+  $P -m src.retrieval > logs/offline_retrieval.log 2>&1 && echo "retrieval ok"
+  QA=data/qa.json LLM_MODEL=Qwen/Qwen2.5-0.5B-Instruct RETR=mixed_rr PROMPT=fewshot OUT=results/offline_answers_F.json $P -m src.rag > logs/offline_rag.log 2>&1 && echo "rag (F) ok"
+  IN=results/offline_answers_F.json OUT=results/offline_answers_G.json $P -m src.attribute > logs/offline_attr.log 2>&1 && echo "post-hoc attribution ok"
+  IN=results/offline_answers_G.json OUT=results/offline_audit_G.json $P -m src.audit > logs/offline_audit.log 2>&1 && echo "audit ok"
   $P - <<PY
 import json
 a = {(x["id"], x["lang"]): x["answer"] for x in json.load(open("results/offline_answers_F.json"))["answers"]}

@@ -1,4 +1,4 @@
-from audit import split_claims, claims, lang_of, is_refusal, split_of
+from src.audit import split_claims, claims, lang_of, is_refusal, split_of
 def test_multi_citation():
     assert claims("EI lasts 26 weeks [1, 2].") == [("EI lasts 26 weeks.", [1, 2])]
 def test_citation_range():
@@ -31,3 +31,10 @@ def test_refusal_sentence_not_a_claim():
 def test_hedge_is_not_abstention():
     assert not is_refusal("Yes, you can keep contributing [1]. The document does not provide the date.")
     assert is_refusal("The sources do not contain this information.") and is_refusal("Les sources ne contiennent pas cette information.")
+def test_near_verbatim_refusals():
+    for t in ["Les sources mentionnées ne contiennent pas cette information.", "No, the sources do not contain this information.",
+              "Je suis désolé, mais je ne trouve aucune information sur l'Everest dans les sources fournies.",
+              "The sources do not contain this information [1]."]:
+        assert is_refusal(t) and claims(t) == [], t
+    for t in ["No, you cannot get EI if you lost your job through your own fault [1].", "One parent cannot receive more than 61 weeks [1]."]:
+        assert not is_refusal(t), t

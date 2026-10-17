@@ -23,25 +23,25 @@
   },
   "all_answerable": {
    "answers": 104,
-   "claims": 143,
-   "zero_claim_answers": 13,
-   "citation_faithfulness": 0.371,
+   "claims": 142,
+   "zero_claim_answers": 14,
+   "citation_faithfulness": 0.373,
    "citation_faithfulness_ci95": [
-    0.289,
-    0.468
+    0.29,
+    0.471
    ],
    "faithfulness_of_cited": 0.646,
-   "uncited_rate": 0.427,
+   "uncited_rate": 0.423,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.727,
+   "grounded_in_any_source": 0.732,
    "grounded_ci95": [
-    0.637,
-    0.818
+    0.642,
+    0.824
    ],
    "answer_language_match": 0.971,
-   "refusal_rate": 0.125,
-   "refusal_sentence_rate": 0.125,
-   "faithfulness_en": 0.5,
+   "refusal_rate": 0.135,
+   "refusal_sentence_rate": 0.135,
+   "faithfulness_en": 0.509,
    "faithfulness_fr": 0.282
   },
   "dev": {
@@ -69,25 +69,25 @@
   },
   "test": {
    "answers": 52,
-   "claims": 62,
-   "zero_claim_answers": 9,
-   "citation_faithfulness": 0.419,
+   "claims": 61,
+   "zero_claim_answers": 10,
+   "citation_faithfulness": 0.426,
    "citation_faithfulness_ci95": [
-    0.269,
-    0.612
+    0.271,
+    0.623
    ],
    "faithfulness_of_cited": 0.684,
-   "uncited_rate": 0.387,
+   "uncited_rate": 0.377,
    "bad_ref_rate": 0.0,
-   "grounded_in_any_source": 0.774,
+   "grounded_in_any_source": 0.787,
    "grounded_ci95": [
-    0.64,
-    0.903
+    0.652,
+    0.918
    ],
    "answer_language_match": 0.942,
-   "refusal_rate": 0.173,
-   "refusal_sentence_rate": 0.173,
-   "faithfulness_en": 0.5,
+   "refusal_rate": 0.192,
+   "refusal_sentence_rate": 0.192,
+   "faithfulness_en": 0.519,
    "faithfulness_fr": 0.353
   },
   "unanswerable": {
@@ -1212,13 +1212,13 @@
    "lang": "en",
    "split": "test",
    "answerable": true,
-   "refusal": false,
-   "refusal_sentence": false,
+   "refusal": true,
+   "refusal_sentence": true,
    "lang_detected": "en",
-   "n_claims": 1,
+   "n_claims": 0,
    "n_supported": 0,
    "n_grounded": 0,
-   "n_uncited": 1,
+   "n_uncited": 0,
    "n_badref": 0
   },
   {
@@ -3639,16 +3639,6 @@
    "any_source_entail": 0.996,
    "entail": 0.996,
    "verdict": "supported"
-  },
-  {
-   "id": "q40",
-   "lang": "en",
-   "split": "test",
-   "claim_raw": "No, the sources do not contain this information.",
-   "cites": [],
-   "claim": "No, the sources do not contain this information.",
-   "any_source_entail": 0.032,
-   "verdict": "uncited"
   },
   {
    "id": "q40",

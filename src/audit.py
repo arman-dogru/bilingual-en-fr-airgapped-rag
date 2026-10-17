@@ -4,8 +4,7 @@ Per-answer rows are kept for every answer (including zero-claim answers and refu
 compare.py can run paired, question-clustered bootstraps. Judged text == the text shown to the generator.
 """
 import json, re, os, sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import numpy as np
+import numpy as np, difflib
 NLI = os.environ.get("NLI_MODEL", "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
 FR_W = set("le la les des du de et est un une pour que qui vous dans pas sur au aux sont avec ou ne oui non semaines jours "
            "comment quand où combien quel quelle quels quelles qu est-ce je j' mon ma mes puis-je dois-je faut-il il elle on ce cette ces leur par".split())
@@ -40,7 +39,17 @@ def sentences(ans):
 REFUSAL_SENTENCES = ("The sources do not contain this information.", "Les sources ne contiennent pas cette information.")
 def _norm_s(t): return re.sub(r"[\s«»\"'.]+", " ", CITE.sub("", t)).strip().lower()
 _REF_N = {_norm_s(x) for x in REFUSAL_SENTENCES}
-def is_refusal_sentence(t): return _norm_s(t) in _REF_N
+_LEAD = re.compile(r"^(no|non|oui|yes|unfortunately|malheureusement|(je suis )?désolée?|(i'?m |i am )?sorry)\s*,?\s*(mais|but)?\s*", re.I)
+_REF_PATTERNS = re.compile(
+    r"^(les |the |these |ces )?(sources?|documents?|informations?|passages?)( [\w'-]+){0,5} (ne (contiennent|contient|mentionnent|mentionne|fournissent|fournit) pas|(do|does) not (contain|mention|provide|include)|don't (contain|mention|provide))"
+    r"|^(je ne (trouve|vois)|je n'ai (pas )?trouvé|i (could not|couldn't|cannot|can't|did not|didn't) find)[^.]{0,40}\b(aucune?|pas d[e']|any|no|specific)\b[^.]{0,30}(information|donnée|data|détail|details?)", re.I)
+def is_refusal_sentence(t):
+    """Fixed refusal sentence, or a near-verbatim / paraphrased refusal ("Les sources mentionnées ne contiennent pas…",
+    "Je suis désolé, mais je ne trouve aucune information…", "No, the sources do not contain…")."""
+    n = _norm_s(t)
+    if n in _REF_N: return True
+    if any(difflib.SequenceMatcher(None, n, r).ratio() >= 0.85 for r in _REF_N): return True
+    return bool(_REF_PATTERNS.search(_LEAD.sub("", n)))
 def split_claims(ans):
     """All sentences with their citations: [(text, cites, scored)]. Short / fragment sentences are kept
     (scored=False) so post-hoc attribution never deletes them."""
@@ -77,7 +86,7 @@ def grounded(rows):
 def load_judge():
     import torch
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
-    from config import rev, THREADS
+    from .config import rev, THREADS
     torch.set_num_threads(THREADS)
     try:
         tok = AutoTokenizer.from_pretrained(NLI, revision=rev(NLI)); m = AutoModelForSequenceClassification.from_pretrained(NLI, revision=rev(NLI)).eval()
@@ -122,7 +131,7 @@ def main():
                  refusal_sentence_rate=round(sum(r["refusal_sentence"] for r in ans) / max(len(ans), 1), 3))
         for L in ("en", "fr"): s[f"faithfulness_{L}"] = round(faith([r for r in ans if r["lang"] == L]), 3)
         return s
-    rep = dict(nli=NLI, nli_revision=__import__("config").rev(NLI), source_file=inp, normalize=norm, llm=D.get("llm"), env=D.get("env"))
+    rep = dict(nli=NLI, nli_revision=__import__('src.config', fromlist=['rev']).rev(NLI), source_file=inp, normalize=norm, llm=D.get("llm"), env=D.get("env"))
     for sp in ("all_answerable", "dev", "test", "unanswerable"):
         sub = [r for r in answers if (r["answerable"] if sp == "all_answerable" else r["split"] == sp)]
         if sub: rep[sp] = summary(sub)

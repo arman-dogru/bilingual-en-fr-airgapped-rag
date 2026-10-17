@@ -1,0 +1,182 @@
+[
+ {
+  "id": "v01",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What is the phone number of the Service Canada office in Yellowknife?",
+  "fr": "Quel est le numéro de téléphone du bureau de Service Canada à Yellowknife?"
+ },
+ {
+  "id": "v02",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How many people received EI sickness benefits in 2019?",
+  "fr": "Combien de personnes ont reçu des prestations de maladie de l'assurance-emploi en 2019?"
+ },
+ {
+  "id": "v03",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What was the maximum CPP retirement pension in 1995?",
+  "fr": "Quelle était la pension de retraite maximale du RPC en 1995?"
+ },
+ {
+  "id": "v04",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How much does a passport photo cost at a pharmacy?",
+  "fr": "Combien coûte une photo de passeport en pharmacie?"
+ },
+ {
+  "id": "v05",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "Which bank offers the highest interest rate on a TFSA?",
+  "fr": "Quelle banque offre le taux d'intérêt le plus élevé sur un CELI?"
+ },
+ {
+  "id": "v06",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "Who was the minister responsible for the Canada Disability Benefit when it was created?",
+  "fr": "Qui était le ministre responsable de la Prestation canadienne pour les personnes handicapées lors de sa création?"
+ },
+ {
+  "id": "v07",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How many dentists in Nunavut accept the Canadian Dental Care Plan?",
+  "fr": "Combien de dentistes au Nunavut acceptent le Régime canadien de soins dentaires?"
+ },
+ {
+  "id": "v08",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What is the average processing time for a study permit from India this month?",
+  "fr": "Quel est le délai moyen de traitement d'un permis d'études depuis l'Inde ce mois-ci?"
+ },
+ {
+  "id": "v09",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What was the lowest Express Entry draw score in 2017?",
+  "fr": "Quel a été le score le plus bas d'une ronde d'Entrée express en 2017?"
+ },
+ {
+  "id": "v10",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How many hours of insurable employment did fishers need in 1990?",
+  "fr": "Combien d'heures d'emploi assurable les pêcheurs devaient-ils accumuler en 1990?"
+ },
+ {
+  "id": "v11",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "Can I use my RRSP to buy shares of a specific company like Shopify?",
+  "fr": "Puis-je utiliser mon REER pour acheter des actions d'une entreprise précise comme Shopify?"
+ },
+ {
+  "id": "v12",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What is the email address of the Canada Child Benefit office?",
+  "fr": "Quelle est l'adresse courriel du bureau de l'Allocation canadienne pour enfants?"
+ },
+ {
+  "id": "v13",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How many citizenship ceremonies were held in Toronto last year?",
+  "fr": "Combien de cérémonies de citoyenneté ont eu lieu à Toronto l'an dernier?"
+ },
+ {
+  "id": "v14",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What is the interest rate on Canada Student Loans for students in Quebec in 2015?",
+  "fr": "Quel était le taux d'intérêt des prêts d'études canadiens pour les étudiants du Québec en 2015?"
+ },
+ {
+  "id": "v15",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How long does it take to get an OAS appointment in Halifax?",
+  "fr": "Combien de temps faut-il pour obtenir un rendez-vous pour la SV à Halifax?"
+ },
+ {
+  "id": "v16",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What colour is the cover of a Canadian diplomatic passport?",
+  "fr": "De quelle couleur est la couverture d'un passeport diplomatique canadien?"
+ },
+ {
+  "id": "v17",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "How many work permits were issued to Brazilian nationals in 2022?",
+  "fr": "Combien de permis de travail ont été délivrés à des ressortissants brésiliens en 2022?"
+ },
+ {
+  "id": "v18",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "Which province has the most GIS recipients?",
+  "fr": "Quelle province compte le plus de bénéficiaires du SRG?"
+ },
+ {
+  "id": "v19",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "Who designed the logo of the Canada Groceries and Essentials Benefit?",
+  "fr": "Qui a conçu le logo de l'Allocation canadienne pour l'épicerie et les produits essentiels?"
+ },
+ {
+  "id": "v20",
+  "doc": null,
+  "ev": null,
+  "answerable": false,
+  "in_domain": true,
+  "en": "What is the name of the software Service Canada uses to process EI claims?",
+  "fr": "Quel est le nom du logiciel utilisé par Service Canada pour traiter les demandes d'assurance-emploi?"
+ }
+]
