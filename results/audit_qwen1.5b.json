@@ -1,0 +1,918 @@
+{
+ "summary": {
+  "nli": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "answers": 52,
+  "claims": 98,
+  "citation_faithfulness": 0.173,
+  "faithfulness_of_cited": 0.486,
+  "uncited_rate": 0.643,
+  "bad_ref_rate": 0.0,
+  "answer_language_match": 1.0,
+  "refusals": 0,
+  "grounded_in_any_source": 0.653,
+  "faithfulness_en": 0.286,
+  "faithfulness_fr": 0.129
+ },
+ "claims": [
+  {
+   "id": "q01",
+   "lang": "en",
+   "claim": "According to Source, you need to have been without work and without pay for at least 7 consecutive days in the last 52 weeks.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.35,
+   "entail": 0.35,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q01",
+   "lang": "fr",
+   "claim": "Selon la source, pour obtenir les prestations régulières d'assurance-emploi, il faut être touché par des inondations ou des feux de forêt, avoir travaillé pendant au moins 7 jours consécutifs au cours des 52 dernières semaines, et avoir travaillé au moins un certain nombre d'heures d'emploi assurables dans ces 52 semaines.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.762,
+   "entail": 0.762,
+   "verdict": "supported"
+  },
+  {
+   "id": "q01",
+   "lang": "fr",
+   "claim": "La durée exacte peut varier selon les critères spécifiques définis par l'assurance-emploi.",
+   "cites": [],
+   "any_source_entail": 0.026,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q02",
+   "lang": "en",
+   "claim": "According to Source, you are required to complete EI reports every 2 weeks either online or over the phone.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.422,
+   "entail": 0.422,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q02",
+   "lang": "fr",
+   "claim": "Selon les informations fournies dans le document, il faut remplir des déclarations de l'assurance-emploi toutes les deux semaines par Internet ou par téléphone afin de démontrer votre admissibilité et recevoir tout paiement auquel vous auriez droit.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.05,
+   "entail": 0.022,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q02",
+   "lang": "fr",
+   "claim": "Pour obtenir ces détails, vous pouvez consulter le site web [Mesures temporaires de l'assurance-emploi pour faire face aux changements majeurs des conditions économiques](http://www.mesures-temporelles-assuranceemploi.gouv.fr/).",
+   "cites": [],
+   "any_source_entail": 0.767,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q03",
+   "lang": "en",
+   "claim": "According to Source, parents who are away from work to care for their newborn or newly adopted child can receive 55% of their earnings, up to a maximum of $729 a week.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.489,
+   "entail": 0.489,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q03",
+   "lang": "fr",
+   "claim": "Selon les informations fournies dans le premier lien, une mère qui a accouché peut bénéficier de 15 semaines de prestations de maternité standard et de 35 semaines de prestations parentales standards.",
+   "cites": [],
+   "any_source_entail": 0.972,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q03",
+   "lang": "fr",
+   "claim": "Le montant hebdomadaire maximal que cette mère pourrait percevoir serait donc de 729$.",
+   "cites": [],
+   "any_source_entail": 0.995,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q03",
+   "lang": "fr",
+   "claim": "Le deuxième lien indique que si une mère s'absente du travail pour prendre soin d'un nouveau-né ou d'un enfant nouvellement adopté, elle pourrait obtenir jusqu'à 55% de",
+   "cites": [],
+   "any_source_entail": 0.703,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q04",
+   "lang": "en",
+   "claim": "Parents can share up to 61 weeks of standard parental benefits.",
+   "cites": [],
+   "any_source_entail": 0.38,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "claim": "Selon la source, jusqu'à 69 semaines peuvent être partagées entre les parents, mais un parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.078,
+   "entail": 0.002,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q04",
+   "lang": "fr",
+   "claim": "Source:",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.046,
+   "entail": 0.003,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q05",
+   "lang": "en",
+   "claim": "According to Source, one parent cannot receive more than 61 weeks of extended benefits when sharing with the other parent.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.943,
+   "entail": 0.875,
+   "verdict": "supported"
+  },
+  {
+   "id": "q05",
+   "lang": "fr",
+   "claim": "Selon la source, les parents peuvent partager jusqu'à 69 semaines de prestations parentales.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.237,
+   "entail": 0.049,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q05",
+   "lang": "fr",
+   "claim": "Cependant, un seul parent ne peut pas recevoir plus de 61 semaines de prestations prolongées.",
+   "cites": [],
+   "any_source_entail": 0.997,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q05",
+   "lang": "fr",
+   "claim": "La source ajoute que les prestations parentales prolongées peuvent aller jusqu'à 76 semaines au total pour Kelsey, avec son conjoint pouvant demander jusqu'à 8 semaines supplémentaires pour s'occuper du bébé.",
+   "cites": [
+    2
+   ],
+   "any_source_entail": 0.136,
+   "entail": 0.012,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q06",
+   "lang": "en",
+   "claim": "You can receive up to 26 weeks of EI sickness benefits.",
+   "cites": [],
+   "any_source_entail": 0.99,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Selon la source, vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne pouvez pas travailler pour des raisons médicales.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.183,
+   "entail": 0.054,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Pour vérifier si vous avez des congés de maladie payés par l'employeur, consultez la source.",
+   "cites": [
+    2
+   ],
+   "any_source_entail": 0.549,
+   "entail": 0.018,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q06",
+   "lang": "fr",
+   "claim": "Enfin, selon la source, il faut avoir travaillé pendant au moins 7 jours consécutifs au cours des 52 dernières semaines pour être admissible aux prestations de maladie de",
+   "cites": [
+    3
+   ],
+   "any_source_entail": 0.7,
+   "entail": 0.7,
+   "verdict": "supported"
+  },
+  {
+   "id": "q07",
+   "lang": "en",
+   "claim": "Yes, there is an EI caregiving benefit for a critically ill child under 18.",
+   "cites": [],
+   "any_source_entail": 0.023,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q07",
+   "lang": "fr",
+   "claim": "Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans.",
+   "cites": [],
+   "any_source_entail": 0.789,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q07",
+   "lang": "fr",
+   "claim": "Cette prestation s'applique lorsque le bénéficiaire doit se déplacer au travail pour fournir des soins ou du soutien à cet enfant.",
+   "cites": [],
+   "any_source_entail": 0.033,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q08",
+   "lang": "en",
+   "claim": "End-of-life care is defined as providing care or support to a person who has a serious medical condition with a significant risk of death within 26 weeks (6 months), where the person also requires the care or support of at least one caregiver.",
+   "cites": [],
+   "any_source_entail": 0.952,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q08",
+   "lang": "fr",
+   "claim": "Les soins de fin de vie sont définis comme fournir des soins ou du soutien à une personne qui a une maladie grave avec un risque important de décès dans les 26 prochains semaines (6 mois), et où cette personne a besoin des soins ou du soutien d'un proche aidant.",
+   "cites": [],
+   "any_source_entail": 0.987,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q08",
+   "lang": "fr",
+   "claim": "Ces soins peuvent inclure aider à s'occuper de la personne gravement malade ou blessée, ou en fin de vie.",
+   "cites": [],
+   "any_source_entail": 0.996,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q08",
+   "lang": "fr",
+   "claim": "Selon le contexte, il peut également y avoir des exigences spécifiques liées à",
+   "cites": [],
+   "any_source_entail": 0.361,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q09",
+   "lang": "en",
+   "claim": "Yes, according to Source, if you're under 70 and working while receiving your CPP, you can still contribute to increase your pension.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.781,
+   "entail": 0.781,
+   "verdict": "supported"
+  },
+  {
+   "id": "q09",
+   "lang": "fr",
+   "claim": "Oui, selon le supplément de revenu garanti, vous pouvez continuer à cotiser au RPC même si vous travaillez tout en recevant votre pension du RPC.",
+   "cites": [],
+   "any_source_entail": 0.779,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q09",
+   "lang": "fr",
+   "claim": "Vous devez être inférieur à 70 ans et avoir un emploi actif.",
+   "cites": [],
+   "any_source_entail": 0.454,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q10",
+   "lang": "en",
+   "claim": "According to Source, if it's been one month since your 64th birthday and you haven't received an enrollment letter, you might need to apply.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.983,
+   "entail": 0.983,
+   "verdict": "supported"
+  },
+  {
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Selon le document, si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre d'inscription, vous devrez peut-être présenter une demande.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.5,
+   "entail": 0.055,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q10",
+   "lang": "fr",
+   "claim": "Pour obtenir plus de détails sur ce qui doit être présenté lors de cette demande, il est recommandé de consulter le document.",
+   "cites": [
+    2
+   ],
+   "any_source_entail": 0.588,
+   "entail": 0.013,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q11",
+   "lang": "en",
+   "claim": "The Guaranteed Income Supplement (GIS) is available to individuals who are 65 years of age or older.",
+   "cites": [],
+   "any_source_entail": 0.999,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q11",
+   "lang": "fr",
+   "claim": "Selon la source, le Supplément de revenu garanti (SRG) est offert aux personnes âgées de 65 ans ou plus.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.998,
+   "entail": 0.998,
+   "verdict": "supported"
+  },
+  {
+   "id": "q11",
+   "lang": "fr",
+   "claim": "Cependant, cette information n'est pas suffisante pour répondre complètement à la question car elle ne précise pas comment se faire connaître pour bénéficier de ce supplément.",
+   "cites": [],
+   "any_source_entail": 0.001,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q11",
+   "lang": "fr",
+   "claim": "La source ajoute que vous pouvez demander votre inscription automatique si vous avez les informations nécessaires, mais elle ne donne pas de détail sur les conditions d'admissibilité.",
+   "cites": [
+    2
+   ],
+   "any_source_entail": 0.836,
+   "entail": 0.03,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q11",
+   "lang": "fr",
+   "claim": "La source [",
+   "cites": [],
+   "any_source_entail": 0.848,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "en",
+   "claim": "If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduced.",
+   "cites": [],
+   "any_source_entail": 0.977,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Si vous ne produisez pas votre déclaration de revenus de 2025 auprès de l'ARC, vos paiements du Supplément de revenu garanti (SRG) peuvent cesser ou être réduits.",
+   "cites": [],
+   "any_source_entail": 0.969,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Pour éviter ces interruptions, il est recommandé d'effectuer cette tâche dès que possible.",
+   "cites": [],
+   "any_source_entail": 0.998,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q12",
+   "lang": "fr",
+   "claim": "Vous pouvez également nous déclarer vos revenus directement pour renouveler ou confirmer votre admissibilité.",
+   "cites": [],
+   "any_source_entail": 0.996,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "en",
+   "claim": "The Canada child benefit (CCB) is a tax-free monthly payment for eligible families to help with the cost of raising children under 18 years of age.",
+   "cites": [],
+   "any_source_entail": 0.189,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "en",
+   "claim": "It includes the child disability benefit and any related provincial and territorial programs.",
+   "cites": [],
+   "any_source_entail": 0.199,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "fr",
+   "claim": "L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aider à subvenir aux besoins de leurs enfants de moins de 18 ans.",
+   "cites": [],
+   "any_source_entail": 0.572,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "fr",
+   "claim": "Ce montant peut inclure des montants spécifiques pour les enfants handicapés et des programmes provinciaux ou territoriaux connexes.",
+   "cites": [],
+   "any_source_entail": 0.991,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "fr",
+   "claim": "Il est administré par l'Agence du revenu du Canada (ARC).",
+   "cites": [],
+   "any_source_entail": 0.993,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q13",
+   "lang": "fr",
+   "claim": "Les enfants visés par l'allocation canadienne pour enfants comprennent tous les enfants mineurs de moins de 1",
+   "cites": [],
+   "any_source_entail": 0.384,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q14",
+   "lang": "en",
+   "claim": "In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB).",
+   "cites": [],
+   "any_source_entail": 0.997,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q14",
+   "lang": "fr",
+   "claim": "Le versement supplémentaire unique du crédit pour la TPS/TVH a été émis le 5 juin 2026 afin de fournir un soutien immédiat avant l'entrée en vigueur de l'ACEBE en juillet 2026.",
+   "cites": [],
+   "any_source_entail": 0.758,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q14",
+   "lang": "fr",
+   "claim": "Si vous aviez droit au crédit pour la TPS/TVH en janvier 2026, vous devriez avoir reçu ce versement unique.",
+   "cites": [],
+   "any_source_entail": 0.903,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q15",
+   "lang": "en",
+   "claim": "When you turn 71, your RRSP options include purchasing an advanced life deferred annuity (ALDA), which allows you to defer contributions until age 85.",
+   "cites": [],
+   "any_source_entail": 0.978,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Selon les informations fournies par les sources, et, voici les options possibles pour un REER à 71 ans :",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "any_source_entail": 0.066,
+   "entail": 0.066,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Vous pouvez choisir de retirer des fonds de votre REER pour acheter ou construire une première maison si vous avez plus de 60 ans.",
+   "cites": [],
+   "any_source_entail": 0.991,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Vous pouvez également choisir de reporter votre REER ou votre FERR jusqu'à 85 ans.",
+   "cites": [],
+   "any_source_entail": 0.992,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q15",
+   "lang": "fr",
+   "claim": "Cependant, il est important de noter que ces options peuvent varier selon les régulations locales et les conditions spécifiques de votre plan",
+   "cites": [],
+   "any_source_entail": 0.008,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q16",
+   "lang": "en",
+   "claim": "According to Source, a conjugal relationship must have lasted at least 12 continuous months to be considered common-law for purposes of a Tax-Free Savings Account (TFSA).",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.825,
+   "entail": 0.825,
+   "verdict": "supported"
+  },
+  {
+   "id": "q16",
+   "lang": "fr",
+   "claim": "Selon la source, pour que la relation conjugale soit considérée comme une union de fait pour le compte d'épargne libre d'impôt (CELI), elle doit avoir duré au moins 12 mois sans interruption.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.736,
+   "entail": 0.736,
+   "verdict": "supported"
+  },
+  {
+   "id": "q16",
+   "lang": "fr",
+   "claim": "Source :",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.255,
+   "entail": 0.065,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q17",
+   "lang": "en",
+   "claim": "Yes, applications for the 2026-2027 benefit period are open according to Source.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.82,
+   "entail": 0.82,
+   "verdict": "supported"
+  },
+  {
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes.",
+   "cites": [],
+   "any_source_entail": 0.991,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q17",
+   "lang": "fr",
+   "claim": "Si vous étiez couvert pour la période de prestations 2025-2026 et que vous n'avez pas renouvelé avant la date limite, cliquez sur le lien ci-dessous pour présenter une nouvelle demande.",
+   "cites": [],
+   "any_source_entail": 0.875,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "en",
+   "claim": "If you urgently need your passport, you should contact them as they provide urgent or express services for such situations.",
+   "cites": [],
+   "any_source_entail": 0.927,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "claim": "Si vous avez besoin de votre passeport de toute urgence, vous devez contacter le Service des papiers d'identité du Canada pour obtenir un service urgent ou express.",
+   "cites": [],
+   "any_source_entail": 0.291,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "claim": "Vous pouvez également utiliser le programme de passeport pour communiquer avec eux.",
+   "cites": [],
+   "any_source_entail": 0.096,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q18",
+   "lang": "fr",
+   "claim": ",",
+   "cites": [
+    1,
+    3
+   ],
+   "any_source_entail": 0.256,
+   "entail": 0.256,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q19",
+   "lang": "en",
+   "claim": "To apply for Canadian citizenship, you can use a maximum of 365 days of physical presence as a temporary resident or protected person, which equates to 730 calendar days.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "any_source_entail": 0.828,
+   "entail": 0.828,
+   "verdict": "supported"
+  },
+  {
+   "id": "q19",
+   "lang": "fr",
+   "claim": "Selon les informations fournies dans les sources, et, il faut compter au moins 365 jours de présence effective au Canada pour demander la citoyenneté canadienne.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "any_source_entail": 0.05,
+   "entail": 0.05,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q19",
+   "lang": "fr",
+   "claim": "Ces 365 jours peuvent être accumulés pendant toute la période d'admissibilité, ce qui signifie que vous pouvez passer jusqu'à 365 jours par an sans avoir besoin de faire une demande.",
+   "cites": [],
+   "any_source_entail": 0.056,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q19",
+   "lang": "fr",
+   "claim": "Il est important de noter que ces 365 jours comprennent tous les jours passés à titre de",
+   "cites": [],
+   "any_source_entail": 0.759,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q20",
+   "lang": "en",
+   "claim": "Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical presence in Canada.",
+   "cites": [],
+   "any_source_entail": 0.976,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q20",
+   "lang": "fr",
+   "claim": "Selon les informations fournies par les sources, et, chaque jour que vous passez à titre de résident temporaire au Canada compte pour 0,5 jour de présence effective.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "any_source_entail": 0.007,
+   "entail": 0.007,
+   "verdict": "unsupported"
+  },
+  {
+   "id": "q20",
+   "lang": "fr",
+   "claim": "Par conséquent, si vous avez passé 365 jours à titre de résident temporaire, cela correspond à 730 jours civils (730 jours x 0,5 = 365 jours de présence effective).",
+   "cites": [],
+   "any_source_entail": 0.959,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "en",
+   "claim": "A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at designated learning institutions in Canada.",
+   "cites": [],
+   "any_source_entail": 0.791,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "en",
+   "claim": "It's necessary for most foreign students planning to study in Canada.",
+   "cites": [],
+   "any_source_entail": 0.815,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Un permis d'études est un document délivré par le gouvernement du Canada qui autorise les étrangers à étudier dans un établissement d'enseignement désigné (EED).",
+   "cites": [],
+   "any_source_entail": 0.458,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Il est nécessaire de présenter tous les documents requis avant de soumettre une demande de permis d'étude.",
+   "cites": [],
+   "any_source_entail": 0.998,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q21",
+   "lang": "fr",
+   "claim": "Pour plus d'informations sur comment obtenir votre maîtrise ou votre doctorat au Canada, voir les ressources mentionnées ci-dessus.",
+   "cites": [],
+   "any_source_entail": 0.241,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q22",
+   "lang": "en",
+   "claim": "There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trades Program, and Canadian Experience Class.",
+   "cites": [],
+   "any_source_entail": 0.502,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q22",
+   "lang": "fr",
+   "claim": "Selon le document, trois programmes d'immigration sont gérés dans le cadre d'Entrée express: la catégorie de l'expérience canadienne, le programme des travailleurs qualifiés fédéraux et le programme des travailleurs de métiers spécialisés fédéraux.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.833,
+   "entail": 0.588,
+   "verdict": "supported"
+  },
+  {
+   "id": "q22",
+   "lang": "fr",
+   "claim": "Cette information est fournie directement dans le premier lien mentionné, qui explique clairement combien de programmes sont gérés par Entrée express.",
+   "cites": [],
+   "any_source_entail": 0.096,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "en",
+   "claim": "You can get money to study at college or university through grants, loans, scholarships, and help to repay your student loans.",
+   "cites": [],
+   "any_source_entail": 0.998,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Pour obtenir de l'argent pour étudier au collège ou à l'université, vous pouvez consulter le site web du Centre de service national de prêts aux étudiants (CSNPE).",
+   "cites": [],
+   "any_source_entail": 0.988,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Vous y trouverez des informations sur les conditions de votre entente de prêt et comment gérer votre prêt.",
+   "cites": [],
+   "any_source_entail": 0.609,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "claim": "De plus, il existe des bourses et des subventions disponibles pour les étudiants et les apprentis.",
+   "cites": [],
+   "any_source_entail": 0.996,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Pour les bourses, vous pouvez présenter une demande directement auprès des organismes qui offrent ces aides.",
+   "cites": [],
+   "any_source_entail": 0.782,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q23",
+   "lang": "fr",
+   "claim": "Enfin, si vous êtes",
+   "cites": [],
+   "any_source_entail": 0.049,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q24",
+   "lang": "en",
+   "claim": "According to Source, persons with disabilities, their caregivers, and the CRA are eligible for the Canada Disability Benefit by age 18 to 64 years old.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.651,
+   "entail": 0.651,
+   "verdict": "supported"
+  },
+  {
+   "id": "q24",
+   "lang": "fr",
+   "claim": "Selon la source, l'âge requis pour la Prestation canadienne pour les personnes handicapées (PCPH) est de 18 à 64 ans.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.867,
+   "entail": 0.867,
+   "verdict": "supported"
+  },
+  {
+   "id": "q24",
+   "lang": "fr",
+   "claim": "Source :",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.81,
+   "entail": 0.81,
+   "verdict": "supported"
+  },
+  {
+   "id": "q25",
+   "lang": "en",
+   "claim": "The Canada Disability Benefit can provide back payments for up to 24 months from when they receive an application, starting from June 2025.",
+   "cites": [],
+   "any_source_entail": 0.994,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q25",
+   "lang": "fr",
+   "claim": "Selon les informations fournies dans les sources, et, la Prestation canadienne pour les personnes handicapées (PCPH) peut verser des paiements rétroactifs pendant une période allant jusqu'à 24 mois à partir de la date de réception de la demande.",
+   "cites": [
+    1,
+    2,
+    3
+   ],
+   "any_source_entail": 0.965,
+   "entail": 0.965,
+   "verdict": "supported"
+  },
+  {
+   "id": "q25",
+   "lang": "fr",
+   "claim": "Cependant, il est important de noter que cette durée peut varier selon les conditions spécifiques de chaque dossier.",
+   "cites": [],
+   "any_source_entail": 0.031,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q26",
+   "lang": "en",
+   "claim": "Fishers and Employment Insurance",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.715,
+   "entail": 0.715,
+   "verdict": "supported"
+  },
+  {
+   "id": "q26",
+   "lang": "fr",
+   "claim": "Selon la source, les pêcheurs peuvent recevoir des prestations de pêcheur si ils sont admissibles et cherchent activement un emploi, même s'ils n'ont pas encore trouvé de travail.",
+   "cites": [
+    1
+   ],
+   "any_source_entail": 0.751,
+   "entail": 0.751,
+   "verdict": "supported"
+  },
+  {
+   "id": "q26",
+   "lang": "fr",
+   "claim": "Ces prestations sont liées au revenu que ces travailleurs indépendants gagnent, et non aux heures d'emploi assurables, contrairement aux autres prestations régulières.",
+   "cites": [],
+   "any_source_entail": 0.997,
+   "verdict": "uncited"
+  },
+  {
+   "id": "q26",
+   "lang": "fr",
+   "claim": "De plus, selon la même source, les pêcheurs peuvent également bénéficier de prestations de maladie, de matern",
+   "cites": [],
+   "any_source_entail": 0.005,
+   "verdict": "uncited"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11570.41it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 10312.46it/s]
+q01 en According to Source [1], you need to have been without work and without pay for at least 7 consecutive days in the last 
+q01 fr Selon la source [1], pour obtenir les prestations régulières d'assurance-emploi, il faut être touché par des inondations
+q02 en According to Source [1], you are required to complete EI reports every 2 weeks either online or over the phone.
+q02 fr Selon les informations fournies dans le document [1], il faut remplir des déclarations de l'assurance-emploi toutes les 
+q03 en According to Source [1], parents who are away from work to care for their newborn or newly adopted child can receive 55%
+q03 fr Selon les informations fournies dans le premier lien, une mère qui a accouché peut bénéficier de 15 semaines de prestati
+q04 en Parents can share up to 61 weeks of standard parental benefits. [1]
+q04 fr Selon la source [1], jusqu'à 69 semaines peuvent être partagées entre les parents, mais un parent ne peut pas recevoir p
+q05 en According to Source [1], one parent cannot receive more than 61 weeks of extended benefits when sharing with the other p
+q05 fr Selon la source [1], les parents peuvent partager jusqu'à 69 semaines de prestations parentales. Cependant, un seul pare
+q06 en You can receive up to 26 weeks of EI sickness benefits. [1]
+q06 fr Selon la source [1], vous pouvez recevoir jusqu'à 26 semaines de prestations de maladie de l'assurance-emploi si vous ne
+q07 en Yes, there is an EI caregiving benefit for a critically ill child under 18. [1]
+q07 fr Oui, il existe une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans. Cette prestation s'ap
+q08 en End-of-life care is defined as providing care or support to a person who has a serious medical condition with a signific
+q08 fr Les soins de fin de vie sont définis comme fournir des soins ou du soutien à une personne qui a une maladie grave avec u
+q09 en Yes, according to Source [1], if you're under 70 and working while receiving your CPP, you can still contribute to incre
+q09 fr Oui, selon le supplément de revenu garanti, vous pouvez continuer à cotiser au RPC même si vous travaillez tout en recev
+q10 en According to Source [1], if it's been one month since your 64th birthday and you haven't received an enrollment letter, 
+q10 fr Selon le document [1], si cela fait un mois depuis votre 64e anniversaire et que vous n'avez toujours pas reçu de lettre
+q11 en The Guaranteed Income Supplement (GIS) is available to individuals who are 65 years of age or older. [1]
+q11 fr Selon la source [1], le Supplément de revenu garanti (SRG) est offert aux personnes âgées de 65 ans ou plus. Cependant, 
+q12 en If you haven't filed your 2025 taxes with the CRA, your Guaranteed Income Supplement (GIS) payments may stop or be reduc
+q12 fr Si vous ne produisez pas votre déclaration de revenus de 2025 auprès de l'ARC, vos paiements du Supplément de revenu gar
+q13 en The Canada child benefit (CCB) is a tax-free monthly payment for eligible families to help with the cost of raising chil
+q13 fr L'allocation canadienne pour enfants (ACE) est un montant mensuel non imposable versé aux familles admissibles pour aide
+q14 en In July 2026, the GST/HST credit was replaced by the Canada Groceries and Essentials Benefit (CGEB). [2]
+q14 fr Le versement supplémentaire unique du crédit pour la TPS/TVH a été émis le 5 juin 2026 afin de fournir un soutien immédi
+q15 en When you turn 71, your RRSP options include purchasing an advanced life deferred annuity (ALDA), which allows you to def
+q15 fr Selon les informations fournies par les sources [1], [2] et [3], voici les options possibles pour un REER à 71 ans :  1.
+q16 en According to Source [1], a conjugal relationship must have lasted at least 12 continuous months to be considered common-
+q16 fr Selon la source [1], pour que la relation conjugale soit considérée comme une union de fait pour le compte d'épargne lib
+q17 en Yes, applications for the 2026-2027 benefit period are open according to Source [1].
+q17 fr Oui, les demandes pour la période de prestations 2026-2027 sont ouvertes. Si vous étiez couvert pour la période de prest
+q18 en If you urgently need your passport, you should contact them as they provide urgent or express services for such situatio
+q18 fr Si vous avez besoin de votre passeport de toute urgence, vous devez contacter le Service des papiers d'identité du Canad
+q19 en To apply for Canadian citizenship, you can use a maximum of 365 days of physical presence as a temporary resident or pro
+q19 fr Selon les informations fournies dans les sources [1], [2] et [3], il faut compter au moins 365 jours de présence effecti
+q20 en Each day as a temporary resident or protected person during your eligibility period counts as 0.5 days of physical prese
+q20 fr Selon les informations fournies par les sources [1], [2] et [3], chaque jour que vous passez à titre de résident tempora
+q21 en A study permit is a document issued by Canadian immigration authorities that allows foreign nationals to study at design
+q21 fr Un permis d'études est un document délivré par le gouvernement du Canada qui autorise les étrangers à étudier dans un ét
+q22 en There are three immigration programs managed through Express Entry: Federal Skilled Worker Program, Federal Skilled Trad
+q22 fr Selon le document [1], trois programmes d'immigration sont gérés dans le cadre d'Entrée express: la catégorie de l'expér
+q23 en You can get money to study at college or university through grants, loans, scholarships, and help to repay your student 
+q23 fr Pour obtenir de l'argent pour étudier au collège ou à l'université, vous pouvez consulter le site web du Centre de servi
+q24 en According to Source [1], persons with disabilities, their caregivers, and the CRA are eligible for the Canada Disability
+q24 fr Selon la source [1], l'âge requis pour la Prestation canadienne pour les personnes handicapées (PCPH) est de 18 à 64 ans
+q25 en The Canada Disability Benefit can provide back payments for up to 24 months from when they receive an application, start
+q25 fr Selon les informations fournies dans les sources [1], [2] et [3], la Prestation canadienne pour les personnes handicapée
+q26 en Fishers and Employment Insurance [1]
+q26 fr Selon la source [1], les pêcheurs peuvent recevoir des prestations de pêcheur si ils sont admissibles et cherchent activ
