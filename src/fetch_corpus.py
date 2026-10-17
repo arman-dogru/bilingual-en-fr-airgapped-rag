@@ -1,5 +1,5 @@
 """Fetch EN/FR page pairs from Canada.ca (Open Government Licence - Canada)."""
-import json, re, sys, time, requests
+import json, re, sys, time, hashlib, datetime, os, requests
 from bs4 import BeautifulSoup
 EN = """services/benefits/ei/ei-regular-benefit/eligibility.html
 services/benefits/ei/ei-maternity-parental.html
@@ -35,7 +35,8 @@ def text(html):
     title = (s.find("h1") or s.title).get_text(" ", strip=True)
     paras = [re.sub(r"\s+", " ", e.get_text(" ", strip=True)) for e in main.find_all(["h2","h3","p","li","td"])]
     return title, [p for p in paras if len(p) > 25]
-out = []
+OUT = os.environ.get("OUT", "data/corpus.refetch.json")  # never overwrite the committed snapshot
+out = []; failed = []
 for i, path in enumerate(EN):
     try:
         url = f"https://www.canada.ca/en/{path}"; h = get(url)
@@ -45,7 +46,10 @@ for i, path in enumerate(EN):
         out.append(dict(doc_id=f"d{i:02d}", en=dict(url=url, title=te, paras=pe), fr=dict(url=fr, title=tf, paras=pf),
                         licence="Open Government Licence - Canada"))
         print("ok", i, te[:60], len(pe), len(pf), flush=True)
-    except Exception as e: print("FAIL", path, e, flush=True)
+    except Exception as e: print("FAIL", path, e, flush=True); failed.append(dict(path=path, error=str(e)))
     time.sleep(0.5)
-json.dump(out, open("data/corpus.json", "w"), ensure_ascii=False, indent=1)
-print(len(out), "pairs")
+json.dump(out, open(OUT, "w"), ensure_ascii=False, indent=1)
+meta = dict(fetched=datetime.datetime.now(datetime.timezone.utc).isoformat(), pairs=len(out), failed=failed, sha256=hashlib.sha256(open(OUT, "rb").read()).hexdigest())
+json.dump(meta, open(OUT + ".meta.json", "w"), indent=1)
+print(len(out), "pairs;", len(failed), "failed; sha256", meta["sha256"])
+if failed and os.environ.get("ALLOW_FAILURES") != "1": sys.exit(f"error: {len(failed)} pages failed (set ALLOW_FAILURES=1 to accept)")

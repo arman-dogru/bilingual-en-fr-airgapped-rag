@@ -1,6 +1,6 @@
 """RAG answers with inline [n] citations using a small local LLM on CPU.
 
-Deterministic by construction: greedy decoding, fp32 weights, fixed seeds and a fixed thread count
+Deterministic by construction: greedy decoding, fp32 weights (DTYPE), fixed seeds and a fixed thread count
 (THREADS, default 4). Each output records library versions, model revisions and the exact source text
 shown to the model (the audit judges that same text).
 Config via env: LLM_MODEL, RETR (same|mixed_rr), PROMPT (basic|fewshot), QA (question file(s), comma-separated), OUT.
@@ -11,9 +11,10 @@ import numpy as np, torch
 from config import rev, THREADS, env_info
 K, CTX_CHARS = 3, 700
 MAX_Q_CHARS = 500
-SHOT = {"en": ("Sources:\n<source id=1 title=\"EI sickness\">EI sickness benefits can provide up to 26 weeks of financial assistance.</source>\n<source id=2 title=\"Passports\">Book an appointment online.</source>\n\nQuestion: How long do EI sickness benefits last?",
+DTYPE = os.environ.get("DTYPE", "float32")  # 1.5B runs use bfloat16: fp32 1.5B does not fit next to other agents on the 16 GB box
+SHOT = {"en": ("Sources:\n[1] (EI sickness) <source>EI sickness benefits can provide up to 26 weeks of financial assistance.</source>\n[2] (Passports) <source>Book an appointment online.</source>\n\nQuestion: How long do EI sickness benefits last?",
                "EI sickness benefits can last up to 26 weeks [1]."),
-        "fr": ("Sources:\n<source id=1 title=\"Maladie AE\">Les prestations de maladie peuvent offrir jusqu'à 26 semaines d'aide financière.</source>\n<source id=2 title=\"Passeports\">Prenez rendez-vous en ligne.</source>\n\nQuestion : Combien de temps durent les prestations de maladie?",
+        "fr": ("Sources:\n[1] (Maladie AE) <source>Les prestations de maladie peuvent offrir jusqu'à 26 semaines d'aide financière.</source>\n[2] (Passeports) <source>Prenez rendez-vous en ligne.</source>\n\nQuestion : Combien de temps durent les prestations de maladie?",
                "Les prestations de maladie peuvent durer jusqu'à 26 semaines [1].")}
 RULE = {"en": " Every sentence MUST end with a citation like [1]. Do not write 'according to the source'; just state the fact and cite it.",
         "fr": " Chaque phrase DOIT se terminer par une citation comme [1]. N'écris pas « selon la source »; énonce le fait et cite-le."}
@@ -39,7 +40,7 @@ def prompt_sources(ctx):
     return [dict(c, prompt_text=c["text"][:CTX_CHARS]) for c in ctx]
 
 def messages(q, lang, ctx, prompt):
-    src = "\n".join(f"<source id={i+1} title=\"{c['title']}\">{c['prompt_text']}</source>" for i, c in enumerate(ctx))
+    src = "\n".join(f"[{i+1}] ({c['title']}) <source>{c['prompt_text']}</source>" for i, c in enumerate(ctx))
     sysm = SYS[lang] + (RULE[lang] if prompt == "fewshot" else "")
     shot = [{"role": "user", "content": SHOT[lang][0]}, {"role": "assistant", "content": SHOT[lang][1]}] if prompt == "fewshot" else []
     return [{"role": "system", "content": sysm}] + shot + [{"role": "user", "content": f"Sources:\n{src}\n\nQuestion: {q}"}]
@@ -48,7 +49,7 @@ def load_llm(name):
     from transformers import AutoTokenizer, AutoModelForCausalLM
     try:
         tok = AutoTokenizer.from_pretrained(name, revision=rev(name))
-        lm = AutoModelForCausalLM.from_pretrained(name, revision=rev(name), dtype=torch.float32).eval()
+        lm = AutoModelForCausalLM.from_pretrained(name, revision=rev(name), dtype=getattr(torch, DTYPE)).eval()
     except OSError as e:
         raise SystemExit(f"error: cannot load {name}@{rev(name)[:8]} (not cached and no network?): {e}")
     return tok, lm
@@ -60,6 +61,7 @@ def generate(tok, lm, msgs, max_new_tokens=120):
 
 def main():
     cfg = {k: os.environ.get(k, v[0]) for k, v in CHOICES.items()}
+    if DTYPE not in ("float32", "bfloat16"): raise SystemExit(f"error: DTYPE={DTYPE!r}; choose float32 or bfloat16")
     for k, v in cfg.items():
         if v not in CHOICES[k]: raise SystemExit(f"error: {k}={v!r}; choose one of {CHOICES[k]}")
     LLM = os.environ.get("LLM_MODEL", "Qwen/Qwen2.5-0.5B-Instruct"); rev(LLM)
@@ -87,5 +89,5 @@ def main():
                                           score=c.get("score"), rr=c.get("rr")) for c in ctx]))
             print(it["id"], lang, ans[:120].replace("\n", " "), flush=True)
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
-    json.dump(dict(llm=LLM, retr=cfg["RETR"], prompt=cfg["PROMPT"], env=env_info(), answers=out), open(out_path, "w"), ensure_ascii=False, indent=1)
+    json.dump(dict(llm=LLM, retr=cfg["RETR"], prompt=cfg["PROMPT"], dtype=DTYPE, env=env_info(), answers=out), open(out_path, "w"), ensure_ascii=False, indent=1)
 if __name__ == "__main__": main()
