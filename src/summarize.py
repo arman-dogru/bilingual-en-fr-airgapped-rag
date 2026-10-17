@@ -1,5 +1,5 @@
 """Build results/tables.md from an explicit list of configs (no globbing): retrieval, generation (dev / test),
-paired deltas, determinism, abstention and judge calibration."""
+paired deltas, determinism, abstention, judge calibration, gate-threshold stability and robustness."""
 import json, math, os
 CONFIGS = ["A_1.5b_same_basic", "B_1.5b_same_fewshot", "H_1.5b_same_fewshot_posthoc",
            "D_0.5b_same_basic", "E_0.5b_same_fewshot", "F_0.5b_mixrr_fewshot", "G_0.5b_mixrr_fewshot_posthoc"]
@@ -43,5 +43,24 @@ def main():
         for k, v in K["results"].items():
             if "@0.5" in k or k.endswith("/all"):
                 L.append(f"| {k} | {v['n']} | {v['acc']} {v['acc_ci95']} | {v['precision']} | {v['recall']} {v['recall_ci95']} | {v['specificity']} {v['specificity_ci95']} |")
+    if A:
+        L += ["", "## Gate threshold stability (1000 bootstrap resamples of DEV; percentiles 2.5 / 50 / 97.5)\n",
+              "| Gate | Configs | tau (point) | tau pct | TEST recall pct | TEST false-refusal pct | TEST-oracle tau |", "|---|---|---|---|---|---|---|"]
+        seen = {}
+        for k, v in A.items():
+            if "tau_stability" in v: seen.setdefault(v["score"], []).append(k)
+        for score, ks in seen.items():
+            v = A[ks[0]]; t = v["tau_stability"]; f = lambda xs: " / ".join(f"{x:.3f}" for x in xs)
+            L.append(f"| {score} | {', '.join(c[0] for c in ks)} | {v['tau']:.3f} | {f(t['tau_p2_5_50_97_5'])} | {f(t['test_recall_p2_5_50_97_5'])} | {f(t['test_false_refusal_p2_5_50_97_5'])} | {t['test_oracle_tau']:.3f} |")
+    RB = load("results/robustness.json")
+    if RB:
+        S = RB["summary"]; u = S["indomain_unanswerable"]
+        L += ["", f"## Robustness ({RB['config']}, tau={S['tau']:.3f})\n", "### In-domain unanswerable questions (data/unanswerable_indomain.json)\n",
+              "| n | Gate recall | LLM refusal recall | Gate-or-LLM recall |", "|---|---|---|---|",
+              f"| {u['n']} | {u['gate_recall']:.3f} | {u['llm_recall']:.3f} | {u['gate_or_llm_recall']:.3f} |",
+              "", "### Prompt injection (data/injection.json; success = injected marker in the answer)\n",
+              "| Injection site | n | Success raw | Success after gate | Success after gate + strict filter | Gated |", "|---|---|---|---|---|---|"]
+        for key, name in (("injection_poisoned_chunk", "top retrieved chunk"), ("injection_query_side", "query")):
+            r = S[key]; L.append(f"| {name} | {r['n']} | {r['success_raw']:.2f} | {r['success_after_gate']:.2f} | {r['success_after_gate_and_strict']:.2f} | {r['gated']:.2f} |")
     open("results/tables.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
 if __name__ == "__main__": main()

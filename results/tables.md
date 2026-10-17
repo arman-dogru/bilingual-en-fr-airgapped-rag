@@ -126,3 +126,25 @@
 | any/normalized@0.5/all | 67 | 0.836 [0.729, 0.906] | 0.593 | 1.0 [0.806, 1.0] | 0.784 [0.654, 0.875] |
 | any/normalized@0.7/all | 67 | 0.821 [0.713, 0.894] | 0.591 | 0.812 [0.57, 0.934] | 0.824 [0.697, 0.904] |
 | any/normalized@0.9/all | 67 | 0.866 [0.764, 0.928] | 0.818 | 0.562 [0.332, 0.769] | 0.961 [0.868, 0.989] |
+
+## Gate threshold stability (1000 bootstrap resamples of DEV; percentiles 2.5 / 50 / 97.5)
+
+| Gate | Configs | tau (point) | tau pct | TEST recall pct | TEST false-refusal pct | TEST-oracle tau |
+|---|---|---|---|---|---|---|
+| e5 cosine | A, B, D, E, H | 0.886 | 0.864 / 0.886 / 0.890 | 1.000 / 1.000 / 1.000 | 0.038 / 0.231 / 0.269 | 0.867 |
+| reranker logit | F, G | 2.274 | -0.877 / -0.146 / 4.780 | 0.962 / 1.000 / 1.000 | 0.019 / 0.058 / 0.269 | -0.314 |
+
+## Robustness (F_0.5b_mixrr_fewshot, tau=2.274)
+
+### In-domain unanswerable questions (data/unanswerable_indomain.json)
+
+| n | Gate recall | LLM refusal recall | Gate-or-LLM recall |
+|---|---|---|---|
+| 40 | 1.000 | 0.025 | 1.000 |
+
+### Prompt injection (data/injection.json; success = injected marker in the answer)
+
+| Injection site | n | Success raw | Success after gate | Success after gate + strict filter | Gated |
+|---|---|---|---|---|---|
+| top retrieved chunk | 20 | 0.00 | 0.00 | 0.00 | 0.15 |
+| query | 20 | 0.65 | 0.55 | 0.00 | 0.20 |

@@ -114,15 +114,15 @@ Wrong numbers that appear elsewhere in the retrieved chunks fool the any-source 
 | Set | n | Result |
 |---|---|---|
 | In-domain unanswerable (`data/unanswerable_indomain.json`, v01–v20 × EN/FR: on-topic questions the corpus does not answer) | 40 | gate recall 1.00, LLM refusal recall 0.03, gate-or-LLM 1.00 |
-| Prompt injection in the top chunk (`data/injection.json`, 10 test questions × EN/FR) | 20 | success 0.00 raw / 0.00 after gate / 0.00 after strict filter |
-| Prompt injection in the query | 20 | success **0.65** raw / 0.55 after gate / 0.00 after strict filter |
+| Prompt injection in the top chunk (`data/injection.json`, 10 test questions × EN/FR) | 20 | success 0.00 raw / 0.00 after gate / 0.00 after gate + strict filter |
+| Prompt injection in the query | 20 | success **0.65** raw / 0.55 after gate / 0.00 after gate + strict filter |
 
-"Success" means the answer contains the injected marker (`evil.example`). Query-side injection works on the raw model, and only the strict citation filter removes it. The gate refuses 15% (chunk) and 20% (query) of the injected questions.
+"Success" means the answer contains the injected marker (`evil.example`). **Query-side injection is stopped only by the strict citation filter.** The delimiting prompt and the "treat sources as data" instruction don't stop it (0.65 raw), and the retrieval gate removes only a few cases (0.55). The strict filter drops every injected sentence because none is entailed by a cited chunk. It doesn't detect injection as such. With `--no-strict`, or for injected text that happens to be supported, there is no protection. The gate refuses 15% (chunk) and 20% (query) of the injected questions.
 
 ### Threshold stability (`results/abstain.json` → `tau_stability`; 1,000 bootstrap resamples of DEV)
 | Gate | τ (point) | τ 2.5 / 50 / 97.5 pct | TEST recall (pct) | TEST false-refusal (pct) | TEST-oracle τ |
 |---|---|---|---|---|---|
-| e5 cosine (B/E) | 0.886 | 0.864 / 0.886 / 0.890 | – | 0.04 / 0.23 / 0.27 | 0.867 |
+| e5 cosine (A/B/D/E/H) | 0.886 | 0.864 / 0.886 / 0.890 | 1.00 / 1.00 / 1.00 | 0.04 / 0.23 / 0.27 | 0.867 |
 | reranker logit (F/G) | 2.27 | −0.88 / −0.15 / 4.78 | 0.96 / 1.00 / 1.00 | 0.02 / 0.06 / 0.27 | −0.31 |
 
 The cosine gate is stable. The reranker gate is not: dev has only 24 unanswerable items, and resampled τ ranges across about 6 logits. The point τ of 2.27 is at the conservative end, and the TEST-oracle τ (−0.31) would refuse fewer answerable questions. Treat the 0.15 false-refusal rate as one draw from a wide range (0.02–0.27).
@@ -169,7 +169,7 @@ Configuration is read from environment variables, and invalid values are rejecte
 - The corpus is small (20 page pairs) and some pages are mostly navigation. The Q&A set, splits, gold labels, unanswerable set and calibration labels all come from one author, the Developer agent. The test split is disjoint by construction but wasn't written independently.
 - The judge calibration has 67 items, all on dev questions and labelled by an LLM agent. NLI is weak on numbers ("365 jours" vs a gold value of 1 095 is scored as entailed). A human-labelled sample is the next step.
 - Faithfulness metrics don't measure answer correctness or completeness against a gold answer.
-- Prompt-injection hardening is limited to delimiting sources and adding a "treat as data" instruction. A 40-probe EN/FR eval (above) shows query-side injection succeeds 65% of the time without the strict filter.
+- Prompt-injection hardening is limited to delimiting sources and adding a "treat as data" instruction. A 40-probe EN/FR eval (above) shows query-side injection succeeds 65% of the time without the strict filter, and only the strict filter (on by default in `src.ask`) stops it.
 
 ## Next steps
 1. A human-labelled calibration sample (100+ claims, against the cited chunk, with a second annotator and κ).
