@@ -1,98 +1,301 @@
 {
  "model": "intfloat/multilingual-e5-small",
- "n_questions": 26,
+ "reranker": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+ "n_questions": 52,
  "n_chunks": {
   "en": 310,
-  "fr": 339
+  "fr": 339,
+  "mixed": 649
  },
  "recall": {
   "EN->EN": {
-   "passage_R@1": 0.923,
+   "passage_R@1": 0.904,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.981,
+   "doc_R@1": 0.981,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "EN->FR": {
+   "passage_R@1": 0.615,
+   "passage_R@3": 0.846,
+   "passage_R@5": 0.923,
+   "doc_R@1": 0.731,
+   "doc_R@3": 0.885,
+   "doc_R@5": 0.942
+  },
+  "EN->MIXED": {
+   "passage_R@1": 0.904,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.981,
+   "doc_R@1": 0.981,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "FR->EN": {
+   "passage_R@1": 0.635,
+   "passage_R@3": 0.923,
+   "passage_R@5": 0.962,
+   "doc_R@1": 0.808,
+   "doc_R@3": 0.962,
+   "doc_R@5": 0.981
+  },
+  "FR->FR": {
+   "passage_R@1": 0.885,
+   "passage_R@3": 1.0,
+   "passage_R@5": 1.0,
+   "doc_R@1": 0.962,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "FR->MIXED": {
+   "passage_R@1": 0.885,
+   "passage_R@3": 1.0,
+   "passage_R@5": 1.0,
+   "doc_R@1": 0.962,
+   "doc_R@3": 1.0,
+   "doc_R@5": 1.0
+  },
+  "EN->EN +rerank": {
+   "passage_R@1": 0.904,
    "passage_R@3": 0.962,
    "passage_R@5": 1.0,
    "doc_R@1": 0.962,
    "doc_R@3": 1.0,
    "doc_R@5": 1.0
   },
-  "EN->FR": {
-   "passage_R@1": 0.654,
-   "passage_R@3": 0.808,
-   "passage_R@5": 0.885,
-   "doc_R@1": 0.808,
-   "doc_R@3": 0.923,
-   "doc_R@5": 0.962
+  "EN->FR +rerank": {
+   "passage_R@1": 0.769,
+   "passage_R@3": 0.923,
+   "passage_R@5": 0.923,
+   "doc_R@1": 0.865,
+   "doc_R@3": 0.942,
+   "doc_R@5": 0.942
   },
-  "FR->EN": {
-   "passage_R@1": 0.692,
+  "EN->MIXED +rerank": {
+   "passage_R@1": 0.904,
    "passage_R@3": 0.962,
-   "passage_R@5": 0.962,
-   "doc_R@1": 0.885,
+   "passage_R@5": 1.0,
+   "doc_R@1": 0.962,
    "doc_R@3": 1.0,
    "doc_R@5": 1.0
   },
-  "FR->FR": {
-   "passage_R@1": 0.846,
+  "FR->EN +rerank": {
+   "passage_R@1": 0.904,
    "passage_R@3": 0.962,
    "passage_R@5": 0.962,
-   "doc_R@1": 0.962,
-   "doc_R@3": 1.0,
+   "doc_R@1": 0.923,
+   "doc_R@3": 0.962,
+   "doc_R@5": 0.962
+  },
+  "FR->FR +rerank": {
+   "passage_R@1": 0.885,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.981,
+   "doc_R@1": 0.942,
+   "doc_R@3": 0.981,
+   "doc_R@5": 1.0
+  },
+  "FR->MIXED +rerank": {
+   "passage_R@1": 0.885,
+   "passage_R@3": 0.962,
+   "passage_R@5": 0.981,
+   "doc_R@1": 0.942,
+   "doc_R@3": 0.981,
    "doc_R@5": 1.0
   }
  },
  "misses": [
   {
+   "rr": false,
+   "dir": "en->en",
+   "q": "q39",
+   "got": [
+    "d06-en-6",
+    "d06-en-4",
+    "d06-en-20",
+    "d06-en-18",
+    "d06-en-16"
+   ]
+  },
+  {
+   "rr": false,
    "dir": "en->fr",
    "q": "q02",
    "got": [
-    "d14",
-    "d14",
-    "d00",
-    "d06",
-    "d00"
+    "d14-fr-182",
+    "d14-fr-22",
+    "d00-fr-52",
+    "d06-fr-24",
+    "d00-fr-12"
    ]
   },
   {
+   "rr": false,
    "dir": "en->fr",
    "q": "q15",
    "got": [
-    "d06",
-    "d06",
-    "d05",
-    "d06",
-    "d05"
+    "d06-fr-20",
+    "d06-fr-14",
+    "d05-fr-16",
+    "d06-fr-16",
+    "d05-fr-34"
    ]
   },
   {
+   "rr": false,
    "dir": "en->fr",
-   "q": "q22",
+   "q": "q43",
    "got": [
-    "d17",
-    "d17",
-    "d17",
-    "d14",
-    "d17"
+    "d06-fr-20",
+    "d05-fr-24",
+    "d05-fr-20",
+    "d05-fr-26",
+    "d06-fr-18"
    ]
   },
   {
+   "rr": false,
+   "dir": "en->fr",
+   "q": "q45",
+   "got": [
+    "d14-fr-182",
+    "d08-fr-10",
+    "d14-fr-2",
+    "d08-fr-0",
+    "d01-fr-28"
+   ]
+  },
+  {
+   "rr": false,
+   "dir": "en->mixed",
+   "q": "q39",
+   "got": [
+    "d06-en-6",
+    "d06-en-4",
+    "d06-en-20",
+    "d06-en-18",
+    "d06-en-16"
+   ]
+  },
+  {
+   "rr": false,
    "dir": "fr->en",
    "q": "q19",
    "got": [
-    "d14",
-    "d14",
-    "d14",
-    "d14",
-    "d14"
+    "d14-en-26",
+    "d14-en-108",
+    "d14-en-24",
+    "d14-en-106",
+    "d14-en-34"
    ]
   },
   {
-   "dir": "fr->fr",
-   "q": "q22",
+   "rr": false,
+   "dir": "fr->en",
+   "q": "q45",
    "got": [
-    "d17",
-    "d17",
-    "d17",
-    "d17",
-    "d14"
+    "d14-en-102",
+    "d01-en-30",
+    "d01-en-28",
+    "d14-en-108",
+    "d14-en-104"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "en->fr",
+   "q": "q16",
+   "got": [
+    "d01-fr-20",
+    "d01-fr-16",
+    "d14-fr-42",
+    "d01-fr-28",
+    "d01-fr-34"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "en->fr",
+   "q": "q19",
+   "got": [
+    "d14-fr-26",
+    "d14-fr-114",
+    "d14-fr-116",
+    "d14-fr-28",
+    "d14-fr-112"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "en->fr",
+   "q": "q35",
+   "got": [
+    "d05-fr-32",
+    "d05-fr-36",
+    "d05-fr-34",
+    "d21-fr-4",
+    "d06-fr-22"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "en->fr",
+   "q": "q43",
+   "got": [
+    "d04-fr-12",
+    "d05-fr-36",
+    "d05-fr-20",
+    "d05-fr-34",
+    "d05-fr-24"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "fr->en",
+   "q": "q16",
+   "got": [
+    "d14-en-102",
+    "d00-en-44",
+    "d14-en-106",
+    "d14-en-24",
+    "d14-en-108"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "fr->en",
+   "q": "q45",
+   "got": [
+    "d14-en-154",
+    "d14-en-152",
+    "d14-en-104",
+    "d14-en-102",
+    "d14-en-150"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "fr->fr",
+   "q": "q35",
+   "got": [
+    "d05-fr-34",
+    "d05-fr-32",
+    "d05-fr-24",
+    "d05-fr-36",
+    "d04-fr-22"
+   ]
+  },
+  {
+   "rr": true,
+   "dir": "fr->mixed",
+   "q": "q35",
+   "got": [
+    "d05-fr-34",
+    "d05-fr-32",
+    "d05-fr-24",
+    "d05-fr-36",
+    "d04-fr-22"
    ]
   }
  ]

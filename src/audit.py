@@ -7,6 +7,9 @@ EN_W = set("the and is of to for you in are a an that with your be can not or on
 def lang_of(t):
     w = re.findall(r"[a-zàâçéèêëîïôûùüÿœ']+", t.lower()); f = sum(x in FR_W for x in w); e = sum(x in EN_W for x in w)
     return "fr" if f > e else "en"
+ATTR = re.compile(r"^(according to|based on|as (stated|mentioned) in|per) (the )?(source|sources|document|information|first link)[^,]*,\s*|^(selon|d'après) (la |les |le )?(source|sources|document|informations?)[^,]*,\s*", re.I)
+def normalize(t):
+    t = ATTR.sub("", t).strip(); return t[:1].upper() + t[1:] if t else t
 def claims(ans):
     sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+|\n+", ans) if len(s.strip()) > 3]
     out = []
@@ -18,7 +21,7 @@ def claims(ans):
     for t, c in out:
         if not t and merged: merged[-1][1].extend(c)
         elif t: merged.append([t, c])
-    return merged
+    return [m for m in merged if len(re.findall(r"\w+", m[0])) >= 4]  # drop fragments ("Source:", "La source [")
 def main():
     A = json.load(open(os.environ.get("IN","results/answers.json")))["answers"]
     tok = AutoTokenizer.from_pretrained(NLI); m = AutoModelForSequenceClassification.from_pretrained(NLI).eval()
@@ -33,6 +36,7 @@ def main():
         if re.search(r"(do not|don't) contain|ne contiennent pas|pas d'information", a["answer"], re.I): refusals += 1
         for t, cites in claims(a["answer"]):
             tot += 1; r = dict(id=a["id"], lang=a["lang"], claim=t, cites=cites)
+            t = normalize(t) if os.environ.get("NORMALIZE", "1") == "1" else t; r["claim"] = t
             anys = max(entail(src["text"], t) for src in a["sources"]); r["any_source_entail"] = round(anys, 3); grounded += anys >= 0.5
             if not cites: uncited += 1; r["verdict"] = "uncited"
             elif any(c < 1 or c > len(a["sources"]) for c in cites): badref += 1; r["verdict"] = "bad_ref"
@@ -45,5 +49,13 @@ def main():
                bad_ref_rate=round(badref/max(tot,1), 3), answer_language_match=round(lm/len(A), 3), refusals=refusals, grounded_in_any_source=round(grounded/max(tot,1), 3))
     for L in ("en", "fr"):
         rr = [r for r in rows if r["lang"] == L]; rep[f"faithfulness_{L}"] = round(sum(r["verdict"]=="supported" for r in rr)/max(len(rr),1), 3)
+    import random; random.seed(0); keys = sorted({(r["id"], r["lang"]) for r in rows}); by = {k: [r for r in rows if (r["id"], r["lang"]) == k] for k in keys}
+    def boot(f, B=1000):
+        vals = []
+        for _ in range(B):
+            rr = [r for k in random.choices(keys, k=len(keys)) for r in by[k]]; vals.append(f(rr))
+        vals.sort(); return [round(vals[int(.025*B)], 3), round(vals[int(.975*B)], 3)]
+    rep["citation_faithfulness_ci95"] = boot(lambda rr: sum(r["verdict"] == "supported" for r in rr) / max(len(rr), 1))
+    rep["grounded_ci95"] = boot(lambda rr: sum(r["any_source_entail"] >= .5 for r in rr) / max(len(rr), 1))
     print(json.dumps(rep, indent=1)); json.dump(dict(summary=rep, claims=rows), open(os.environ.get("OUT","results/audit.json"), "w"), ensure_ascii=False, indent=1)
 if __name__ == "__main__": main()

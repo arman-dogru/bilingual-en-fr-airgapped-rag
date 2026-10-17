@@ -1,28 +1,366 @@
 [
-{"id":"q01","doc":"d00","ev":"7","en":"How many consecutive days without work and pay do I need for EI regular benefits?","fr":"Combien de jours consécutifs sans travail et sans salaire faut-il pour les prestations régulières d'assurance-emploi?"},
-{"id":"q02","doc":"d00","ev":"2","en":"How often do I have to submit EI reports?","fr":"À quelle fréquence dois-je remplir mes déclarations d'assurance-emploi?"},
-{"id":"q03","doc":"d01","ev":"729","en":"What is the maximum weekly amount for EI maternity and parental benefits?","fr":"Quel est le montant hebdomadaire maximal des prestations de maternité et parentales de l'assurance-emploi?"},
-{"id":"q04","doc":"d01","ev":"40","en":"How many weeks of standard parental benefits can parents share?","fr":"Combien de semaines de prestations parentales standards les parents peuvent-ils partager?"},
-{"id":"q05","doc":"d01","ev":"69","en":"How many weeks of extended parental benefits can be shared between parents?","fr":"Combien de semaines de prestations parentales prolongées peuvent être partagées entre les parents?"},
-{"id":"q06","doc":"d02","ev":"26","en":"How many weeks of EI sickness benefits can I receive?","fr":"Combien de semaines de prestations de maladie de l'assurance-emploi puis-je recevoir?"},
-{"id":"q07","doc":"d03","ev":"18","en":"Is there an EI caregiving benefit for a critically ill child under 18?","fr":"Existe-t-il une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans?"},
-{"id":"q08","doc":"d03","ev":"26","en":"How is end-of-life care defined for EI caregiving benefits?","fr":"Comment les soins de fin de vie sont-ils définis pour les prestations de proches aidants?"},
-{"id":"q09","doc":"d04","ev":"70","en":"Can I keep contributing to CPP while working and receiving my pension?","fr":"Puis-je continuer à cotiser au RPC si je travaille tout en recevant ma pension?"},
-{"id":"q10","doc":"d05","ev":"64","en":"When should I apply for Old Age Security if I have not received an enrollment letter?","fr":"Quand dois-je demander la Sécurité de la vieillesse si je n'ai pas reçu de lettre d'inscription?"},
-{"id":"q11","doc":"d06","ev":"65","en":"Who can get the Guaranteed Income Supplement?","fr":"Qui peut recevoir le Supplément de revenu garanti?"},
-{"id":"q12","doc":"d06","ev":"2025","en":"What happens to my GIS payments if I don't file my taxes?","fr":"Qu'arrive-t-il à mes paiements du SRG si je ne produis pas ma déclaration de revenus?"},
-{"id":"q13","doc":"d08","ev":"18","en":"What is the Canada child benefit and which children does it cover?","fr":"Qu'est-ce que l'allocation canadienne pour enfants et quels enfants vise-t-elle?"},
-{"id":"q14","doc":"d09","ev":"CGEB|PCEE|2026","en":"What happened to the GST/HST credit in July 2026?","fr":"Qu'est-il arrivé au crédit pour la TPS/TVH en juillet 2026?"},
-{"id":"q15","doc":"d10","ev":"71","en":"What are my RRSP options when I turn 71?","fr":"Quelles sont mes options pour mon REER à 71 ans?"},
-{"id":"q16","doc":"d11","ev":"12","en":"How long must a conjugal relationship last to count as common-law for a TFSA?","fr":"Combien de temps une relation conjugale doit-elle durer pour être considérée comme union de fait pour le CELI?"},
-{"id":"q17","doc":"d12","ev":"2026","en":"Are applications open for the Canadian Dental Care Plan?","fr":"Les demandes sont-elles ouvertes pour le Régime canadien de soins dentaires?"},
-{"id":"q18","doc":"d13","ev":"passport|passeport","en":"What should I do if I urgently need my passport?","fr":"Que dois-je faire si j'ai besoin de mon passeport de toute urgence?"},
-{"id":"q19","doc":"d14","ev":"1,095|1 095|1095","en":"How many days of physical presence do I need to apply for Canadian citizenship?","fr":"Combien de jours de présence effective faut-il pour demander la citoyenneté canadienne?"},
-{"id":"q20","doc":"d14","ev":"0.5|0,5|365","en":"How do days as a temporary resident count toward citizenship physical presence?","fr":"Comment les jours en tant que résident temporaire comptent-ils pour la présence effective?"},
-{"id":"q21","doc":"d15","ev":"DLI|EED","en":"What is a study permit?","fr":"Qu'est-ce qu'un permis d'études?"},
-{"id":"q22","doc":"d17","ev":"3","en":"How many immigration programs are managed through Express Entry?","fr":"Combien de programmes d'immigration sont gérés par Entrée express?"},
-{"id":"q23","doc":"d20","ev":"loan|prêt","en":"How can I get money to study at college or university?","fr":"Comment obtenir de l'argent pour étudier au collège ou à l'université?"},
-{"id":"q24","doc":"d21","ev":"18","en":"Who is eligible for the Canada Disability Benefit by age?","fr":"Quel est l'âge requis pour la Prestation canadienne pour les personnes handicapées?"},
-{"id":"q25","doc":"d21","ev":"24","en":"How many months of back payments can the Canada Disability Benefit provide?","fr":"Combien de mois de paiements rétroactifs la Prestation canadienne pour les personnes handicapées peut-elle verser?"},
-{"id":"q26","doc":"d25","ev":"self-employed|indépendant","en":"Who can receive EI fishing benefits?","fr":"Qui peut recevoir les prestations de pêcheur de l'assurance-emploi?"}
+ {
+  "id": "q01",
+  "doc": "d00",
+  "ev": "7",
+  "en": "How many consecutive days without work and pay do I need for EI regular benefits?",
+  "fr": "Combien de jours consécutifs sans travail et sans salaire faut-il pour les prestations régulières d'assurance-emploi?"
+ },
+ {
+  "id": "q02",
+  "doc": "d00",
+  "ev": "2",
+  "en": "How often do I have to submit EI reports?",
+  "fr": "À quelle fréquence dois-je remplir mes déclarations d'assurance-emploi?"
+ },
+ {
+  "id": "q03",
+  "doc": "d01",
+  "ev": "729",
+  "en": "What is the maximum weekly amount for EI maternity and parental benefits?",
+  "fr": "Quel est le montant hebdomadaire maximal des prestations de maternité et parentales de l'assurance-emploi?"
+ },
+ {
+  "id": "q04",
+  "doc": "d01",
+  "ev": "40",
+  "en": "How many weeks of standard parental benefits can parents share?",
+  "fr": "Combien de semaines de prestations parentales standards les parents peuvent-ils partager?"
+ },
+ {
+  "id": "q05",
+  "doc": "d01",
+  "ev": "69",
+  "en": "How many weeks of extended parental benefits can be shared between parents?",
+  "fr": "Combien de semaines de prestations parentales prolongées peuvent être partagées entre les parents?"
+ },
+ {
+  "id": "q06",
+  "doc": "d02",
+  "ev": "26",
+  "en": "How many weeks of EI sickness benefits can I receive?",
+  "fr": "Combien de semaines de prestations de maladie de l'assurance-emploi puis-je recevoir?"
+ },
+ {
+  "id": "q07",
+  "doc": "d03",
+  "ev": "18",
+  "en": "Is there an EI caregiving benefit for a critically ill child under 18?",
+  "fr": "Existe-t-il une prestation de proche aidant pour un enfant gravement malade de moins de 18 ans?"
+ },
+ {
+  "id": "q08",
+  "doc": "d03",
+  "ev": "26",
+  "en": "How is end-of-life care defined for EI caregiving benefits?",
+  "fr": "Comment les soins de fin de vie sont-ils définis pour les prestations de proches aidants?"
+ },
+ {
+  "id": "q09",
+  "doc": "d04",
+  "ev": "70",
+  "en": "Can I keep contributing to CPP while working and receiving my pension?",
+  "fr": "Puis-je continuer à cotiser au RPC si je travaille tout en recevant ma pension?"
+ },
+ {
+  "id": "q10",
+  "doc": "d05",
+  "ev": "64",
+  "en": "When should I apply for Old Age Security if I have not received an enrollment letter?",
+  "fr": "Quand dois-je demander la Sécurité de la vieillesse si je n'ai pas reçu de lettre d'inscription?"
+ },
+ {
+  "id": "q11",
+  "doc": "d06",
+  "ev": "65",
+  "en": "Who can get the Guaranteed Income Supplement?",
+  "fr": "Qui peut recevoir le Supplément de revenu garanti?"
+ },
+ {
+  "id": "q12",
+  "doc": "d06",
+  "ev": "2025",
+  "en": "What happens to my GIS payments if I don't file my taxes?",
+  "fr": "Qu'arrive-t-il à mes paiements du SRG si je ne produis pas ma déclaration de revenus?"
+ },
+ {
+  "id": "q13",
+  "doc": "d08",
+  "ev": "18",
+  "en": "What is the Canada child benefit and which children does it cover?",
+  "fr": "Qu'est-ce que l'allocation canadienne pour enfants et quels enfants vise-t-elle?"
+ },
+ {
+  "id": "q14",
+  "doc": "d09",
+  "ev": "CGEB|PCEE|2026",
+  "en": "What happened to the GST/HST credit in July 2026?",
+  "fr": "Qu'est-il arrivé au crédit pour la TPS/TVH en juillet 2026?"
+ },
+ {
+  "id": "q15",
+  "doc": "d10",
+  "ev": "71",
+  "en": "What are my RRSP options when I turn 71?",
+  "fr": "Quelles sont mes options pour mon REER à 71 ans?"
+ },
+ {
+  "id": "q16",
+  "doc": "d11",
+  "ev": "12",
+  "en": "How long must a conjugal relationship last to count as common-law for a TFSA?",
+  "fr": "Combien de temps une relation conjugale doit-elle durer pour être considérée comme union de fait pour le CELI?"
+ },
+ {
+  "id": "q17",
+  "doc": "d12",
+  "ev": "2026",
+  "en": "Are applications open for the Canadian Dental Care Plan?",
+  "fr": "Les demandes sont-elles ouvertes pour le Régime canadien de soins dentaires?"
+ },
+ {
+  "id": "q18",
+  "doc": "d13",
+  "ev": "passport|passeport",
+  "en": "What should I do if I urgently need my passport?",
+  "fr": "Que dois-je faire si j'ai besoin de mon passeport de toute urgence?"
+ },
+ {
+  "id": "q19",
+  "doc": "d14",
+  "ev": "1,095|1 095|1095",
+  "en": "How many days of physical presence do I need to apply for Canadian citizenship?",
+  "fr": "Combien de jours de présence effective faut-il pour demander la citoyenneté canadienne?"
+ },
+ {
+  "id": "q20",
+  "doc": "d14",
+  "ev": "0.5|0,5|365",
+  "en": "How do days as a temporary resident count toward citizenship physical presence?",
+  "fr": "Comment les jours en tant que résident temporaire comptent-ils pour la présence effective?"
+ },
+ {
+  "id": "q21",
+  "doc": "d15",
+  "ev": "DLI|EED",
+  "en": "What is a study permit?",
+  "fr": "Qu'est-ce qu'un permis d'études?"
+ },
+ {
+  "id": "q22",
+  "doc": "d17",
+  "ev": "3|Trois",
+  "en": "How many immigration programs are managed through Express Entry?",
+  "fr": "Combien de programmes d'immigration sont gérés par Entrée express?"
+ },
+ {
+  "id": "q23",
+  "doc": "d20",
+  "ev": "loan|prêt",
+  "en": "How can I get money to study at college or university?",
+  "fr": "Comment obtenir de l'argent pour étudier au collège ou à l'université?"
+ },
+ {
+  "id": "q24",
+  "doc": "d21",
+  "ev": "18",
+  "en": "Who is eligible for the Canada Disability Benefit by age?",
+  "fr": "Quel est l'âge requis pour la Prestation canadienne pour les personnes handicapées?"
+ },
+ {
+  "id": "q25",
+  "doc": "d21",
+  "ev": "24",
+  "en": "How many months of back payments can the Canada Disability Benefit provide?",
+  "fr": "Combien de mois de paiements rétroactifs la Prestation canadienne pour les personnes handicapées peut-elle verser?"
+ },
+ {
+  "id": "q26",
+  "doc": "d25",
+  "ev": "self-employed|indépendant",
+  "en": "Who can receive EI fishing benefits?",
+  "fr": "Qui peut recevoir les prestations de pêcheur de l'assurance-emploi?"
+ },
+ {
+  "id": "q27",
+  "doc": "d00",
+  "ev": "written record|registre écrit|employeurs",
+  "en": "What job search records must I keep while on EI regular benefits?",
+  "fr": "Quels registres de recherche d'emploi dois-je tenir pendant que je reçois des prestations régulières d'assurance-emploi?"
+ },
+ {
+  "id": "q28",
+  "doc": "d00",
+  "ev": "fault|perdu",
+  "en": "Can I get EI if I lost my job through my own fault?",
+  "fr": "Puis-je recevoir l'assurance-emploi si j'ai perdu mon emploi par ma faute?"
+ },
+ {
+  "id": "q29",
+  "doc": "d01",
+  "ev": "55",
+  "en": "What percentage of my earnings do EI maternity benefits pay?",
+  "fr": "Quel pourcentage de ma rémunération les prestations de maternité de l'assurance-emploi versent-elles?"
+ },
+ {
+  "id": "q30",
+  "doc": "d01",
+  "ev": "Qu[ée]bec",
+  "en": "Who provides parental benefits to residents of Quebec?",
+  "fr": "Qui verse les prestations parentales aux résidents du Québec?"
+ },
+ {
+  "id": "q31",
+  "doc": "d01",
+  "ev": "shared|partag",
+  "en": "Can maternity benefits be shared between parents?",
+  "fr": "Les prestations de maternité peuvent-elles être partagées entre les parents?"
+ },
+ {
+  "id": "q32",
+  "doc": "d02",
+  "ev": "55",
+  "en": "How much do EI sickness benefits pay per week?",
+  "fr": "Combien versent les prestations de maladie de l'assurance-emploi par semaine?"
+ },
+ {
+  "id": "q33",
+  "doc": "d03",
+  "ev": "3",
+  "en": "How many types of EI caregiving benefits are there?",
+  "fr": "Combien de types de prestations pour proches aidants l'assurance-emploi offre-t-elle?"
+ },
+ {
+  "id": "q34",
+  "doc": "d03",
+  "ev": "family|famille",
+  "en": "Who counts as a caregiver for EI caregiving benefits?",
+  "fr": "Qui est considéré comme proche aidant pour les prestations de l'assurance-emploi?"
+ },
+ {
+  "id": "q35",
+  "doc": "d04",
+  "ev": "65",
+  "en": "Can I get a CPP disability benefit if I'm already receiving my CPP retirement pension?",
+  "fr": "Puis-je recevoir une prestation d'invalidité si je reçois déjà ma pension de retraite du RPC?"
+ },
+ {
+  "id": "q36",
+  "doc": "d05",
+  "ev": "762",
+  "en": "How much is the Old Age Security pension at age 65 for October to December 2026?",
+  "fr": "Quel est le montant de la pension de la Sécurité de la vieillesse à 65 ans d'octobre à décembre 2026?"
+ },
+ {
+  "id": "q37",
+  "doc": "d05",
+  "ev": "838",
+  "en": "How much is the OAS pension at age 75 in late 2026?",
+  "fr": "Quel est le montant de la pension de la SV à 75 ans à la fin de 2026?"
+ },
+ {
+  "id": "q38",
+  "doc": "d05",
+  "ev": "automatic|automatiquement|mail|courrier",
+  "en": "Will I be automatically enrolled for the OAS pension?",
+  "fr": "Serai-je inscrit automatiquement à la pension de la Sécurité de la vieillesse?"
+ },
+ {
+  "id": "q39",
+  "doc": "d06",
+  "ev": "1,138|1 138",
+  "en": "What is the maximum monthly GIS for a single person?",
+  "fr": "Quel est le montant mensuel maximal du SRG pour une personne célibataire?"
+ },
+ {
+  "id": "q40",
+  "doc": "d06",
+  "ev": "tax-free|non imposable|libre d'imp",
+  "en": "Is the Guaranteed Income Supplement taxable?",
+  "fr": "Le Supplément de revenu garanti est-il imposable?"
+ },
+ {
+  "id": "q41",
+  "doc": "d09",
+  "ev": "April 2|2 avril",
+  "en": "When was the last quarterly GST/HST credit payment issued?",
+  "fr": "Quand le dernier versement trimestriel du crédit pour la TPS/TVH a-t-il été émis?"
+ },
+ {
+  "id": "q42",
+  "doc": "d09",
+  "ev": "June 5|5 juin",
+  "en": "When was the one-time GST/HST credit top-up paid?",
+  "fr": "Quand le paiement complémentaire unique du crédit pour la TPS/TVH a-t-il été versé?"
+ },
+ {
+  "id": "q43",
+  "doc": "d10",
+  "ev": "85",
+  "en": "Until what age can an advanced life deferred annuity defer my RRSP?",
+  "fr": "Jusqu'à quel âge une rente viagère différée à un âge avancé peut-elle reporter mon REER?"
+ },
+ {
+  "id": "q44",
+  "doc": "d10",
+  "ev": "Home Buyers|accession à la propriété",
+  "en": "Can I withdraw from my RRSP to buy a home?",
+  "fr": "Puis-je retirer des fonds de mon REER pour acheter une maison?"
+ },
+ {
+  "id": "q45",
+  "doc": "d11",
+  "ev": "19",
+  "en": "What is the age cutoff for a child in the TFSA common-law custody rule?",
+  "fr": "Quel est l'âge limite de l'enfant dans la règle de garde pour l'union de fait du CELI?"
+ },
+ {
+  "id": "q46",
+  "doc": "d11",
+  "ev": "90",
+  "en": "How long can a separation last without breaking the 12-month common-law period for a TFSA?",
+  "fr": "Combien de temps une séparation peut-elle durer sans interrompre la période de 12 mois d'union de fait pour le CELI?"
+ },
+ {
+  "id": "q47",
+  "doc": "d12",
+  "ev": "gap|interruption",
+  "en": "What happens if I did not renew my dental care coverage by the deadline?",
+  "fr": "Que se passe-t-il si je n'ai pas renouvelé ma couverture de soins dentaires avant la date limite?"
+ },
+ {
+  "id": "q48",
+  "doc": "d14",
+  "ev": "removal order|mesure de renvoi",
+  "en": "Can a removal order affect my citizenship application?",
+  "fr": "Une mesure de renvoi peut-elle affecter ma demande de citoyenneté?"
+ },
+ {
+  "id": "q49",
+  "doc": "d17",
+  "ev": "Skilled|qualifiés",
+  "en": "What kind of applicants does Express Entry manage?",
+  "fr": "Quel type de demandeurs Entrée express gère-t-il?"
+ },
+ {
+  "id": "q50",
+  "doc": "d20",
+  "ev": "NSLSC|CNPE|CSNPE",
+  "en": "Where do I manage my student loan account?",
+  "fr": "Où puis-je gérer mon compte de prêt d'études?"
+ },
+ {
+  "id": "q51",
+  "doc": "d21",
+  "ev": "third Thursday|troisième jeudi",
+  "en": "When will my first Canada Disability Benefit payment arrive?",
+  "fr": "Quand recevrai-je mon premier paiement de la Prestation canadienne pour les personnes handicapées?"
+ },
+ {
+  "id": "q52",
+  "doc": "d21",
+  "ev": "June 2025|juin 2025",
+  "en": "When was the first month of eligibility for the Canada Disability Benefit?",
+  "fr": "Quel a été le premier mois d'admissibilité à la Prestation canadienne pour les personnes handicapées?"
+ }
 ]
