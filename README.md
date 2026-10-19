@@ -2,6 +2,65 @@
 
 An offline question-answering system over open Government of Canada pages in English and French. After a one-time download it runs **fully air-gapped on CPU**, and it scores how faithful its citations are using an NLI judge (calibration is indicative, see below). It also abstains on out-of-corpus questions.
 
+## At a glance
+| | TEST split (q27–q52 × EN/FR), numbers from `results/tables.md` |
+|---|---|
+| **Cross-lingual retrieval** | Passage R@1 EN→FR 0.62 → **0.77**, FR→EN 0.62 → **0.90** with the reranker (same-language: 0.88–0.90) |
+| **Citation faithfulness** | Best: H (1.5B, few-shot, post-hoc) **0.66** [0.50, 0.79]; G (0.5B, mixed+rerank, post-hoc) 0.57 [0.47, 0.68] |
+| **Biggest lever** | Post-hoc attribution on 0.5B: **+0.37** [+0.26, +0.48]; few-shot on 0.5B: +0.30 [+0.19, +0.44] (paired bootstrap) |
+| **Abstention** | On their own, the few-shot configs answer 23–26 of 26 unanswerable test questions; the reranker gate refuses all of them at a 0.15 false-refusal rate |
+| **Prompt injection** | Query-side success 0.44 raw → **0.00** after gate + strict citation filter; cost: only 17/52 answerable TEST questions answered for F |
+| **Air-gapped** | `run_offline.sh` in a loopback-only namespace: offline answers identical to online on 104/104 (F and G) |
+| **Determinism** | 0.5B fp32 answers byte-identical, 104/104, at 4 and at 8 threads |
+
+The judge calibration is indicative only: 67 LLM-labelled dev items, single annotator.
+
+```mermaid
+flowchart LR
+    Q["Question<br/>EN or FR"] --> RET["Retrieve<br/>multilingual-e5-small<br/>EN / FR / mixed index"]
+    RET --> RR["Rerank<br/>mMiniLM cross-encoder<br/>top-20 to top-3"]
+    RR --> GATE{"top score >= tau?<br/>tau tuned on DEV"}
+    GATE -->|no| REF["Fixed refusal sentence"]
+    GATE -->|yes| GEN["Generate<br/>Qwen2.5 0.5B / 1.5B on CPU<br/>delimited sources, inline [n] cites"]
+    GEN --> NLI["Citation check<br/>mDeBERTa-v3 XNLI<br/>claim vs cited chunk, entail >= 0.5"]
+    GEN -.->|"configs G, H"| PH["Post-hoc attribution<br/>uncited sentence gets the<br/>nearest source by e5"]
+    PH -.-> NLI
+    NLI --> STRICT{"strict filter<br/>any supported claim?"}
+    STRICT -->|yes| ANS["Answer: supported<br/>claims + citations"]
+    STRICT -->|no| REF
+    NLI -.-> AUD["Eval: src/audit.py, src/compare.py<br/>clustered + paired bootstrap"]
+```
+Steps in order: retrieval and reranking (`src/retrieval.py`, `src/rag.py`), the abstention gate (`src/abstain.py`), the NLI judge (`src/audit.py`) and strict output (`src/ask.py`, which defaults to config F). Post-hoc attribution (`src/attribute.py`) is an evaluated variant (configs G and H) and is not part of `src.ask`.
+
+### Demo (real CLI output)
+![Terminal capture of three src.ask runs with the default config F. An English question about EI sickness benefits returns "EI sickness benefits can last up to 26 weeks [1]." with one claim the NLI check marks supported (entailment 0.971), citing the canada.ca EI sickness page. The same question in French returns the French answer, 26 semaines, also supported (0.959). An out-of-corpus question about Tokyo's population is refused by the retrieval gate (top reranker score minus 5.3 against tau 2.27).](docs/figures/terminal_ask_demo.png)
+
+Captured by `scripts/capture_demo.sh` into `docs/demo/ask_demo.txt` (stdout piped through `jq` to fit; stderr with model-loading progress dropped), then drawn as an image by `scripts/make_figures.py`.
+
+![Terminal capture of the committed results/offline_run.log. Inside a loopback-only network namespace, curl fails to resolve as required, then retrieval, config F, post-hoc attribution and the audit all run, and offline F and G answers are identical to the online run on 104 of 104. Offline G citation faithfulness is 0.577 [0.498, 0.659], and the audit summary is identical to online.](docs/figures/terminal_offline_run.png)
+
+### Key results
+<p>
+<img src="docs/figures/retrieval_recall_at_1.png" width="44%" alt="Grouped bar chart of passage recall at 1 over 52 questions per direction, with 95 percent Wilson intervals. Same-language directions sit at 0.90 (EN to EN) and 0.89 (FR to FR) with or without reranking. Cross-lingual EN to FR rises from 0.61 to 0.77 with the reranker, and FR to EN from 0.61 to 0.90.">
+<img src="docs/figures/faithfulness_by_config.png" width="54%" alt="Horizontal bar chart of TEST-split citation faithfulness for seven configs with 95 percent clustered-bootstrap intervals and uncited rates: A 0.43, B 0.59, H 0.66, D 0.00, E 0.30, F 0.20, G 0.57. Post-hoc configs H and G have an uncited rate of 0.">
+</p>
+
+**Left:** the reranker fixes most cross-lingual top-1 misses. **Right:** TEST citation faithfulness per config (uncited rate printed beside each bar).
+
+![Forest plot of paired bootstrap deltas in citation faithfulness for eight config comparisons, on TEST and on dev plus test. Few-shot on 0.5B (+0.30), post-hoc on 0.5B (+0.37) and 1.5B over 0.5B (+0.29) exclude zero on TEST. Few-shot on 1.5B, post-hoc on 1.5B, mixed retrieval, and the two 0.5B versus 1.5B post-hoc comparisons include zero on TEST, while several exclude it on dev plus test.](docs/figures/paired_deltas.png)
+
+**Which interventions help.** Paired deltas: filled circles are TEST, open squares dev+test. Blue means the CI is above 0, red below 0, grey includes 0.
+
+![Two panels showing how the TEST share of refused questions changes with the gate threshold. Blue is recall on unanswerable questions and red is the false-refusal rate on answerable ones. For config E's cosine gate, the dev-tuned threshold 0.886 gives recall 1.00 and false refusals 0.23. For config F's reranker gate, threshold 2.27 gives recall 1.00 and false refusals 0.15, inside a wide band of thresholds re-selected on dev bootstraps.](docs/figures/abstention_threshold.png)
+
+**Abstention gate trade-off.** The curves are recomputed from the per-question top retrieval scores in the committed answers with `src/abstain.py`'s own rule, and the dashed operating point is asserted to equal `results/abstain.json`. The shaded band shows how unstable the reranker τ is (see Threshold stability).
+
+![Grouped horizontal bar chart of prompt-injection success for config F on four query-side templates and on poisoned top chunks. Raw success on query-side templates ranges from 5 of 20 to 13 of 20 (35 of 80 overall). After the retrieval gate it is 29 of 80, and after gate plus strict citation filter it is 0 for every template. Poisoned-chunk injection succeeds 0 of 80 even raw.](docs/figures/prompt_injection.png)
+
+**Prompt injection:** raw → after gate → after gate + strict filter (config F, 0.5B). The strict filter has a large coverage cost, described under Robustness.
+
+All figures come from `scripts/make_figures.py`, which reads only committed files in `results/` and `docs/demo/`. No model is loaded.
+
 ## Motivation
 Public-sector and regulated customers need LLM systems that run on-prem or fully disconnected (as with Cohere North), work in both official languages, and can show where every answer came from. This project asks how far a small local open model can get on retrieval across EN↔FR and on answers whose citations actually support their claims, and which interventions help most.
 
@@ -173,6 +232,8 @@ OUT=data/corpus.refetch.json .venv/bin/python -m src.fetch_corpus   # optional: 
 ./run_grid.sh                                      # A B D E F G H + determinism reruns, audits, calibration, deltas, abstention, robustness (~15 min), tables
 FORCE=1 ./run_grid.sh                              # regenerate everything from scratch (~2 h on 8 CPU cores)
 ./run_offline.sh                                   # air-gapped: retrieval + F + post-hoc G + audit; checks offline == online answers
+uv sync --frozen --group figures && .venv/bin/python scripts/make_figures.py   # README figures from committed results (seconds, no models)
+./scripts/capture_demo.sh                          # optional: re-capture the src.ask demo text (needs the models; ~1 min)
 .venv/bin/python -m src.robustness                # in-domain unanswerables, injection, strict-mode cost (~15 min; also a grid step)
 .venv/bin/python -m src.ask "How long do EI sickness benefits last?"     # one question; --lang en|fr optional
 ```

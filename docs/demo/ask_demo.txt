@@ -1,0 +1,9 @@
+$ .venv/bin/python -m src.ask "How long do EI sickness benefits last?" 2>/dev/null | jq -c '{lang, answer, top_score, tau, abstained, cites: [.citation_check[]? | {verdict, entail}], source_1: .sources[0]?.url}'
+{"lang":"en","answer":"EI sickness benefits can last up to 26 weeks [1].","top_score":5.993,"tau":2.2737,"abstained":null,"cites":[{"verdict":"supported","entail":0.971}],"source_1":"https://www.canada.ca/en/services/benefits/ei/ei-sickness.html"}
+
+$ .venv/bin/python -m src.ask "Combien de temps durent les prestations de maladie de l'assurance-emploi ?" 2>/dev/null | jq -c '{lang, answer, top_score, tau, abstained, cites: [.citation_check[]? | {verdict, entail}], source_1: .sources[0]?.url}'
+{"lang":"fr","answer":"Les prestations de maladie de l'assurance-emploi peuvent durer jusqu'à 26 semaines [1].","top_score":4.056,"tau":2.2737,"abstained":null,"cites":[{"verdict":"supported","entail":0.959}],"source_1":"https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-maladie.html"}
+
+$ .venv/bin/python -m src.ask "What is the population of Tokyo?" 2>/dev/null | jq -c '{lang, answer, top_score, tau, abstained, cites: [.citation_check[]? | {verdict, entail}], source_1: .sources[0]?.url}'
+{"lang":"en","answer":"The sources do not contain this information.","top_score":-5.301,"tau":2.2737,"abstained":"retrieval_gate","cites":[],"source_1":null}
+
