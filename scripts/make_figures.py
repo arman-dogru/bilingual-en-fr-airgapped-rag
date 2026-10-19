@@ -47,7 +47,7 @@ def fig_retrieval():
     for off, suf, col, lab in [(-w / 2, "", LIGHT, "e5-small only"), (w / 2, " +rerank", BLUE, "e5-small + mMiniLM reranker")]:
         v = [R["recall"][d + suf]["passage_R@1"] for d in dirs]; ci = [wilson(p, n) for p in v]
         ax.bar(x + off, v, w, color=col, label=lab, yerr=[[p - c[0] for p, c in zip(v, ci)], [c[1] - p for p, c in zip(v, ci)]], capsize=3)
-        for xi, p in zip(x + off, v): ax.text(xi, 0.04, f"{p:.2f}", ha="center", fontsize=8.5, color="white" if col == BLUE else "black", fontweight="bold")
+        for xi, p in zip(x + off, v): ax.text(xi, 0.04, f"{p:.3f}", ha="center", fontsize=8.5, color="white" if col == BLUE else "black", fontweight="bold")
     ax.set_xticks(x); ax.set_xticklabels([d.replace("->", " → ") for d in dirs]); ax.set_ylim(0, 1.05)
     ax.set_ylabel("passage recall@1 (95% Wilson CI)"); ax.legend(frameon=False, fontsize=8.5, loc="upper center", ncol=2, bbox_to_anchor=(.5, 1.12))
     ax.set_title("The reranker closes most of the cross-lingual gap", pad=24)
