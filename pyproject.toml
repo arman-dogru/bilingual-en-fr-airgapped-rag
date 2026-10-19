@@ -16,6 +16,8 @@ dependencies = [
 
 [dependency-groups]
 dev = ["pytest==9.1.1"]
+# README figures only (scripts/make_figures.py); not needed to reproduce results/
+figures = ["matplotlib==3.11.2"]
 
 [tool.uv]
 package = false
